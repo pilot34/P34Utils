@@ -27,7 +27,6 @@ typedef void(^BasicBlock)(void);
 
 #import "NSObject+Utils.h"
 #import "NSString+Utils.h"
-#import "NSString+HTML.h"
 #import "NSMutableArray+Utils.h"
 #import "NSArray+Utils.h"
 #import "NSSet+Utils.h"
