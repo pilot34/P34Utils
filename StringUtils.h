@@ -12,4 +12,12 @@
 
 + (NSArray *)splitByCapitalLetters:(NSString *)string;
 
++ (NSString *)getCase:(NSInteger)num 
+           nominative:(NSString *)nominative
+             genitive:(NSString *)genitive 
+       pluralGenitive:(NSString *)pluralGenitive;
+
++ (NSString *)sizeToString:(NSInteger)bytes;
++ (NSString *)timeIntervalToString:(NSTimeInterval)time;
+
 @end

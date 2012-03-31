@@ -10,4 +10,13 @@
 
 @interface DownloadProgress : NSObject
 
+@property(nonatomic) CGFloat progress;
+@property(nonatomic) NSInteger downloadedBytes;
+@property(nonatomic) NSInteger totalBytes;
+@property(nonatomic) NSInteger bytesPerSecond;
+@property(nonatomic) NSTimeInterval remainingTime;
+
+- (NSString *)remainingTimeString;
+- (NSString *)bytesString;
+
 @end

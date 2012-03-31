@@ -7,8 +7,7 @@
 //
 
 typedef void(^BasicBlock)(void);
-
-#import "StringUtils.h"
+typedef void(^ErrorBlock)(NSError *error);
 
 #import "UIViewController+Utils.h"
 #import "UIView+Utils.h"
@@ -20,16 +19,21 @@ typedef void(^BasicBlock)(void);
 #import "UIDevice+IdentifierAddition.h"
 #import "UIImage+Utils.h"
 #import "UIApplication+Utils.h"
-#import "BlockAlertView.h"
-#import "BlockTapGestureRecognizer.h"
-#import "BlockSwipeGestureRecognizer.h"
-#import "AlignedLabel.h"
-
 #import "NSObject+Utils.h"
 #import "NSString+Utils.h"
 #import "NSMutableArray+Utils.h"
 #import "NSArray+Utils.h"
 #import "NSSet+Utils.h"
+
+#import "StringUtils.h"
+
+#import "BlockAlertView.h"
+#import "BlockTapGestureRecognizer.h"
+#import "BlockSwipeGestureRecognizer.h"
+#import "AlignedLabel.h"
+#import "DownloadProgress.h"
+#import "FilesDownloader.h"
+#import "DownloadPortion.h"
 
 
 #define SYSTEM_VERSION_EQUAL_TO(v)                  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedSame)

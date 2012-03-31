@@ -7,7 +7,24 @@
 //
 
 #import "DownloadProgress.h"
+#import "StringUtils.h"
 
 @implementation DownloadProgress
+
+@synthesize progress = _progress;
+@synthesize totalBytes = _totalBytes;
+@synthesize downloadedBytes = _downloadedBytes;
+@synthesize bytesPerSecond = _bytesPerSecond;
+@synthesize remainingTime = _remainingTime;
+
+- (NSString *)remainingTimeString
+{
+    return [StringUtils timeIntervalToString:self.remainingTime];
+}
+
+- (NSString *)bytesString
+{
+    return [NSString stringWithFormat:@"%@ / %@", [StringUtils sizeToString:self.downloadedBytes], [StringUtils sizeToString:self.totalBytes]];
+}
 
 @end
