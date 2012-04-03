@@ -15,6 +15,7 @@
 @property(strong, nonatomic, readonly) NSArray *files;
 
 - (id)initWithSingleUrl:(NSString *)url;
+- (id)initWithSingleUrl:(NSString *)url title:(NSString *)title;
 - (id)initWithTitle:(NSString *)title files:(NSArray *)files;
 
 @end

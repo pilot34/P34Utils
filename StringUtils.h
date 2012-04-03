@@ -18,6 +18,8 @@
        pluralGenitive:(NSString *)pluralGenitive;
 
 + (NSString *)sizeToString:(NSInteger)bytes;
-+ (NSString *)timeIntervalToString:(NSTimeInterval)time;
+
++ (NSString *)timeIntervalToStringFull:(NSTimeInterval)time;
++ (NSString *)timeIntervalToStringShort:(NSTimeInterval)time;
 
 @end

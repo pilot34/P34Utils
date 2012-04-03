@@ -90,7 +90,7 @@
     return [NSString stringWithFormat:format, (int)roundf(result)];
 }
 
-+ (NSString *)timeIntervalToString:(NSTimeInterval)time
++ (NSString *)timeIntervalToStringFull:(NSTimeInterval)time
 {
     int seconds = time;
     int minutes = seconds / 60;
@@ -114,6 +114,25 @@
     {
         return [NSString stringWithFormat:@"%d %@", seconds, secondsString];
     }
+}
+
++ (NSString *)timeIntervalToStringShort:(NSTimeInterval)time
+{
+    int seconds = time;
+    int minutes = seconds / 60;
+    seconds %= 60;
+    int hours = minutes / 60;
+    minutes %= 60;
+
+    if (hours)
+    {
+        return [NSString stringWithFormat:@"%02d:%02d:%02d", hours, minutes, seconds];
+    }
+    else 
+    {
+        return [NSString stringWithFormat:@"%02d:%02d", minutes, seconds];
+    }
+
 }
 
 @end

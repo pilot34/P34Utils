@@ -216,7 +216,7 @@ static FilesDownloader *__shared;
     else 
     {
         // иначе сохраняем на потом
-        self.portionsQueue = [self.portionsQueue arrayByAddingObject:portion];
+        self.portionsQueue = self.portionsQueue ? [self.portionsQueue arrayByAddingObject:portion] : [NSArray arrayWithObject:portion];
     }
 }
 
@@ -299,7 +299,7 @@ static FilesDownloader *__shared;
 {
     return [self.currentPortion.title isEqualToString:portion] || [self.portionsQueue any:^BOOL(id object){
         DownloadPortion *p = object;
-        return [p.title isEqualToString:p.title];
+        return [p.title isEqualToString:portion];
     }];
 }
 
@@ -309,7 +309,10 @@ static FilesDownloader *__shared;
     {
         // чтобы уведомление не отправилось - обнуляем
         self.currentPortion = nil;
-        [self didDownloadPortion:self.queue];
+        [self.queue reset];
+        
+        // откладываем, иначе реквесты cancell-ется
+        [self performSelector:@selector(didDownloadPortion:) withObject:nil afterDelay:1];
     }
     else
     {
@@ -318,11 +321,6 @@ static FilesDownloader *__shared;
             return ![p.title isEqualToString:portion];
         }];
     }
-}
-
-- (void)cancelAndDeletePortion:(NSString *)portion 
-{
-    [self cancelPortion:portion];
 }
 
 #pragma mark - ASIHTTPRequestDownloadProgress
@@ -396,6 +394,10 @@ static FilesDownloader *__shared;
 
 - (void)didFailRequest:(ASIHTTPRequest *)request
 {
+    // когда cancelled ничего делать не надо
+    if (request.error.code == ASIRequestCancelledErrorType)
+        return;
+    
     self.wasError = YES;
     [self removeRequestFromCurrent:request];    
 }

@@ -37,6 +37,8 @@
 // нужно вызывать в applicationDidEnterForeground
 - (void)resume;
 
+- (void)cancelPortion:(NSString *)portion;
+
 // для наследников
 - (NSString *)pathForUrl:(NSString *)url inPortion:(NSString *)portionTitle;
 - (BOOL)createFolder:(NSString *)folder;

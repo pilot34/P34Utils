@@ -19,7 +19,7 @@
 
 - (NSString *)remainingTimeString
 {
-    return [StringUtils timeIntervalToString:self.remainingTime];
+    return [StringUtils timeIntervalToStringFull:self.remainingTime];
 }
 
 - (NSString *)bytesString

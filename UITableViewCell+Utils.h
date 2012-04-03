@@ -10,6 +10,11 @@
 
 @interface UITableViewCell (Utils)
 
-+ (CGFloat)heightForText:(NSString *)text withImage:(BOOL)image withAccessory:(UITableViewCellAccessoryType)accessory withFont:(UIFont *)font inTableView:(UITableView *)tableView;
++ (CGFloat)heightForText:(NSString *)text 
+               withImage:(BOOL)image 
+         withDetailLabel:(BOOL)detailLabel
+           withAccessory:(UITableViewCellAccessoryType)accessoryType
+                withFont:(UIFont *)font 
+             inTableView:(UITableView *)tableView;
 
 @end

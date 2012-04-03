@@ -22,9 +22,14 @@
 @synthesize title = _title;
 @synthesize files = _files;
 
+- (id)initWithSingleUrl:(NSString *)url title:(NSString *)title
+{
+    return [self initWithTitle:title files:[NSArray arrayWithObject:url]];
+}
+
 - (id)initWithSingleUrl:(NSString *)url
 {
-    return [self initWithTitle:url files:[NSArray arrayWithObject:url]];
+    return [self initWithSingleUrl:url title:url];
 }
 
 - (id)initWithTitle:(NSString *)title files:(NSArray *)files
