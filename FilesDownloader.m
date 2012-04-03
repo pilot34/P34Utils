@@ -12,6 +12,7 @@
 #import "NSString+NimbusCore.h"
 
 #define CUT_DOWNLOAD_SIZE_PERIOD 3
+#define BANDWIDTH_WWAN_LIMIT 16000
 
 static FilesDownloader *__shared;
 
@@ -51,6 +52,9 @@ static FilesDownloader *__shared;
             if (!__shared)
             {
                 __shared = [[self alloc] init];
+                
+                // чтобы через edge много не скачало
+                [ASIHTTPRequest throttleBandwidthForWWANUsingLimit:BANDWIDTH_WWAN_LIMIT];
             }
         }
     }
@@ -159,19 +163,16 @@ static FilesDownloader *__shared;
         r.allowResumeForFileDownloads = YES;
         r.downloadProgressDelegate = self.queue;
         r.showAccurateProgress = YES;
+        r.shouldContinueWhenAppEntersBackground = YES;
         [result addObject:r];
     }
     return result;
 }
 
-
-- (void)enqueuePortion:(DownloadPortion *)portion
+- (void)performEnqueue
 {
-    if (self.queue.isSuspended)
+    @autoreleasepool 
     {
-        // если ничего не скачиваем - сразу запускаем очередь
-        self.currentPortion = portion;
-        
         [self.queue reset];
         self.queue.downloadProgressDelegate = self;
         self.queue.queueDidFinishSelector = @selector(didDownloadPortion:);
@@ -179,12 +180,15 @@ static FilesDownloader *__shared;
         self.queue.requestDidFailSelector = @selector(didFailRequest:);
         self.queue.requestDidFinishSelector = @selector(didFinishRequest:);
         self.queue.showAccurateProgress = YES;
+        self.queue.shouldCancelAllRequestsOnFailure = YES;
         self.queue.delegate = self;
-        NSArray *requests = [self requestsForPortion:portion];
+        NSArray *requests = [self requestsForPortion:self.currentPortion];
         
         if (requests.count == 0)
         {
-            [self didDownloadPortion:self.queue];
+            [self performSelectorOnMainThread:@selector(didDownloadPortion:)
+                                   withObject:self.queue
+                                waitUntilDone:NO];
             return;
         }
         
@@ -195,8 +199,19 @@ static FilesDownloader *__shared;
         
         self.startDownloadingPortionDate = NSDate.date;
         self.cutDownloadedSize = 0;
+        
+        [self.queue go];    
+    }
+}
 
-        [self.queue go];
+
+- (void)enqueuePortion:(DownloadPortion *)portion
+{
+    if (self.queue.isSuspended)
+    {
+        // если ничего не скачиваем - сразу запускаем очередь
+        self.currentPortion = portion;
+        [self performSelectorInBackground:@selector(performEnqueue) withObject:nil];
     }
     else 
     {
@@ -276,18 +291,54 @@ static FilesDownloader *__shared;
         // немного отложим, чтоб успели очиститься старые реквесты
         [self performSelector:@selector(enqueuePortion:) 
                    withObject:self.currentPortion
-                   afterDelay:3];
+                   afterDelay:2];
     }
+}
+
+- (BOOL)isDownloadingPortion:(NSString *)portion
+{
+    return [self.currentPortion.title isEqualToString:portion] || [self.portionsQueue any:^BOOL(id object){
+        DownloadPortion *p = object;
+        return [p.title isEqualToString:p.title];
+    }];
+}
+
+- (void)cancelPortion:(NSString *)portion
+{
+    if ([self.currentPortion.title isEqualToString:portion])
+    {
+        // чтобы уведомление не отправилось - обнуляем
+        self.currentPortion = nil;
+        [self didDownloadPortion:self.queue];
+    }
+    else
+    {
+        self.portionsQueue = [self.portionsQueue where:^BOOL(id object){
+            DownloadPortion *p = object;
+            return ![p.title isEqualToString:portion];
+        }];
+    }
+}
+
+- (void)cancelAndDeletePortion:(NSString *)portion 
+{
+    [self cancelPortion:portion];
 }
 
 #pragma mark - ASIHTTPRequestDownloadProgress
 
 - (void)setProgress:(CGFloat)progress
 {
+    // если head еще не загрузились - не обновляем
+    if (self.queue.totalBytesToDownload == 0)
+        return;
+    
     DownloadProgress *p = [[DownloadProgress alloc] init];
     p.bytesPerSecond = self.bytesPerSecond;
-    p.totalBytes = self.queue.totalBytesToDownload + self.downlodedSizeFromCurrentPortion;
-    p.downloadedBytes = self.queue.bytesDownloadedSoFar + self.downlodedSizeFromCurrentPortion;
+    
+    // хз, почему надо делить пополам, но так заработало корректно
+    p.totalBytes = self.queue.totalBytesToDownload / 2 + self.downlodedSizeFromCurrentPortion;
+    p.downloadedBytes = self.queue.bytesDownloadedSoFar / 2 + self.downlodedSizeFromCurrentPortion;
     p.progress = ((CGFloat)p.downloadedBytes) / p.totalBytes;
     p.remainingTime = self.remainingTimeInterval;
     

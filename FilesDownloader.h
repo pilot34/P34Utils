@@ -32,6 +32,8 @@
 
 - (void)downloadFileSynchronous:(NSString *)url;
 
+- (BOOL)isDownloadingPortion:(NSString *)portion;
+
 // нужно вызывать в applicationDidEnterForeground
 - (void)resume;
 
