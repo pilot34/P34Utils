@@ -54,4 +54,18 @@
                   lineBreakMode:UILineBreakModeWordWrap] + 20.f;
 }
 
+- (UITableViewCell *)previousCell
+{
+    UITableView *tableView = (UITableView *)self.superview;
+    NSInteger index = [tableView.visibleCells indexOfObject:self];
+    if (index > 0 && index != NSNotFound)
+    {
+        return [tableView.visibleCells objectAtIndex:index - 1];
+    }
+    else 
+    {
+        return nil;
+    }
+}
+
 @end
