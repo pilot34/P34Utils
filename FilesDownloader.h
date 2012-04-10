@@ -37,6 +37,7 @@
 // нужно вызывать в applicationDidEnterForeground
 - (void)resume;
 
+- (void)cancelAllPortions;
 - (void)cancelPortion:(NSString *)portion;
 
 // для наследников

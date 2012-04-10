@@ -55,6 +55,8 @@ static FilesDownloader *__shared;
                 
                 // чтобы через edge много не скачало
                 [ASIHTTPRequest throttleBandwidthForWWANUsingLimit:BANDWIDTH_WWAN_LIMIT];
+                
+                [[Nimbus networkOperationQueue] setMaxConcurrentOperationCount:NSIntegerMax];
             }
         }
     }
@@ -207,16 +209,23 @@ static FilesDownloader *__shared;
 
 - (void)enqueuePortion:(DownloadPortion *)portion
 {
-    if (self.queue.isSuspended)
+    NIDINFO(@"enqueuePortion %@ to queue %@", portion.title, self.queue);
+    
+    @synchronized(self.queue)
     {
-        // если ничего не скачиваем - сразу запускаем очередь
-        self.currentPortion = portion;
-        [self performSelectorInBackground:@selector(performEnqueue) withObject:nil];
-    }
-    else 
-    {
-        // иначе сохраняем на потом
-        self.portionsQueue = self.portionsQueue ? [self.portionsQueue arrayByAddingObject:portion] : [NSArray arrayWithObject:portion];
+        if (!self.currentPortion)
+        {
+            NIDINFO(@"currentPortion = %@", portion.title);
+            // если ничего не скачиваем - сразу запускаем очередь
+            self.currentPortion = portion;
+            [self performSelectorInBackground:@selector(performEnqueue) withObject:nil];
+        }
+        else 
+        {
+            NIDINFO(@"added to queue %@", portion.title);
+            // иначе сохраняем на потом
+            self.portionsQueue = self.portionsQueue ? [self.portionsQueue arrayByAddingObject:portion] : [NSArray arrayWithObject:portion];
+        }
     }
 }
 
@@ -287,39 +296,55 @@ static FilesDownloader *__shared;
 {
     if (self.currentPortion)
     {
+        DownloadPortion *c = self.currentPortion;
+        self.currentPortion = nil;
         [self.queue reset];
         // немного отложим, чтоб успели очиститься старые реквесты
         [self performSelector:@selector(enqueuePortion:) 
-                   withObject:self.currentPortion
+                   withObject:c
                    afterDelay:2];
     }
 }
 
 - (BOOL)isDownloadingPortion:(NSString *)portion
 {
-    return [self.currentPortion.title isEqualToString:portion] || [self.portionsQueue any:^BOOL(id object){
-        DownloadPortion *p = object;
-        return [p.title isEqualToString:portion];
-    }];
+ //   NIDINFO("isDownloadingPortion: %@, portionsQueue:%@", portion, self.portionsQueue);
+    @synchronized(self.portionsQueue)
+    {
+        return [self.currentPortion.title isEqualToString:portion] || [self.portionsQueue any:^BOOL(id object){
+            DownloadPortion *p = object;
+            return [p.title isEqualToString:portion];
+        }];
+    }
+}
+
+- (void)cancelAllPortions
+{
+    self.portionsQueue = nil;
+    self.currentPortion = nil;
+    [self.queue reset];
 }
 
 - (void)cancelPortion:(NSString *)portion
 {
-    if ([self.currentPortion.title isEqualToString:portion])
+    @synchronized(self.portionsQueue)
     {
-        // чтобы уведомление не отправилось - обнуляем
-        self.currentPortion = nil;
-        [self.queue reset];
-        
-        // откладываем, иначе реквесты cancell-ется
-        [self performSelector:@selector(didDownloadPortion:) withObject:nil afterDelay:1];
-    }
-    else
-    {
-        self.portionsQueue = [self.portionsQueue where:^BOOL(id object){
-            DownloadPortion *p = object;
-            return ![p.title isEqualToString:portion];
-        }];
+        if ([self.currentPortion.title isEqualToString:portion])
+        {
+            // чтобы уведомление не отправилось - обнуляем
+            self.currentPortion = nil;
+            [self.queue reset];
+            
+            // откладываем, иначе реквесты cancell-ется
+            [self performSelector:@selector(didDownloadPortion:) withObject:nil afterDelay:1];
+        }
+        else
+        {
+            self.portionsQueue = [self.portionsQueue where:^BOOL(id object){
+                DownloadPortion *p = object;
+                return ![p.title isEqualToString:portion];
+            }];
+        }
     }
 }
 
@@ -358,6 +383,8 @@ static FilesDownloader *__shared;
         self.wasError = NO;
         return;
     }
+    
+    NIDINFO(@"didDownloadPortion %@", self.currentPortion.title);
     
     [self performSelectorOnMainThread:@selector(notifyObserversWithFinish)
                            withObject:nil 

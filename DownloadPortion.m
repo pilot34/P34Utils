@@ -43,5 +43,10 @@
     return self;
 }
 
+- (NSString *)description
+{
+    return self.title;
+}
+
 @end
 

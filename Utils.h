@@ -24,6 +24,7 @@ typedef void(^ErrorBlock)(NSError *error);
 #import "NSMutableArray+Utils.h"
 #import "NSArray+Utils.h"
 #import "NSSet+Utils.h"
+#import "Reachability+Utils.h"
 
 #import "StringUtils.h"
 
@@ -36,6 +37,7 @@ typedef void(^ErrorBlock)(NSError *error);
 #import "Reachability.h"
 #import "FilesDownloader.h"
 #import "DownloadPortion.h"
+
 
 
 #define SYSTEM_VERSION_EQUAL_TO(v)                  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedSame)
