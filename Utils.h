@@ -32,8 +32,10 @@ typedef void(^ErrorBlock)(NSError *error);
 #import "BlockTapGestureRecognizer.h"
 #import "BlockSwipeGestureRecognizer.h"
 #import "AlignedLabel.h"
-#import "DownloadProgress.h"
+#import "EGOCache.h"
+#import "VideoPlayingResolver.h"
 
+#import "DownloadProgress.h"
 #import "Reachability.h"
 #import "FilesDownloader.h"
 #import "DownloadPortion.h"

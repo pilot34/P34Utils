@@ -17,4 +17,6 @@
                 withFont:(UIFont *)font 
              inTableView:(UITableView *)tableView;
 
+- (UITableViewCell *)previousCell;
+
 @end
