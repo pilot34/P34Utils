@@ -9,6 +9,10 @@
 typedef void(^BasicBlock)(void);
 typedef void(^ErrorBlock)(NSError *error);
 
+#import "NimbusCore.h"
+#import "NimbusCore+Additions.h"
+#import "Reachability.h"
+
 #import "UIViewController+Utils.h"
 #import "UIView+Utils.h"
 #import "UIView+Fading.h"
