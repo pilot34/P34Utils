@@ -266,18 +266,6 @@ static FilesDownloader *__shared;
     [r startSynchronous];
 }
 
-- (NSTimeInterval)remainingTimeInterval
-{
-    CGFloat bytesPerSecond = self.bytesPerSecond;
-    
-    if (bytesPerSecond == 0)
-        return 0;
-    
-    CGFloat estimateSize = self.queue.totalBytesToDownload - self.queue.bytesDownloadedSoFar;
-    CGFloat estimateSeconds = estimateSize / bytesPerSecond;
-    return roundf(estimateSeconds);
-}
-
 - (NSInteger)bytesPerSecond
 {
     CGFloat spentSeconds = -self.startDownloadingPortionDate.timeIntervalSinceNow;
@@ -290,6 +278,18 @@ static FilesDownloader *__shared;
     
     CGFloat downloadedSize = self.queue.bytesDownloadedSoFar - self.cutDownloadedSize;
     return roundf(downloadedSize / spentSeconds);
+}
+
+- (NSTimeInterval)remainingTimeInterval
+{
+    CGFloat bytesPerSecond = self.bytesPerSecond;
+    
+    if (bytesPerSecond == 0)
+        return 0;
+    
+    CGFloat estimateSize = self.queue.totalBytesToDownload - self.queue.bytesDownloadedSoFar;
+    CGFloat estimateSeconds = estimateSize / bytesPerSecond;
+    return roundf(estimateSeconds);
 }
 
 - (void)resume
