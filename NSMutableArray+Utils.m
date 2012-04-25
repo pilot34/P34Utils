@@ -21,6 +21,16 @@
     return result;
 }
 
+- (id)popFirstObject
+{
+    if (self.count == 0)
+        return nil;
+    
+    id result = [self objectAtIndex:0];
+    [self removeObjectAtIndex:0];
+    return result;
+}
+
 - (id)popRandomObject
 {
     NSInteger index = arc4random() % self.count;

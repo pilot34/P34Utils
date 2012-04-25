@@ -10,4 +10,12 @@
 
 @interface Analytics : NSObject
 
++ (void)startWithId:(NSString *)id;
++ (void)trackPageView:(NSString *)page;
+
++ (void)trackEvent:(NSString *)event
+             value:(NSInteger)value;
+
++ (void)trackEvent:(NSString *)event;
+
 @end

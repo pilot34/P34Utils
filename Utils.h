@@ -44,6 +44,8 @@ typedef void(^ErrorBlock)(NSError *error);
 #import "FilesDownloader.h"
 #import "DownloadPortion.h"
 
+#import "Analytics.h"
+
 
 
 #define SYSTEM_VERSION_EQUAL_TO(v)                  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedSame)

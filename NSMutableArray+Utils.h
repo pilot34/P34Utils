@@ -10,6 +10,7 @@
 
 @interface NSMutableArray (Utils)
 
+- (id)popFirstObject;
 - (id)popObject;
 - (id)popRandomObject;
 
