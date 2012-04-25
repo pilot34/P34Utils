@@ -8,6 +8,7 @@
 
 #import "Analytics.h"
 #import "GANTracker.h"
+#import "UIDevice-Hardware.h"
 
 @implementation Analytics
 
@@ -27,6 +28,16 @@
                                                    value:UIDevice.currentDevice.systemVersion
                                                withError:nil];
     
+    [[GANTracker sharedTracker] setCustomVariableAtIndex:3
+                                                    name:@"platform"
+                                                   value:UIDevice.currentDevice.platformString
+                                               withError:nil];
+    
+    [[GANTracker sharedTracker] setCustomVariableAtIndex:4
+                                                    name:@"model"
+                                                   value:UIDevice.currentDevice.hwmodel
+                                               withError:nil];
+    
 }
 
 + (void)trackPageView:(NSString *)page
@@ -36,18 +47,18 @@
 }
 
 + (void)trackEvent:(NSString *)event
-             value:(NSInteger)value
+            action:(NSString *)action
 {
     [[GANTracker sharedTracker] trackEvent:event
-                                    action:nil
-                                     label:nil
-                                     value:value
+                                    action:action
+                                     label:event
+                                     value:0
                                  withError:nil];
 }
 
 + (void)trackEvent:(NSString *)event
 {
-    [self trackEvent:event value:0];
+    [self trackEvent:event action:event];
 }
 
 

@@ -14,7 +14,7 @@
 + (void)trackPageView:(NSString *)page;
 
 + (void)trackEvent:(NSString *)event
-             value:(NSInteger)value;
+            action:(NSString *)action;
 
 + (void)trackEvent:(NSString *)event;
 
