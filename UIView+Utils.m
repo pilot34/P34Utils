@@ -30,6 +30,16 @@
                                         options:nil] objectAtIndex:0];
 }
 
+- (BOOL)visible
+{
+    return !self.hidden;
+}
+
+- (void)setVisible:(BOOL)visible
+{
+    [self setHidden:!visible];
+}
+
 #pragma mark - Coordinates
 
 - (CGFloat)top
