@@ -22,4 +22,6 @@
 + (NSString *)timeIntervalToStringFull:(NSTimeInterval)time;
 + (NSString *)timeIntervalToStringShort:(NSTimeInterval)time;
 
++ (NSString *)translit:(NSString *)str;
+
 @end

@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "StringUtils.h"
 
+static NSDictionary *__translitDictionary;
+
 @implementation StringUtils
 
 + (NSArray *)splitByCapitalLetters:(NSString *)string
@@ -133,6 +135,88 @@
         return [NSString stringWithFormat:@"%02d:%02d", minutes, seconds];
     }
 
+}
+
++ (NSString *)translit:(NSString *)str
+{
+    if (!__translitDictionary)
+    {
+        __translitDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
+                                @"A", @"А",
+                                @"B", @"Б",
+                                @"V", @"В",
+                                @"G", @"Г",
+                                @"D", @"Д",
+                                @"E", @"Е",
+                                @"Yo", @"Ё",
+                                @"Zh", @"Ж",
+                                @"Z", @"З",
+                                @"I", @"И",
+                                @"J", @"Й",
+                                @"K", @"К",
+                                @"L", @"Л",
+                                @"M", @"М",
+                                @"N", @"Н",
+                                @"O", @"О",
+                                @"P", @"П",
+                                @"R", @"Р",
+                                @"S", @"С",
+                                @"T", @"Т",
+                                @"U", @"У",
+                                @"F", @"Ф",
+                                @"H", @"Х",
+                                @"C", @"Ц",
+                                @"Ch", @"Ч",
+                                @"Sh", @"Ш",
+                                @"Sch", @"Щ",
+                                @"'", @"Ь",
+                                @"\"", @"Ъ",
+                                @"E", @"Э",
+                                @"Yu", @"Ю",
+                                @"Ya", @"Я",
+                                @"a", @"а",
+                                @"b", @"б",
+                                @"v", @"в",
+                                @"g", @"г",
+                                @"d", @"д",
+                                @"e", @"е",
+                                @"yo", @"ё",
+                                @"zh", @"ж",
+                                @"z", @"з",
+                                @"i", @"и",
+                                @"j", @"й",
+                                @"k", @"к",
+                                @"l", @"л",
+                                @"m", @"м",
+                                @"n", @"н",
+                                @"o", @"о",
+                                @"p", @"п",
+                                @"r", @"р",
+                                @"s", @"с",
+                                @"t", @"т",
+                                @"u", @"у",
+                                @"f", @"ф",
+                                @"h", @"х",
+                                @"c", @"ц",
+                                @"ch", @"ч",
+                                @"sh", @"ш",
+                                @"sch", @"щ",
+                                @"'", @"ь",
+                                @"\"", @"ъ",
+                                @"e", @"э",
+                                @"yu", @"ю",
+                                @"ya", @"я",
+                                nil];
+                                
+    }
+    
+    NSMutableString *result = str.mutableCopy;
+    for (NSString *key in __translitDictionary) 
+    {
+        NSString *value = [__translitDictionary objectForKey:key];
+        [result replaceOccurrencesOfString:key withString:value options:0 range:NSMakeRange(0, result.length)];
+    }
+    return result;
 }
 
 @end
