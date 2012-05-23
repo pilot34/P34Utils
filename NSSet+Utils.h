@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "NSArray+Utils.h"
 
 @interface NSSet (Utils)
 
