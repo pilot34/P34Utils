@@ -20,4 +20,11 @@
     return nil;
 }
 
+- (void)loadRequestWithString:(NSString *)urlString
+{
+    NSURL *url = [NSURL URLWithString:urlString];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    [self loadRequest:request];
+}
+
 @end

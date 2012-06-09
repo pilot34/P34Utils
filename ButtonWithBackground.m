@@ -14,7 +14,19 @@
 {
     UIImage *i = [self backgroundImageForState:state];
     CGFloat v = roundf(i.size.height / 2);
-    CGFloat h = roundf(i.size.width / 2);
+    CGFloat h;
+    if (self.tag > 0)
+    {
+        h = i.size.width - 1;
+    }
+    else if (self.tag < 0)
+    {
+        h = 1;
+    }
+    else 
+    {
+        h = roundf(i.size.width / 2);
+    }
     UIImage *scaled = [i stretchableImageWithLeftCapWidth:h topCapHeight:v];
     [self setBackgroundImage:scaled forState:state];
 }

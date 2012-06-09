@@ -25,6 +25,7 @@ typedef void(^ErrorBlock)(NSError *error);
 #import "UIApplication+Utils.h"
 #import "NSObject+Utils.h"
 #import "NSString+Utils.h"
+#import "NSMutableString+Utils.h"
 #import "NSMutableArray+Utils.h"
 #import "NSArray+Utils.h"
 #import "NSSet+Utils.h"

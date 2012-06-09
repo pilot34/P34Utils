@@ -11,5 +11,6 @@
 @interface UIWebView (Utils)
 
 - (UIScrollView *)scrollView;
+- (void)loadRequestWithString:(NSString *)urlString;
 
 @end
