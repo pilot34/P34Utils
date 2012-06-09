@@ -9,6 +9,8 @@
 typedef void(^BasicBlock)(void);
 typedef void(^ErrorBlock)(NSError *error);
 
+void doAfter(CGFloat delay, BasicBlock action);
+
 #import "NimbusCore.h"
 #import "NimbusCore+Additions.h"
 #import "Reachability.h"
@@ -37,6 +39,7 @@ typedef void(^ErrorBlock)(NSError *error);
 #import "BlockTapGestureRecognizer.h"
 #import "BlockSwipeGestureRecognizer.h"
 #import "AlignedLabel.h"
+#import "ImageViewWithPattern.h"
 #import "EGOCache.h"
 #import "VideoPlayingResolver.h"
 

@@ -7,6 +7,7 @@
 //
 
 #import "UITableView+Utils.h"
+#import "UIView+Utils.h"
 
 @implementation UITableView (Utils)
 
