@@ -43,6 +43,8 @@ void doAfter(CGFloat delay, BasicBlock action);
 #import "EGOCache.h"
 #import "VideoPlayingResolver.h"
 
+#import "HiddenTabBarController.h"
+
 #import "DownloadProgress.h"
 #import "Reachability.h"
 #import "FilesDownloader.h"

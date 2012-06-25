@@ -27,7 +27,7 @@
 + (FilesDownloader *)shared;
 
 - (void)addObserver:(id<FilesDownloaderDelegate>)observer;
-- (void)removeObserver:(id)observer;
+- (void)removeObserver:(__unsafe_unretained id)observer; // unsafe, чтобы не циклился dealloc в iOS4
 - (void)enqueuePortion:(DownloadPortion *)portion;
 
 - (void)downloadFileSynchronous:(NSString *)url;

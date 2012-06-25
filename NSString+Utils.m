@@ -38,4 +38,12 @@
                                            lineBreakMode:UILineBreakModeTailTruncation];
 }
 
+- (CGFloat)heightWithSystemBoldFont:(CGFloat)fontSize
+                 constrainedToWidth:(CGFloat)width
+{
+    return [self heightWithFont:[UIFont boldSystemFontOfSize:fontSize]
+             constrainedToWidth:width
+                  lineBreakMode:UILineBreakModeTailTruncation];
+}
+
 @end

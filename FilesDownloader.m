@@ -130,7 +130,7 @@ static FilesDownloader *__shared;
     self.observers = newObs;
 }
 
-- (void)removeObserver:(id)observer
+- (void)removeObserver:(__unsafe_unretained id)observer
 {
     NSMutableSet *newObs = self.observers ? self.observers.mutableCopy : [NSMutableSet set];
     
