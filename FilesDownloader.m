@@ -308,8 +308,7 @@ static FilesDownloader *__shared;
 
 - (BOOL)isDownloadingPortion:(NSString *)portion
 {
- //   NIDINFO("isDownloadingPortion: %@, portionsQueue:%@", portion, self.portionsQueue);
-    @synchronized(self.portionsQueue)
+    @synchronized(self.class)
     {
         return [self.currentPortion.title isEqualToString:portion] || [self.portionsQueue any:^BOOL(id object){
             DownloadPortion *p = object;
@@ -320,14 +319,17 @@ static FilesDownloader *__shared;
 
 - (void)cancelAllPortions
 {
-    self.portionsQueue = nil;
-    self.currentPortion = nil;
-    [self.queue reset];
+    @synchronized(self.class)
+    {
+        self.portionsQueue = nil;
+        self.currentPortion = nil;
+        [self.queue reset];
+    }
 }
 
 - (void)cancelPortion:(NSString *)portion
 {
-    @synchronized(self.portionsQueue)
+    @synchronized(self.class)
     {
         if ([self.currentPortion.title isEqualToString:portion])
         {
@@ -393,11 +395,14 @@ static FilesDownloader *__shared;
     [self.queue reset];
     self.currentPortion = nil;
     
-    if (self.portionsQueue.count > 0)
+    @synchronized(self.class)
     {
-        DownloadPortion *first = self.portionsQueue.firstObject;
-        self.portionsQueue = [self.portionsQueue subarrayWithRange:NSMakeRange(1, self.portionsQueue.count - 1)];
-        [self enqueuePortion:first];
+        if (self.portionsQueue.count > 0)
+        {
+            DownloadPortion *first = self.portionsQueue.firstObject;
+            self.portionsQueue = [self.portionsQueue subarrayWithRange:NSMakeRange(1, self.portionsQueue.count - 1)];
+            [self enqueuePortion:first];
+        }
     }
 }
 
