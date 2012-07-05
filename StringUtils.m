@@ -13,6 +13,27 @@ static NSDictionary *__translitDictionary;
 
 @implementation StringUtils
 
++ (NSString *)removePlural:(NSString *)string
+{
+    if ([string endsWith:@"s"])
+        string = [string substringToIndex:string.length - 1];
+    
+    return string;
+}
+
++ (NSString *)capitalizeFirstLetter:(NSString *)string
+{
+    if (string.length < 1)
+        return string;
+    
+    if (string.length == 1)
+        return string.capitalizedString;
+    
+    NSString *firstLetter = [string substringToIndex:1];
+    NSString *end = [string substringFromIndex:1];
+    return [[firstLetter capitalizedString] stringByAppendingString:end];
+}
+
 + (NSArray *)splitByCapitalLetters:(NSString *)string
 {
     if (!string)

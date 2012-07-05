@@ -22,7 +22,7 @@
 
 - (BOOL)endsWith:(NSString *)string
 {
-    return [self rangeOfString:string].location + string.length == self.length;
+    return [self rangeOfString:string options:NSBackwardsSearch].location + string.length == self.length;
 }
 
 - (NSString *)stringByTrimming

@@ -17,6 +17,7 @@ void doAfter(CGFloat delay, BasicBlock action);
 
 #import "UIViewController+Utils.h"
 #import "UIView+Utils.h"
+#import "UIScrollView+Utils.h"
 #import "UIView+Fading.h"
 #import "UIWebView+Utils.h"
 #import "UILabel+Utils.h"
@@ -27,6 +28,7 @@ void doAfter(CGFloat delay, BasicBlock action);
 #import "UIApplication+Utils.h"
 #import "NSObject+Utils.h"
 #import "NSString+Utils.h"
+#import "NSDate+Utils.h"
 #import "NSMutableString+Utils.h"
 #import "NSMutableArray+Utils.h"
 #import "NSArray+Utils.h"

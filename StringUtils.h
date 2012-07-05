@@ -12,12 +12,16 @@
 
 + (NSArray *)splitByCapitalLetters:(NSString *)string;
 
++ (NSString *)capitalizeFirstLetter:(NSString *)string;
+
 + (NSString *)getCase:(NSInteger)num 
            nominative:(NSString *)nominative
              genitive:(NSString *)genitive 
        pluralGenitive:(NSString *)pluralGenitive;
 
 + (NSString *)sizeToString:(NSInteger)bytes;
+
++ (NSString *)removePlural:(NSString *)string;
 
 + (NSString *)timeIntervalToStringFull:(NSTimeInterval)time;
 + (NSString *)timeIntervalToStringShort:(NSTimeInterval)time;
