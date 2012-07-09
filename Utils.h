@@ -26,6 +26,7 @@ void doAfter(CGFloat delay, BasicBlock action);
 #import "UIDevice+IdentifierAddition.h"
 #import "UIImage+Utils.h"
 #import "UIApplication+Utils.h"
+#import "UIColor+Utils.h"
 #import "NSObject+Utils.h"
 #import "NSString+Utils.h"
 #import "NSDate+Utils.h"
