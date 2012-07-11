@@ -22,4 +22,12 @@
         return [class fromNib];
 }
 
+- (void)clearBackground
+{
+    // to clear background in iOS4
+    self.backgroundView = nil;
+    self.opaque = NO;
+    self.backgroundColor = UIColor.clearColor;
+}
+
 @end

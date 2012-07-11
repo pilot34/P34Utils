@@ -11,5 +11,6 @@
 @interface UITableView (Utils)
 
 - (id)cellFromNib:(Class)class;
+- (void)clearBackground;
 
 @end

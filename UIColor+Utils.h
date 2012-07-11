@@ -11,5 +11,6 @@
 @interface UIColor (Utils)
 
 - (UIColor *)colorByChangingAlphaTo:(CGFloat)newAlpha;
++ (UIColor *)colorWithRGBHex:(UInt32)hex;
 
 @end
