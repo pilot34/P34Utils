@@ -22,4 +22,9 @@
         return [class fromNib];
 }
 
+- (void)heightToFit
+{
+    self.height = self.contentSize.height;
+}
+
 @end
