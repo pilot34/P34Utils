@@ -12,5 +12,6 @@
 
 - (id)cellFromNib:(Class)class;
 - (void)heightToFit;
+- (void)clearBackground;
 
 @end

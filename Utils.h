@@ -11,9 +11,14 @@ typedef void(^ErrorBlock)(NSError *error);
 
 void doAfter(CGFloat delay, BasicBlock action);
 
+#ifdef UTILS_IMPORT_NIMBUS
+
 #import "NimbusCore.h"
 #import "NimbusCore+Additions.h"
 #import "Reachability.h"
+#import "Reachability+Utils.h"
+
+#endif
 
 #import "UIViewController+Utils.h"
 #import "UIView+Utils.h"
@@ -23,7 +28,6 @@ void doAfter(CGFloat delay, BasicBlock action);
 #import "UILabel+Utils.h"
 #import "UITableView+Utils.h"
 #import "UITableViewCell+Utils.h"
-#import "UIDevice+IdentifierAddition.h"
 #import "UIImage+Utils.h"
 #import "UIApplication+Utils.h"
 #import "UIColor+Utils.h"
@@ -34,7 +38,6 @@ void doAfter(CGFloat delay, BasicBlock action);
 #import "NSMutableArray+Utils.h"
 #import "NSArray+Utils.h"
 #import "NSSet+Utils.h"
-#import "Reachability+Utils.h"
 
 #import "StringUtils.h"
 
@@ -48,12 +51,20 @@ void doAfter(CGFloat delay, BasicBlock action);
 
 #import "HiddenTabBarController.h"
 
+#ifdef UTILS_IMPORT_FILES_DOWNLOADER
+
 #import "DownloadProgress.h"
-#import "Reachability.h"
 #import "FilesDownloader.h"
 #import "DownloadPortion.h"
 
+#endif
+
+#ifdef UTILS_IMPORT_GOOGLE_ANALYTICS 
+
 #import "Analytics.h"
+#import "UIDevice+IdentifierAddition.h"
+
+#endif
 
 
 
