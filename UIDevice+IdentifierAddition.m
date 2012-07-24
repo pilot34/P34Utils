@@ -7,6 +7,7 @@
 //
 
 #import "UIDevice+IdentifierAddition.h"
+#import "NSString+NimbusCore.h"
 
 #include <sys/socket.h> // Per msqr
 #include <sys/sysctl.h>

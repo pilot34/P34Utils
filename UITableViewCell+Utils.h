@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NSString+NimbusCore.h"
 
 @interface UITableViewCell (Utils)
 

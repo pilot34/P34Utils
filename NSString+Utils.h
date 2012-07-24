@@ -15,10 +15,4 @@
 - (BOOL)endsWith:(NSString *)string;
 - (NSString *)stringByTrimming;
 
-- (CGFloat)heightWithSystemFont:(CGFloat)fontSize
-             constrainedToWidth:(CGFloat)width;
-
-- (CGFloat)heightWithSystemBoldFont:(CGFloat)fontSize
-                 constrainedToWidth:(CGFloat)width;
-
 @end

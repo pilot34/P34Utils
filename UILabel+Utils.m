@@ -7,6 +7,7 @@
 //
 
 #import "UILabel+Utils.h"
+#import "NSString+NimbusCore.h"
 
 @implementation UILabel (Utils)
 

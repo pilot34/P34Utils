@@ -7,6 +7,7 @@
 //
 
 #import "EGOCache.h"
+#import "NSString+NimbusCore.h"
 
 #define cachePathForKey(key) [NSHomeDirectory() stringByAppendingPathComponent:[NSString stringWithFormat:@"Documents/EGOCache/%@", [key md5Hash]]]
 
