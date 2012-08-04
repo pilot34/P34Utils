@@ -80,4 +80,22 @@
     return NO;
 }
 
+- (NSDictionary *)dictionaryWithKeyBlock:(SelectBlock)keyBlock
+{
+    return [self dictionaryWithKeyBlock:keyBlock valueBlock:^id(id element) {
+        return element;
+    }];
+}
+- (NSDictionary *)dictionaryWithKeyBlock:(SelectBlock)keyBlock valueBlock:(SelectBlock)valueBlock
+{
+    NSMutableDictionary *result = [NSMutableDictionary dictionary];
+    for (id obj in self)
+    {
+        id key = keyBlock(obj);
+        id value = valueBlock(obj);
+        [result setObject:value forKey:key];
+    }
+    return result;
+}
+
 @end

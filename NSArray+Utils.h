@@ -24,4 +24,7 @@ typedef id(^SelectBlock)(id element);
 - (NSArray *)select:(SelectBlock)transform;
 - (BOOL)any:(PredicateBlock)predicate;
 
+- (NSDictionary *)dictionaryWithKeyBlock:(SelectBlock)keyBlock;
+- (NSDictionary *)dictionaryWithKeyBlock:(SelectBlock)keyBlock valueBlock:(SelectBlock)valueBlock;
+
 @end

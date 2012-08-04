@@ -21,23 +21,36 @@
     [[GANTracker sharedTracker] setCustomVariableAtIndex:1
                                                     name:@"app_version"
                                                    value:[NSBundle.mainBundle.infoDictionary objectForKey:@"CFBundleVersion"]
+                                                   scope:kGANVisitorScope
                                                withError:nil];
     
     [[GANTracker sharedTracker] setCustomVariableAtIndex:2
                                                     name:@"ios_version"
                                                    value:UIDevice.currentDevice.systemVersion
+                                                   scope:kGANVisitorScope
                                                withError:nil];
     
     [[GANTracker sharedTracker] setCustomVariableAtIndex:3
                                                     name:@"platform"
                                                    value:UIDevice.currentDevice.platformString
+                                                   scope:kGANVisitorScope
                                                withError:nil];
     
     [[GANTracker sharedTracker] setCustomVariableAtIndex:4
                                                     name:@"model"
                                                    value:UIDevice.currentDevice.hwmodel
+                                                   scope:kGANVisitorScope
                                                withError:nil];
     
+}
+
++ (void)setCustomVariable:(NSString *)name value:(NSString *)value
+{
+    [[GANTracker sharedTracker] setCustomVariableAtIndex:4
+                                                    name:name
+                                                   value:value
+                                                   scope:kGANVisitorScope
+                                               withError:nil];
 }
 
 + (void)trackPageView:(NSString *)page
