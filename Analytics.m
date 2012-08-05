@@ -35,18 +35,12 @@
                                                    value:UIDevice.currentDevice.platformString
                                                    scope:kGANVisitorScope
                                                withError:nil];
-    
-    [[GANTracker sharedTracker] setCustomVariableAtIndex:4
-                                                    name:@"model"
-                                                   value:UIDevice.currentDevice.hwmodel
-                                                   scope:kGANVisitorScope
-                                               withError:nil];
-    
 }
+
 
 + (void)setCustomVariable:(NSString *)name value:(NSString *)value
 {
-    [[GANTracker sharedTracker] setCustomVariableAtIndex:4
+    [[GANTracker sharedTracker] setCustomVariableAtIndex:5
                                                     name:name
                                                    value:value
                                                    scope:kGANVisitorScope

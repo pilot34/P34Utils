@@ -17,6 +17,7 @@ typedef id(^SelectBlock)(id element);
 @property(nonatomic, readonly, unsafe_unretained) id randomObject;
 
 - (NSArray *)shuffled;
+- (NSArray *)reversed;
 
 @property(nonatomic, readonly) BOOL any;
 
