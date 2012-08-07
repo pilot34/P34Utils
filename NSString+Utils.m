@@ -30,4 +30,9 @@
     return [self stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
 }
 
+- (NSRange)fullRange
+{
+    return NSMakeRange(0, self.length);
+}
+
 @end
