@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "NimbusCore.h"
 
 @interface BlockAlertView : UIAlertView
 
