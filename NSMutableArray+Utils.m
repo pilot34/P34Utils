@@ -16,7 +16,7 @@
         return nil;
     
     NSInteger lastIndex = self.count - 1;
-    id result = [self objectAtIndex:lastIndex];
+    id result = self[lastIndex];
     [self removeObjectAtIndex:lastIndex];
     return result;
 }
@@ -26,7 +26,7 @@
     if (self.count == 0)
         return nil;
     
-    id result = [self objectAtIndex:0];
+    id result = self[0];
     [self removeObjectAtIndex:0];
     return result;
 }
@@ -34,7 +34,7 @@
 - (id)popRandomObject
 {
     NSInteger index = arc4random() % self.count;
-    id element = [self objectAtIndex:index];
+    id element = self[index];
     [self removeObjectAtIndex:index];
     return element;
 }

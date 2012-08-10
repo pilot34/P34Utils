@@ -40,7 +40,7 @@ static id __instance;
 														error:NULL];
         
 		for(NSString* key in cacheDictionary) {
-			NSDate* date = [cacheDictionary objectForKey:key];
+			NSDate* date = cacheDictionary[key];
 			if([[[NSDate date] earlierDate:date] isEqualToDate:date]) {
 				[[NSFileManager defaultManager] removeItemAtPath:cachePathForKey(key) error:NULL];
 			}
@@ -51,7 +51,7 @@ static id __instance;
 }
 
 - (BOOL)hasCacheForKey:(NSString*)key {
-	NSDate* date = [cacheDictionary objectForKey:key];
+	NSDate* date = cacheDictionary[key];
 	if(!date) return NO;
 	if([[[NSDate date] earlierDate:date] isEqualToDate:date]) return NO;
     NSString *filePath = cachePathForKey(key);
@@ -67,7 +67,7 @@ static id __instance;
 
 - (void)setData:(NSData*)data forKey:(NSString*)key withTimeoutInterval:(NSTimeInterval)timeoutInterval {
 	[data writeToFile:cachePathForKey(key) atomically:YES];
-	[cacheDictionary setObject:[NSDate dateWithTimeIntervalSinceNow:timeoutInterval] forKey:key];
+	cacheDictionary[key] = [NSDate dateWithTimeIntervalSinceNow:timeoutInterval];
 	[[NSUserDefaults standardUserDefaults] setObject:cacheDictionary forKey:@"EGOCache"];
 	[[NSUserDefaults standardUserDefaults] synchronize];
 }

@@ -25,9 +25,9 @@
 
 + (id)fromNib:(NSString *)nibName withOwner:(id)owner
 {
-    return [[[NSBundle mainBundle] loadNibNamed:nibName
+    return [[NSBundle mainBundle] loadNibNamed:nibName
                                           owner:owner 
-                                        options:nil] objectAtIndex:0];
+                                        options:nil][0];
 }
 
 - (BOOL)visible

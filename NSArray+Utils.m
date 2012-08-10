@@ -14,7 +14,7 @@
 {
     if (self.count == 0)
         return nil;
-    return [self objectAtIndex:0];
+    return self[0];
 }
 
 - (id)randomObject
@@ -23,7 +23,7 @@
         return nil;
     
     NSInteger index = arc4random() % self.count;
-    return [self objectAtIndex:index];
+    return self[index];
 }
 
 - (NSArray *)shuffled
@@ -104,7 +104,7 @@
     {
         id key = keyBlock(obj);
         id value = valueBlock(obj);
-        [result setObject:value forKey:key];
+        result[key] = value;
     }
     return result;
 }

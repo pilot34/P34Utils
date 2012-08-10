@@ -81,7 +81,7 @@ static FilesDownloader *__shared;
     
     if(![fileManager fileExistsAtPath:folder])
     {
-        NSDictionary *attrs = [NSDictionary dictionaryWithObject:[NSNumber numberWithInt:1] forKey:@"com.apple.MobileBackup"];
+        NSDictionary *attrs = @{@"com.apple.MobileBackup": @1};
         if(![fileManager createDirectoryAtPath:folder 
                    withIntermediateDirectories:YES
                                     attributes:attrs 
@@ -224,7 +224,7 @@ static FilesDownloader *__shared;
         {
             NIDINFO(@"added to queue %@", portion.title);
             // иначе сохраняем на потом
-            self.portionsQueue = self.portionsQueue ? [self.portionsQueue arrayByAddingObject:portion] : [NSArray arrayWithObject:portion];
+            self.portionsQueue = self.portionsQueue ? [self.portionsQueue arrayByAddingObject:portion] : @[portion];
         }
     }
 }
@@ -408,7 +408,7 @@ static FilesDownloader *__shared;
 
 - (void)didStartRequest:(ASIHTTPRequest *)request
 {
-    NSArray *requests = self.currentRequests ? self.currentRequests : [NSArray array];
+    NSArray *requests = self.currentRequests ? self.currentRequests : @[];
     self.currentRequests = [requests arrayByAddingObject:request];
 }
 

@@ -39,17 +39,13 @@
     
     if (firstTransparent)
     {
-        gradient.colors = [NSArray arrayWithObjects:
-                           TRANSPARENT_COLOR,
-                           OPAQUE_COLOR,
-                           nil];
+        gradient.colors = @[TRANSPARENT_COLOR,
+                           OPAQUE_COLOR];
     }
     else
     {
-        gradient.colors = [NSArray arrayWithObjects:
-                           OPAQUE_COLOR,
-                           TRANSPARENT_COLOR,
-                           nil];
+        gradient.colors = @[OPAQUE_COLOR,
+                           TRANSPARENT_COLOR];
     }
     
     return gradient;

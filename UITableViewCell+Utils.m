@@ -60,7 +60,7 @@
     NSInteger index = [tableView.visibleCells indexOfObject:self];
     if (index > 0 && index != NSNotFound)
     {
-        return [tableView.visibleCells objectAtIndex:index - 1];
+        return (tableView.visibleCells)[index - 1];
     }
     else 
     {

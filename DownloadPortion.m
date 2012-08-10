@@ -24,7 +24,7 @@
 
 - (id)initWithSingleUrl:(NSString *)url title:(NSString *)title
 {
-    return [self initWithTitle:title files:[NSArray arrayWithObject:url]];
+    return [self initWithTitle:title files:@[url]];
 }
 
 - (id)initWithSingleUrl:(NSString *)url
