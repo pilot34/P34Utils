@@ -8,10 +8,17 @@
 
 #import <Foundation/Foundation.h>
 
+@protocol KeyboardListenerDelegate <NSObject>
+
+- (void)keyboardListenerStatusChanged;
+
+@end
+
 
 // Следит, видна клавиатура или нет. Надо создавать только когда клавиатуры нет.
 @interface KeyboardListener : NSObject
 
+@property(weak, nonatomic) id<KeyboardListenerDelegate> delegate;
 @property(nonatomic, readonly) BOOL isKeyboardVisible;
 
 @end

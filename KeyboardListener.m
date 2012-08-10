@@ -17,6 +17,7 @@
 @implementation KeyboardListener
 
 @synthesize isKeyboardVisible = _isKeyboardVisible;
+@synthesize delegate = _delegate;
 
 - (id)init
 {
@@ -44,11 +45,13 @@
 - (void)keyboardWillAppear
 {
     self.isKeyboardVisible = YES;
+    [self.delegate keyboardListenerStatusChanged];
 }
 
 - (void)keyboardWillDisappear
 {
     self.isKeyboardVisible = NO;
+    [self.delegate keyboardListenerStatusChanged];
 }
 
 
