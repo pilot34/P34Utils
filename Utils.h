@@ -50,6 +50,7 @@ void doAfter(CGFloat delay, BasicBlock action);
 #import "VideoPlayingResolver.h"
 #import "HiddenTabBarController.h"
 #import "StretchableImageView.h"
+#import "KeyboardListener.h"
 
 #ifdef UTILS_IMPORT_FILES_DOWNLOADER
 
