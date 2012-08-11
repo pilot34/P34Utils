@@ -11,12 +11,6 @@
 
 @implementation DownloadProgress
 
-@synthesize progress = _progress;
-@synthesize totalBytes = _totalBytes;
-@synthesize downloadedBytes = _downloadedBytes;
-@synthesize bytesPerSecond = _bytesPerSecond;
-@synthesize remainingTime = _remainingTime;
-
 - (NSString *)remainingTimeString
 {
     return [StringUtils timeIntervalToStringFull:self.remainingTime];

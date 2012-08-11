@@ -33,16 +33,6 @@ static FilesDownloader *__shared;
 
 @implementation FilesDownloader
 
-@synthesize portionsQueue = _portionsQueue;
-@synthesize observers = _observers;
-@synthesize queue = _queue;
-@synthesize currentPortion = _currentPortion;
-@synthesize startDownloadingPortionDate = _startDownloadingPortionDate;
-@synthesize currentRequests = _currentRequests;
-@synthesize wasError = _wasError;
-@synthesize downlodedSizeFromCurrentPortion = _downloadedSizeFromCurrentPortion;
-@synthesize cutDownloadedSize = _cutDownloadedSize;
-
 + (FilesDownloader *)shared
 {
     if (!__shared)

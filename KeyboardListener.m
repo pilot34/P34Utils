@@ -16,9 +16,6 @@
 
 @implementation KeyboardListener
 
-@synthesize isKeyboardVisible = _isKeyboardVisible;
-@synthesize delegate = _delegate;
-
 - (id)init
 {
     self = [super init];

@@ -10,9 +10,6 @@
 
 @implementation AlignedLabel
 
-@synthesize verticalAlignment = _verticalAlignment;
-
-
 - (void)setVerticalAlignment:(VerticalAlignment)value
 {
     _verticalAlignment = value;

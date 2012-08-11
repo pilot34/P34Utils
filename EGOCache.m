@@ -62,7 +62,7 @@ static id __instance;
 #pragma mark Data methods
 
 - (void)setData:(NSData*)data forKey:(NSString*)key {
-	[self setData:data forKey:key withTimeoutInterval:60 * 60 * 24];
+	[self setData:data forKey:key withTimeoutInterval:TIME_INTERVAL_FOR_ONE_DAY];
 }
 
 - (void)setData:(NSData*)data forKey:(NSString*)key withTimeoutInterval:(NSTimeInterval)timeoutInterval {
@@ -88,7 +88,7 @@ static id __instance;
 }
 
 - (void)setString:(NSString*)aString forKey:(NSString*)key {
-	[self setString:aString forKey:key withTimeoutInterval:60 * 60 * 24];
+	[self setString:aString forKey:key withTimeoutInterval:TIME_INTERVAL_FOR_ONE_DAY];
 }
 
 - (void)setString:(NSString*)aString forKey:(NSString*)key withTimeoutInterval:(NSTimeInterval)timeoutInterval {
@@ -105,7 +105,7 @@ static id __instance;
 }
 
 - (void)setImage:(UIImage*)anImage forKey:(NSString*)key {
-	[self setImage:anImage forKey:key withTimeoutInterval:60 * 60 * 24];
+	[self setImage:anImage forKey:key withTimeoutInterval:TIME_INTERVAL_FOR_ONE_DAY];
 }
 
 - (void)setImage:(UIImage*)anImage forKey:(NSString*)key withTimeoutInterval:(NSTimeInterval)timeoutInterval {
@@ -120,7 +120,7 @@ static id __instance;
 }
 
 - (void)setImage:(NSImage*)anImage forKey:(NSString*)key {
-	[self setImage:anImage forKey:key withTimeoutInterval:60 * 60 * 24];
+	[self setImage:anImage forKey:key withTimeoutInterval:TIME_INTERVAL_FOR_ONE_DAY];
 }
 
 - (void)setImage:(NSImage*)anImage forKey:(NSString*)key withTimeoutInterval:(NSTimeInterval)timeoutInterval {

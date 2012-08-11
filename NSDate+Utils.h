@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+#define TIME_INTERVAL_FOR_ONE_DAY 86400
+
 @interface NSDate (Utils)
 
 - (NSDate *)dateWithoutTime;

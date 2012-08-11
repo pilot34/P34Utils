@@ -19,9 +19,6 @@
 
 @implementation DownloadPortion : NSObject
 
-@synthesize title = _title;
-@synthesize files = _files;
-
 - (id)initWithSingleUrl:(NSString *)url title:(NSString *)title
 {
     return [self initWithTitle:title files:@[url]];

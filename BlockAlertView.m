@@ -17,9 +17,6 @@
 
 @implementation BlockAlertView
 
-@synthesize cancelAction = _cancelAction;
-@synthesize submitAction = _submitAction;
-
 - (id)initWithTitle:(NSString *)title message:(NSString *)message cancelButtonTitle:(NSString *)cancelButtonTitle submitButtonTitle:(NSString *)submitButtonTitle
 {
     self = [super initWithTitle:title message:message delegate:nil cancelButtonTitle:cancelButtonTitle otherButtonTitles:submitButtonTitle, nil];
