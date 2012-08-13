@@ -211,6 +211,9 @@ static FilesDownloader *__shared;
 {
     NIDINFO(@"enqueuePortion %@ to queue %@", portion.title, self.queue);
     
+    // отключаем таймер, чтобы не засыпало, пока качаем
+    UIApplication.sharedApplication.idleTimerDisabled = YES;
+    
     @synchronized(self.queue)
     {
         if (!self.currentPortion)
@@ -256,7 +259,7 @@ static FilesDownloader *__shared;
     {
         if ([observer respondsToSelector:@selector(filesDownloaderDidFailForPortion:)])
             [observer filesDownloaderDidFailForPortion:self.currentPortion];
-    }    
+    }
 }
 
 - (void)downloadFileSynchronous:(NSString *)url
@@ -374,6 +377,10 @@ static FilesDownloader *__shared;
 
 - (void)didDownloadPortion:(ASINetworkQueue *)queue
 {
+    // возвращаем засыпание в зад
+    if (self.portionsQueue.count == 0)
+        UIApplication.sharedApplication.idleTimerDisabled = NO;
+    
     if (self.wasError)
     {
         [self performSelectorOnMainThread:@selector(notifyObserversWithError)
