@@ -12,12 +12,16 @@
 
 @property(nonatomic, copy) BasicBlock submitAction;
 @property(nonatomic, copy) BasicBlock cancelAction;
+@property(copy, nonatomic) BlockAlertStringBlock submitStringAction;
 
 @end
 
 @implementation BlockAlertView
 
-- (id)initWithTitle:(NSString *)title message:(NSString *)message cancelButtonTitle:(NSString *)cancelButtonTitle submitButtonTitle:(NSString *)submitButtonTitle
+- (id)initWithTitle:(NSString *)title
+            message:(NSString *)message
+  cancelButtonTitle:(NSString *)cancelButtonTitle
+  submitButtonTitle:(NSString *)submitButtonTitle
 {
     self = [super initWithTitle:title message:message delegate:nil cancelButtonTitle:cancelButtonTitle otherButtonTitles:submitButtonTitle, nil];
     if (self)
@@ -27,7 +31,10 @@
     return self;
 }
 
-+ (void)showTitle:(NSString *)title text:(NSString *)text cancelButton:(NSString *)cancelButton action:(BasicBlock)action
++ (void)showTitle:(NSString *)title
+             text:(NSString *)text
+     cancelButton:(NSString *)cancelButton
+           action:(BasicBlock)action
 {
     BlockAlertView *b = [[BlockAlertView alloc] initWithTitle:title message:text cancelButtonTitle:cancelButton submitButtonTitle:nil];
     b.cancelAction = action;
@@ -35,23 +42,52 @@
 }
 
 
-+ (void)showTitle:(NSString *)title text:(NSString *)text cancelButton:(NSString *)cancelButton
++ (void)showTitle:(NSString *)title
+             text:(NSString *)text
+     cancelButton:(NSString *)cancelButton
 {
     [self showTitle:title text:text cancelButton:cancelButton action:nil];
 }
 
-+ (void)showTitle:(NSString *)title text:(NSString *)text cancelButton:(NSString *)cancelButton submitButton:(NSString *)submitButton action:(BasicBlock)action
++ (void)showTitle:(NSString *)title
+             text:(NSString *)text
+     cancelButton:(NSString *)cancelButton
+     submitButton:(NSString *)submitButton
+           action:(BasicBlock)action
 {
     BlockAlertView *b = [[BlockAlertView alloc] initWithTitle:title message:text cancelButtonTitle:cancelButton submitButtonTitle:submitButton];
     b.submitAction = action;
     [b show];
 }
 
-+ (void)showTitle:(NSString *)title text:(NSString *)text cancelButton:(NSString *)cancelButton submitButton:(NSString *)submitButton action:(BasicBlock)action cancelAction:(BasicBlock)cancelAction
++ (void)showTitle:(NSString *)title
+             text:(NSString *)text
+     cancelButton:(NSString *)cancelButton
+     submitButton:(NSString *)submitButton
+           action:(BasicBlock)action
+     cancelAction:(BasicBlock)cancelAction
 {
     BlockAlertView *b = [[BlockAlertView alloc] initWithTitle:title message:text cancelButtonTitle:cancelButton submitButtonTitle:submitButton];
     b.submitAction = action;
     b.cancelAction = cancelAction;
+    [b show];
+}
+
++ (void)showTitle:(NSString *)title
+             text:(NSString *)text
+     cancelButton:(NSString *)cancelButton
+     submitButton:(NSString *)submitButton
+      placeholder:(NSString *)placeholder
+           action:(BlockAlertStringBlock)action
+     cancelAction:(BasicBlock)cancelAction
+{
+ 
+    BlockAlertView *b = [[BlockAlertView alloc] initWithTitle:title message:text cancelButtonTitle:cancelButton submitButtonTitle:submitButton];
+    b.alertViewStyle = UIAlertViewStylePlainTextInput;
+    b.submitStringAction = action;
+    b.cancelAction = cancelAction;
+    UITextField *field = [b textFieldAtIndex:0];
+    field.placeholder = placeholder;
     [b show];
 }
 
@@ -63,6 +99,12 @@
 {
     if (buttonIndex > 0 && self.submitAction)
         self.submitAction();
+    
+    if (buttonIndex > 0 && self.submitStringAction)
+    {
+        UITextField *field = [alertView textFieldAtIndex:0];
+        self.submitStringAction(field.text);
+    }
     
     if (buttonIndex == 0 && self.cancelAction)
         self.cancelAction();
