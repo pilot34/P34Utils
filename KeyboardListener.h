@@ -18,7 +18,7 @@
 // Следит, видна клавиатура или нет. Надо создавать только когда клавиатуры нет.
 @interface KeyboardListener : NSObject
 
-@property(weak, nonatomic) id<KeyboardListenerDelegate> delegate;
+@property(unsafe_unretained, nonatomic) id<KeyboardListenerDelegate> delegate;
 @property(nonatomic, readonly) BOOL isKeyboardVisible;
 
 @end
