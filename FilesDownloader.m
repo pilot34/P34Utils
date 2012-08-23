@@ -166,6 +166,7 @@ static FilesDownloader *__shared;
         r.downloadProgressDelegate = self.queue;
         r.showAccurateProgress = YES;
         r.shouldContinueWhenAppEntersBackground = YES;
+        r.allowCompressedResponse = self.allowCompressedResponse;
         [result addObject:r];
     }
     return result;

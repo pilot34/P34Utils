@@ -45,4 +45,6 @@
 - (BOOL)createFolder:(NSString *)folder;
 - (NSString *)storeDataFolder;
 
+@property(nonatomic) BOOL allowCompressedResponse;
+
 @end
