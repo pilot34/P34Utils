@@ -24,7 +24,7 @@
 
 @interface FilesDownloader : NSObject
 
-+ (FilesDownloader *)shared;
++ (id)shared;
 
 - (void)addObserver:(id<FilesDownloaderDelegate>)observer;
 - (void)removeObserver:(__unsafe_unretained id)observer; // unsafe, чтобы не циклился dealloc в iOS4

@@ -26,6 +26,13 @@
     return [self objectAtIndex:index];
 }
 
+- (NSArray *)arrayByRemovingObject:(id)object
+{
+    NSMutableArray *copy = self.mutableCopy;
+    [copy removeObject:object];
+    return copy;
+}
+
 - (NSArray *)shuffled
 {
 	NSMutableArray *tmpArray = [NSMutableArray arrayWithCapacity:[self count]];

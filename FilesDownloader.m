@@ -43,7 +43,7 @@ static FilesDownloader *__shared;
 @synthesize downlodedSizeFromCurrentPortion = _downloadedSizeFromCurrentPortion;
 @synthesize cutDownloadedSize = _cutDownloadedSize;
 
-+ (FilesDownloader *)shared
++ (id)shared
 {
     if (!__shared)
     {
