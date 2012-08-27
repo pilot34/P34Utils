@@ -42,6 +42,7 @@ void doAfter(CGFloat delay, BasicBlock action);
 
 #import "StringUtils.h"
 
+#import "BlockButton.h"
 #import "BlockAlertView.h"
 #import "BlockTapGestureRecognizer.h"
 #import "BlockSwipeGestureRecognizer.h"
