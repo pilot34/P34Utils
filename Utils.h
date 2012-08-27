@@ -39,7 +39,7 @@ void doAfter(CGFloat delay, BasicBlock action);
 #import "NSMutableArray+Utils.h"
 #import "NSArray+Utils.h"
 #import "NSSet+Utils.h"
-
+#import "NSFileManager+Utils.h"
 #import "StringUtils.h"
 
 #import "BlockAlertView.h"
