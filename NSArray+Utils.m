@@ -56,6 +56,11 @@
     return array;
 }
 
+- (NSArray *)sortedArrayByKey:(NSString *)key
+{
+    NSSortDescriptor *s = [[NSSortDescriptor alloc] initWithKey:key ascending:YES];
+    return [self sortedArrayUsingDescriptors:[NSArray arrayWithObject:s]];
+}
 
 #pragma mark - LINQ
 

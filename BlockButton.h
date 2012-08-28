@@ -11,7 +11,9 @@
 @interface BlockButton : UIButton
 
 - (id)initWithAction:(BasicBlock)action;
+- (id)initWithButtonType:(UIButtonType)type action:(BasicBlock)action;
 
 @property(copy, nonatomic) BasicBlock action;
+@property(nonatomic) UIButtonType type;
 
 @end

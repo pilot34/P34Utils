@@ -18,6 +18,7 @@
         [self addTarget:self
                  action:@selector(tapped)
        forControlEvents:UIControlEventTouchUpInside];
+        self.type = UIButtonTypeCustom;
     }
     return self;
 }
@@ -37,9 +38,20 @@
     return self;
 }
 
+- (id)initWithButtonType:(UIButtonType)type action:(BasicBlock)action
+{
+    self = [self init];
+    if (self)
+    {
+        self.action = action;
+        self.type = type;
+    }
+    return self;
+}
+
 - (UIButtonType)buttonType
 {
-    return UIButtonTypeCustom;
+    return self.type;
 }
 
 - (void)tapped
