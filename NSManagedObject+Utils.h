@@ -11,5 +11,6 @@
 @interface NSManagedObject (Utils)
 
 - (void)revertChanges;
+- (BOOL)isNew;
 
 @end
