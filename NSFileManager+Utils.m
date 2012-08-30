@@ -15,13 +15,15 @@
 {
     const char* filePath = [[URL path] fileSystemRepresentation];
     const char* attrName = "com.apple.MobileBackup";
-    if (&NSURLIsExcludedFromBackupKey == nil) {
+    if (&NSURLIsExcludedFromBackupKey == nil)
+    {
         // iOS 5.0.1 and lower
         u_int8_t attrValue = 1;
         int result = setxattr(filePath, attrName, &attrValue, sizeof(attrValue), 0, 0);
         return result == 0;
     }
-    else {
+    else
+    {
         // First try and remove the extended attribute if it is present
         int result = getxattr(filePath, attrName, NULL, sizeof(u_int8_t), 0, 0);
         if (result != -1) {
@@ -58,13 +60,16 @@
                                              return YES;
                                          }];
     
-    for (NSURL *url in enumerator) {
+    for (NSURL *url in enumerator)
+    {
         NSError *error;
         NSNumber *isDirectory = nil;
-        if (! [url getResourceValue:&isDirectory forKey:NSURLIsDirectoryKey error:&error]) {
+        if (! [url getResourceValue:&isDirectory forKey:NSURLIsDirectoryKey error:&error])
+        {
             // handle error
         }
-        else if (! [isDirectory boolValue]) {
+        else if (! [isDirectory boolValue])
+        {
             action(url);
         }
     }
