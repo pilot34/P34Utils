@@ -13,5 +13,6 @@
 @interface NSDate (Utils)
 
 - (NSDate *)dateWithoutTime;
+- (NSDate *)firstDayOfMonth;
 
 @end
