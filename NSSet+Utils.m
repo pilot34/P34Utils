@@ -17,6 +17,12 @@
     return self.count > 0;
 }
 
+- (NSArray *)sortedArrayByKey:(NSString *)key
+{
+    NSSortDescriptor *s = [[NSSortDescriptor alloc] initWithKey:key ascending:YES];
+    return [self sortedArrayUsingDescriptors:[NSArray arrayWithObject:s]];
+}
+
 - (NSSet *)where:(PredicateBlock)predicate
 {
     NSMutableSet *result = [NSMutableSet set];

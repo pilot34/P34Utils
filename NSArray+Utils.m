@@ -26,6 +26,13 @@
     return self[index];
 }
 
+- (NSArray *)arrayByRemovingObject:(id)object
+{
+    NSMutableArray *copy = self.mutableCopy;
+    [copy removeObject:object];
+    return copy;
+}
+
 - (NSArray *)shuffled
 {
 	NSMutableArray *tmpArray = [NSMutableArray arrayWithCapacity:[self count]];
@@ -49,6 +56,11 @@
     return array;
 }
 
+- (NSArray *)sortedArrayByKey:(NSString *)key
+{
+    NSSortDescriptor *s = [[NSSortDescriptor alloc] initWithKey:key ascending:YES];
+    return [self sortedArrayUsingDescriptors:[NSArray arrayWithObject:s]];
+}
 
 #pragma mark - LINQ
 

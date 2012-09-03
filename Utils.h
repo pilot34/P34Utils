@@ -40,9 +40,10 @@ void doAfter(CGFloat delay, BasicBlock action);
 #import "NSArray+Utils.h"
 #import "NSSet+Utils.h"
 #import "NSManagedObject+Utils.h"
-
+#import "NSFileManager+Utils.h"
 #import "StringUtils.h"
 
+#import "BlockButton.h"
 #import "BlockAlertView.h"
 #import "BlockTapGestureRecognizer.h"
 #import "BlockSwipeGestureRecognizer.h"
