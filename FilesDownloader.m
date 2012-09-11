@@ -71,10 +71,9 @@ static FilesDownloader *__shared;
     
     if(![fileManager fileExistsAtPath:folder])
     {
-        NSDictionary *attrs = @{@"com.apple.MobileBackup": @1};
         if(![fileManager createDirectoryAtPath:folder 
                    withIntermediateDirectories:YES
-                                    attributes:attrs 
+                                    attributes:nil
                                          error:NULL])
         {
             NSLog(@"Error: Create folder failed %@", folder);
