@@ -7,6 +7,7 @@
 //
 
 typedef void(^BasicBlock)(void);
+typedef void(^StringBlock)(NSString *str);
 typedef void(^ErrorBlock)(NSError *error);
 
 void doAfter(CGFloat delay, BasicBlock action);
