@@ -22,4 +22,17 @@
 						   alpha:1.0f];
 }
 
+- (NSUInteger)RGBHex
+{
+    CGFloat red, green, blue, alpha;
+    [self getRed:&red green:&green blue:&blue alpha:&alpha];
+    NSInteger ired, igreen, iblue;
+    ired = roundf(red * 255);
+    igreen = roundf(green * 255);
+    iblue = roundf(blue * 255);
+    NSUInteger result = (ired << 16) | (igreen << 8) | iblue;
+    NSLog(@"hex %X", result);
+    return result;
+}
+
 @end

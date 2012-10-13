@@ -18,11 +18,6 @@
 
 @implementation VideoPlayingResolver
 
-@synthesize isPlaying = _isPlaying;
-@synthesize delegate = _delegate;
-@synthesize wasRotation = _wasRotation;
-@synthesize listenOrientationOnInit = _listenOrientationOnInit;
-
 - (void)subscribeToNotifications
 {
     [[NSNotificationCenter defaultCenter] addObserver:self 

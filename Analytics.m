@@ -20,7 +20,7 @@
     
     [[GANTracker sharedTracker] setCustomVariableAtIndex:1
                                                     name:@"app_version"
-                                                   value:[NSBundle.mainBundle.infoDictionary objectForKey:@"CFBundleVersion"]
+                                                   value:(NSBundle.mainBundle.infoDictionary)[@"CFBundleVersion"]
                                                    scope:kGANVisitorScope
                                                withError:nil];
     

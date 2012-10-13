@@ -16,8 +16,6 @@
 
 @implementation BlockTapGestureRecognizer
 
-@synthesize action = _action;
-
 - (id)initWithAction:(BasicBlock)action
 {
     self = [super initWithTarget:self action:@selector(tapped:)];

@@ -8,14 +8,42 @@
 
 #import <UIKit/UIKit.h>
 
+typedef void(^BlockAlertStringBlock)(NSString *textValue);
+
 @interface BlockAlertView : UIAlertView
 
-+ (void)showTitle:(NSString *)title text:(NSString *)text cancelButton:(NSString *)cancelButton;
++ (void)showTitle:(NSString *)title
+             text:(NSString *)text
+     cancelButton:(NSString *)cancelButton
+           action:(BasicBlock)action;
 
-+ (void)showTitle:(NSString *)title text:(NSString *)text cancelButton:(NSString *)cancelButton submitButton:(NSString *)submitButton action:(BasicBlock)action;
 
-+ (void)showTitle:(NSString *)title text:(NSString *)text cancelButton:(NSString *)cancelButton action:(BasicBlock)action;
++ (void)showTitle:(NSString *)title
+             text:(NSString *)text
+     cancelButton:(NSString *)cancelButton;
 
-+ (void)showTitle:(NSString *)title text:(NSString *)text cancelButton:(NSString *)cancelButton submitButton:(NSString *)submitButton action:(BasicBlock)action cancelAction:(BasicBlock)cancelAction;
+
++ (void)showTitle:(NSString *)title
+             text:(NSString *)text
+     cancelButton:(NSString *)cancelButton
+     submitButton:(NSString *)submitButton
+           action:(BasicBlock)action;
+
+
++ (void)showTitle:(NSString *)title
+             text:(NSString *)text
+     cancelButton:(NSString *)cancelButton
+     submitButton:(NSString *)submitButton
+           action:(BasicBlock)action
+     cancelAction:(BasicBlock)cancelAction;
+
+
++ (void)showTitle:(NSString *)title
+             text:(NSString *)text
+     cancelButton:(NSString *)cancelButton
+     submitButton:(NSString *)submitButton
+      placeholder:(NSString *)placeholder
+           action:(BlockAlertStringBlock)action
+     cancelAction:(BasicBlock)cancelAction;
 
 @end

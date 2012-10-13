@@ -40,10 +40,10 @@ static NSDictionary *__translitDictionary;
         return nil;
     
     if (string.length == 0)
-        return [NSArray array];
+        return @[];
     
     if (string.length == 1)
-        return [NSArray arrayWithObject:[string lowercaseString]];
+        return @[[string lowercaseString]];
     
     NSMutableArray *result = [NSMutableArray array];
     NSInteger lastCapital = 0;
@@ -162,79 +162,77 @@ static NSDictionary *__translitDictionary;
 {
     if (!__translitDictionary)
     {
-        __translitDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
-                                @"A", @"А",
-                                @"B", @"Б",
-                                @"V", @"В",
-                                @"G", @"Г",
-                                @"D", @"Д",
-                                @"E", @"Е",
-                                @"Yo", @"Ё",
-                                @"Zh", @"Ж",
-                                @"Z", @"З",
-                                @"I", @"И",
-                                @"J", @"Й",
-                                @"K", @"К",
-                                @"L", @"Л",
-                                @"M", @"М",
-                                @"N", @"Н",
-                                @"O", @"О",
-                                @"P", @"П",
-                                @"R", @"Р",
-                                @"S", @"С",
-                                @"T", @"Т",
-                                @"U", @"У",
-                                @"F", @"Ф",
-                                @"H", @"Х",
-                                @"C", @"Ц",
-                                @"Ch", @"Ч",
-                                @"Sh", @"Ш",
-                                @"Sch", @"Щ",
-                                @"'", @"Ь",
-                                @"\"", @"Ъ",
-                                @"E", @"Э",
-                                @"Yu", @"Ю",
-                                @"Ya", @"Я",
-                                @"a", @"а",
-                                @"b", @"б",
-                                @"v", @"в",
-                                @"g", @"г",
-                                @"d", @"д",
-                                @"e", @"е",
-                                @"yo", @"ё",
-                                @"zh", @"ж",
-                                @"z", @"з",
-                                @"i", @"и",
-                                @"j", @"й",
-                                @"k", @"к",
-                                @"l", @"л",
-                                @"m", @"м",
-                                @"n", @"н",
-                                @"o", @"о",
-                                @"p", @"п",
-                                @"r", @"р",
-                                @"s", @"с",
-                                @"t", @"т",
-                                @"u", @"у",
-                                @"f", @"ф",
-                                @"h", @"х",
-                                @"c", @"ц",
-                                @"ch", @"ч",
-                                @"sh", @"ш",
-                                @"sch", @"щ",
-                                @"'", @"ь",
-                                @"\"", @"ъ",
-                                @"e", @"э",
-                                @"yu", @"ю",
-                                @"ya", @"я",
-                                nil];
+        __translitDictionary = @{@"А": @"A",
+                                @"Б": @"B",
+                                @"В": @"V",
+                                @"Г": @"G",
+                                @"Д": @"D",
+                                @"Е": @"E",
+                                @"Ё": @"Yo",
+                                @"Ж": @"Zh",
+                                @"З": @"Z",
+                                @"И": @"I",
+                                @"Й": @"J",
+                                @"К": @"K",
+                                @"Л": @"L",
+                                @"М": @"M",
+                                @"Н": @"N",
+                                @"О": @"O",
+                                @"П": @"P",
+                                @"Р": @"R",
+                                @"С": @"S",
+                                @"Т": @"T",
+                                @"У": @"U",
+                                @"Ф": @"F",
+                                @"Х": @"H",
+                                @"Ц": @"C",
+                                @"Ч": @"Ch",
+                                @"Ш": @"Sh",
+                                @"Щ": @"Sch",
+                                @"Ь": @"'",
+                                @"Ъ": @"\"",
+                                @"Э": @"E",
+                                @"Ю": @"Yu",
+                                @"Я": @"Ya",
+                                @"а": @"a",
+                                @"б": @"b",
+                                @"в": @"v",
+                                @"г": @"g",
+                                @"д": @"d",
+                                @"е": @"e",
+                                @"ё": @"yo",
+                                @"ж": @"zh",
+                                @"з": @"z",
+                                @"и": @"i",
+                                @"й": @"j",
+                                @"к": @"k",
+                                @"л": @"l",
+                                @"м": @"m",
+                                @"н": @"n",
+                                @"о": @"o",
+                                @"п": @"p",
+                                @"р": @"r",
+                                @"с": @"s",
+                                @"т": @"t",
+                                @"у": @"u",
+                                @"ф": @"f",
+                                @"х": @"h",
+                                @"ц": @"c",
+                                @"ч": @"ch",
+                                @"ш": @"sh",
+                                @"щ": @"sch",
+                                @"ь": @"'",
+                                @"ъ": @"\"",
+                                @"э": @"e",
+                                @"ю": @"yu",
+                                @"я": @"ya"};
                                 
     }
     
     NSMutableString *result = str.mutableCopy;
     for (NSString *key in __translitDictionary) 
     {
-        NSString *value = [__translitDictionary objectForKey:key];
+        NSString *value = __translitDictionary[key];
         [result replaceOccurrencesOfString:key withString:value options:0 range:NSMakeRange(0, result.length)];
     }
     return result;

@@ -33,16 +33,6 @@ static FilesDownloader *__shared;
 
 @implementation FilesDownloader
 
-@synthesize portionsQueue = _portionsQueue;
-@synthesize observers = _observers;
-@synthesize queue = _queue;
-@synthesize currentPortion = _currentPortion;
-@synthesize startDownloadingPortionDate = _startDownloadingPortionDate;
-@synthesize currentRequests = _currentRequests;
-@synthesize wasError = _wasError;
-@synthesize downlodedSizeFromCurrentPortion = _downloadedSizeFromCurrentPortion;
-@synthesize cutDownloadedSize = _cutDownloadedSize;
-
 + (id)shared
 {
     if (!__shared)
@@ -227,7 +217,7 @@ static FilesDownloader *__shared;
         {
             NIDINFO(@"added to queue %@", portion.title);
             // иначе сохраняем на потом
-            self.portionsQueue = self.portionsQueue ? [self.portionsQueue arrayByAddingObject:portion] : [NSArray arrayWithObject:portion];
+            self.portionsQueue = self.portionsQueue ? [self.portionsQueue arrayByAddingObject:portion] : @[portion];
         }
     }
 }
@@ -415,7 +405,7 @@ static FilesDownloader *__shared;
 
 - (void)didStartRequest:(ASIHTTPRequest *)request
 {
-    NSArray *requests = self.currentRequests ? self.currentRequests : [NSArray array];
+    NSArray *requests = self.currentRequests ? self.currentRequests : @[];
     self.currentRequests = [requests arrayByAddingObject:request];
 }
 

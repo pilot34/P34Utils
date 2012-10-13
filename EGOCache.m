@@ -40,7 +40,7 @@ static id __instance;
 														error:NULL];
         
 		for(NSString* key in cacheDictionary) {
-			NSDate* date = [cacheDictionary objectForKey:key];
+			NSDate* date = cacheDictionary[key];
 			if([[[NSDate date] earlierDate:date] isEqualToDate:date]) {
 				[[NSFileManager defaultManager] removeItemAtPath:cachePathForKey(key) error:NULL];
 			}
@@ -51,7 +51,7 @@ static id __instance;
 }
 
 - (BOOL)hasCacheForKey:(NSString*)key {
-	NSDate* date = [cacheDictionary objectForKey:key];
+	NSDate* date = cacheDictionary[key];
 	if(!date) return NO;
 	if([[[NSDate date] earlierDate:date] isEqualToDate:date]) return NO;
     NSString *filePath = cachePathForKey(key);
@@ -62,12 +62,12 @@ static id __instance;
 #pragma mark Data methods
 
 - (void)setData:(NSData*)data forKey:(NSString*)key {
-	[self setData:data forKey:key withTimeoutInterval:60 * 60 * 24];
+	[self setData:data forKey:key withTimeoutInterval:TIME_INTERVAL_FOR_ONE_DAY];
 }
 
 - (void)setData:(NSData*)data forKey:(NSString*)key withTimeoutInterval:(NSTimeInterval)timeoutInterval {
 	[data writeToFile:cachePathForKey(key) atomically:YES];
-	[cacheDictionary setObject:[NSDate dateWithTimeIntervalSinceNow:timeoutInterval] forKey:key];
+	cacheDictionary[key] = [NSDate dateWithTimeIntervalSinceNow:timeoutInterval];
 	[[NSUserDefaults standardUserDefaults] setObject:cacheDictionary forKey:@"EGOCache"];
 	[[NSUserDefaults standardUserDefaults] synchronize];
 }
@@ -88,7 +88,7 @@ static id __instance;
 }
 
 - (void)setString:(NSString*)aString forKey:(NSString*)key {
-	[self setString:aString forKey:key withTimeoutInterval:60 * 60 * 24];
+	[self setString:aString forKey:key withTimeoutInterval:TIME_INTERVAL_FOR_ONE_DAY];
 }
 
 - (void)setString:(NSString*)aString forKey:(NSString*)key withTimeoutInterval:(NSTimeInterval)timeoutInterval {
@@ -105,7 +105,7 @@ static id __instance;
 }
 
 - (void)setImage:(UIImage*)anImage forKey:(NSString*)key {
-	[self setImage:anImage forKey:key withTimeoutInterval:60 * 60 * 24];
+	[self setImage:anImage forKey:key withTimeoutInterval:TIME_INTERVAL_FOR_ONE_DAY];
 }
 
 - (void)setImage:(UIImage*)anImage forKey:(NSString*)key withTimeoutInterval:(NSTimeInterval)timeoutInterval {
@@ -120,7 +120,7 @@ static id __instance;
 }
 
 - (void)setImage:(NSImage*)anImage forKey:(NSString*)key {
-	[self setImage:anImage forKey:key withTimeoutInterval:60 * 60 * 24];
+	[self setImage:anImage forKey:key withTimeoutInterval:TIME_INTERVAL_FOR_ONE_DAY];
 }
 
 - (void)setImage:(NSImage*)anImage forKey:(NSString*)key withTimeoutInterval:(NSTimeInterval)timeoutInterval {

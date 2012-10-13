@@ -7,6 +7,7 @@
 //
 
 typedef void(^BasicBlock)(void);
+typedef void(^StringBlock)(NSString *str);
 typedef void(^ErrorBlock)(NSError *error);
 
 void doAfter(CGFloat delay, BasicBlock action);
@@ -39,6 +40,7 @@ void doAfter(CGFloat delay, BasicBlock action);
 #import "NSMutableArray+Utils.h"
 #import "NSArray+Utils.h"
 #import "NSSet+Utils.h"
+#import "NSManagedObject+Utils.h"
 #import "NSFileManager+Utils.h"
 #import "StringUtils.h"
 

@@ -19,4 +19,13 @@
     return [[NSCalendar currentCalendar] dateFromComponents:comps];
 }
 
+- (NSDate *)firstDayOfMonth
+{
+    NSDateComponents* comps = [[NSCalendar currentCalendar] components:(NSYearCalendarUnit
+                                                                        |NSMonthCalendarUnit)
+                                                              fromDate:self];
+    comps.day = 1;
+    return [[NSCalendar currentCalendar] dateFromComponents:comps];
+}
+
 @end

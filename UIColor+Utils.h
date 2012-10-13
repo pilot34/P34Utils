@@ -11,5 +11,6 @@
 @interface UIColor (Utils)
 
 + (UIColor *)colorWithRGBHex:(UInt32)hex;
+- (NSUInteger)RGBHex;
 
 @end

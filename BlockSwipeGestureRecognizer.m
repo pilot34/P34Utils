@@ -16,8 +16,6 @@
 
 @implementation BlockSwipeGestureRecognizer
 
-@synthesize action = _action;
-
 - (id)initWithAction:(BasicBlock)action
 {
     self = [super initWithTarget:self action:@selector(swiped:)];
