@@ -20,7 +20,7 @@
 - (NSArray *)sortedArrayByKey:(NSString *)key
 {
     NSSortDescriptor *s = [[NSSortDescriptor alloc] initWithKey:key ascending:YES];
-    return [self sortedArrayUsingDescriptors:[NSArray arrayWithObject:s]];
+    return [self sortedArrayUsingDescriptors:@[s]];
 }
 
 - (NSSet *)where:(PredicateBlock)predicate

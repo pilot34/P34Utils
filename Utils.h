@@ -12,6 +12,8 @@ typedef void(^ErrorBlock)(NSError *error);
 
 void doAfter(CGFloat delay, BasicBlock action);
 
+#define APP_VERSION (NSBundle.mainBundle.infoDictionary)[@"CFBundleVersion"]
+
 #ifdef UTILS_IMPORT_NIMBUS
 
 #import "NimbusCore.h"

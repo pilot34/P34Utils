@@ -36,7 +36,7 @@
         
         // Set the new key
         NSError *error = nil;
-        [URL setResourceValue:[NSNumber numberWithBool:YES] forKey:NSURLIsExcludedFromBackupKey error:&error];
+        [URL setResourceValue:@YES forKey:NSURLIsExcludedFromBackupKey error:&error];
         return error == nil;
     }
 }
@@ -48,7 +48,7 @@
     if (!directoryURL)
         return;
     
-    NSArray *keys = [NSArray arrayWithObject:NSURLIsDirectoryKey];
+    NSArray *keys = @[NSURLIsDirectoryKey];
     
     NSDirectoryEnumerator *enumerator = [self
                                          enumeratorAtURL:directoryURL
