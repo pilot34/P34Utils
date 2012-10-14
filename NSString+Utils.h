@@ -14,6 +14,7 @@
 - (BOOL)startsWith:(NSString *)string;
 - (BOOL)endsWith:(NSString *)string;
 - (NSString *)stringByTrimming;
+- (NSString *)stringBySimpleStrippingTags;
 - (NSRange)fullRange;
 
 @end
