@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.homepage     = 'https://github.com/pilot34/Utils'
   s.license      = 'MIT'
   s.author       = { 'pilot34' => 'gleb34@gmail.com' }
-  s.source       = { :git => 'https://github.com/pilot34/Utils.git', :tag => '0.0.1' }
+  s.source       = { :git => 'https://github.com/pilot34/Utils.git', :branch => 'pods' }
   s.platform     = :ios, '5.0'
   s.source_files = './*.{h,m}','./Libs/**/*.{h,m}'
   s.resources = ''
@@ -16,5 +16,5 @@ Pod::Spec.new do |s|
   s.dependency 'Reachability'
   s.dependency 'ASIHTTPRequest'
   s.dependency 'GoogleAnalytics-iOS-SDK'
-  s.prefix_header_contents = '#import "Utils.h"'
+  s.prefix_header_contents = '#import "P34Utils.h"'
 end
