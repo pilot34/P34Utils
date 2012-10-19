@@ -8,7 +8,8 @@
 
 #import "Analytics.h"
 #import "GANTracker.h"
-#import "UIDevice-Hardware.h"
+#import "UIDevice+IdentifierAddition.h"
+#import "Utils.h"
 
 @implementation Analytics
 
@@ -31,8 +32,8 @@
                                                withError:nil];
     
     [[GANTracker sharedTracker] setCustomVariableAtIndex:3
-                                                    name:@"platform"
-                                                   value:UIDevice.currentDevice.platformString
+                                                    name:@"identifier"
+                                                   value:UIDevice.currentDevice.uniqueDeviceIdentifier
                                                    scope:kGANVisitorScope
                                                withError:nil];
 }

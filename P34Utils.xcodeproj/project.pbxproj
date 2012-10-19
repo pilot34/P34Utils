@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		85CCB3855ED7464FA01998BB /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 89DA61B2468C46538BD0BADE /* libPods.a */; };
 		F729204816314F550045EB76 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F729204716314F550045EB76 /* Foundation.framework */; };
 		F72920B616314FAC0045EB76 /* AlignedLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = F729205B16314FAC0045EB76 /* AlignedLabel.m */; };
 		F72920B716314FAC0045EB76 /* Analytics.m in Sources */ = {isa = PBXBuildFile; fileRef = F729205D16314FAC0045EB76 /* Analytics.m */; };
@@ -54,7 +55,6 @@
 		F72920E116314FAC0045EB76 /* UIWebView+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = F72920B116314FAC0045EB76 /* UIWebView+Utils.m */; };
 		F72920E216314FAC0045EB76 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = F72920B316314FAC0045EB76 /* Utils.m */; };
 		F72920E316314FAC0045EB76 /* VideoPlayingResolver.m in Sources */ = {isa = PBXBuildFile; fileRef = F72920B516314FAC0045EB76 /* VideoPlayingResolver.m */; };
-		F72920E816314FD80045EB76 /* libGoogleAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F72920E716314FD80045EB76 /* libGoogleAnalytics.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -70,9 +70,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		89DA61B2468C46538BD0BADE /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		D6FFB8F9F29F4A2AB8736F93 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		F729204416314F550045EB76 /* libP34Utils.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libP34Utils.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		F729204716314F550045EB76 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		F729204B16314F550045EB76 /* P34Utils-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "P34Utils-Prefix.pch"; sourceTree = "<group>"; };
+		F729204716314F550045EB76 /* Foundation.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F729205A16314FAC0045EB76 /* AlignedLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlignedLabel.h; sourceTree = SOURCE_ROOT; };
 		F729205B16314FAC0045EB76 /* AlignedLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlignedLabel.m; sourceTree = SOURCE_ROOT; };
 		F729205C16314FAC0045EB76 /* Analytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Analytics.h; sourceTree = SOURCE_ROOT; };
@@ -165,8 +166,7 @@
 		F72920B316314FAC0045EB76 /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = SOURCE_ROOT; };
 		F72920B416314FAC0045EB76 /* VideoPlayingResolver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoPlayingResolver.h; sourceTree = SOURCE_ROOT; };
 		F72920B516314FAC0045EB76 /* VideoPlayingResolver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoPlayingResolver.m; sourceTree = SOURCE_ROOT; };
-		F72920E616314FD80045EB76 /* GANTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GANTracker.h; sourceTree = "<group>"; };
-		F72920E716314FD80045EB76 /* libGoogleAnalytics.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAnalytics.a; sourceTree = "<group>"; };
+		F72920F1163153FA0045EB76 /* P34Utils-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "P34Utils-Prefix.pch"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,7 +175,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F729204816314F550045EB76 /* Foundation.framework in Frameworks */,
-				F72920E816314FD80045EB76 /* libGoogleAnalytics.a in Frameworks */,
+				85CCB3855ED7464FA01998BB /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -188,6 +188,7 @@
 				F729204916314F550045EB76 /* P34Utils */,
 				F729204616314F550045EB76 /* Frameworks */,
 				F729204516314F550045EB76 /* Products */,
+				D6FFB8F9F29F4A2AB8736F93 /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -203,6 +204,7 @@
 			isa = PBXGroup;
 			children = (
 				F729204716314F550045EB76 /* Foundation.framework */,
+				89DA61B2468C46538BD0BADE /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -210,7 +212,6 @@
 		F729204916314F550045EB76 /* P34Utils */ = {
 			isa = PBXGroup;
 			children = (
-				F72920E416314FD00045EB76 /* Libs */,
 				F729205816314FA50045EB76 /* Utils */,
 				F729204A16314F550045EB76 /* Supporting Files */,
 			);
@@ -220,7 +221,7 @@
 		F729204A16314F550045EB76 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				F729204B16314F550045EB76 /* P34Utils-Prefix.pch */,
+				F72920F1163153FA0045EB76 /* P34Utils-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -324,24 +325,6 @@
 			name = Utils;
 			sourceTree = "<group>";
 		};
-		F72920E416314FD00045EB76 /* Libs */ = {
-			isa = PBXGroup;
-			children = (
-				F72920E516314FD80045EB76 /* GoogleAnalytics */,
-			);
-			name = Libs;
-			sourceTree = "<group>";
-		};
-		F72920E516314FD80045EB76 /* GoogleAnalytics */ = {
-			isa = PBXGroup;
-			children = (
-				F72920E616314FD80045EB76 /* GANTracker.h */,
-				F72920E716314FD80045EB76 /* libGoogleAnalytics.a */,
-			);
-			name = GoogleAnalytics;
-			path = Libs/GoogleAnalytics;
-			sourceTree = SOURCE_ROOT;
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -352,6 +335,7 @@
 				F729204016314F550045EB76 /* Sources */,
 				F729204116314F550045EB76 /* Frameworks */,
 				F729204216314F550045EB76 /* CopyFiles */,
+				41485C19803745A0881E6488 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -387,6 +371,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		41485C19803745A0881E6488 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F729204016314F550045EB76 /* Sources */ = {
@@ -493,10 +494,11 @@
 		};
 		F729205316314F550045EB76 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D6FFB8F9F29F4A2AB8736F93 /* Pods.xcconfig */;
 			buildSettings = {
 				DSTROOT = /tmp/P34Utils.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "P34Utils/P34Utils-Prefix.pch";
+				GCC_PREFIX_HEADER = "P34Utils-Prefix.pch";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Libs/GoogleAnalytics\"",
@@ -509,10 +511,11 @@
 		};
 		F729205416314F550045EB76 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D6FFB8F9F29F4A2AB8736F93 /* Pods.xcconfig */;
 			buildSettings = {
 				DSTROOT = /tmp/P34Utils.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "P34Utils/P34Utils-Prefix.pch";
+				GCC_PREFIX_HEADER = "P34Utils-Prefix.pch";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Libs/GoogleAnalytics\"",

@@ -1,0 +1,5 @@
+platform :ios, '5.0'
+pod 'Nimbus'
+pod 'UIDeviceAddition'
+pod 'GoogleAnalytics-iOS-SDK'
+pod 'ASIHTTPRequest'

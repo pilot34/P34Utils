@@ -1,0 +1,94 @@
+
+PODS:
+- ASIHTTPRequest (1.8.1):
+  - ASIHTTPRequest/ASIWebPageRequest (= 1.8.1)
+  - ASIHTTPRequest/CloudFiles (= 1.8.1)
+  - ASIHTTPRequest/S3 (= 1.8.1)
+  - Reachability
+- ASIHTTPRequest/ASIWebPageRequest (1.8.1):
+  - Reachability
+- ASIHTTPRequest/CloudFiles (1.8.1):
+  - Reachability
+- ASIHTTPRequest/S3 (1.8.1):
+  - Reachability
+- GoogleAnalytics-iOS-SDK (1.5.1)
+- JSONKit (1.5pre)
+- Nimbus (0.9.3):
+  - Nimbus/AttributedLabel (= 0.9.3)
+  - Nimbus/CSS (= 0.9.3)
+  - Nimbus/Core (= 0.9.3)
+  - Nimbus/Interapp (= 0.9.3)
+  - Nimbus/Launcher (= 0.9.3)
+  - Nimbus/Models (= 0.9.3)
+  - Nimbus/NetworkControllers (= 0.9.3)
+  - Nimbus/NetworkImage (= 0.9.3)
+  - Nimbus/Operations (= 0.9.3)
+  - Nimbus/Overview (= 0.9.3)
+  - Nimbus/PagingScrollView (= 0.9.3)
+  - Nimbus/Photos (= 0.9.3)
+  - Nimbus/WebController (= 0.9.3)
+- Nimbus/AttributedLabel (0.9.3):
+  - Nimbus/Core
+- Nimbus/CSS (0.9.3):
+  - Nimbus/Core
+- Nimbus/Core (0.9.3)
+- Nimbus/Interapp (0.9.3):
+  - Nimbus/Core
+- Nimbus/Launcher (0.9.3):
+  - Nimbus/Core
+- Nimbus/Models (0.9.3):
+  - Nimbus/Core
+- Nimbus/NetworkControllers (0.9.3):
+  - Nimbus/Core
+- Nimbus/NetworkImage (0.9.3):
+  - Nimbus/Core
+- Nimbus/Operations (0.9.3):
+  - Nimbus/Core
+  - Nimbus/Operations/JSON (= 0.9.3)
+- Nimbus/Operations/JSON (0.9.3):
+  - JSONKit
+  - Nimbus/Core
+- Nimbus/Overview (0.9.3):
+  - Nimbus/Core
+- Nimbus/PagingScrollView (0.9.3):
+  - Nimbus/Core
+- Nimbus/Photos (0.9.3):
+  - Nimbus/Core
+  - Nimbus/PagingScrollView
+- Nimbus/WebController (0.9.3):
+  - Nimbus/Core
+- Reachability (3.0.0)
+- UIDeviceAddition (1.0)
+
+DEPENDENCIES:
+- ASIHTTPRequest
+- GoogleAnalytics-iOS-SDK
+- Nimbus
+- UIDeviceAddition
+
+SPEC CHECKSUMS:
+  ASIHTTPRequest: e606d2df58b0aace6c1cf1d39a08d3484f91324a
+  ASIHTTPRequest/ASIWebPageRequest: e606d2df58b0aace6c1cf1d39a08d3484f91324a
+  ASIHTTPRequest/CloudFiles: e606d2df58b0aace6c1cf1d39a08d3484f91324a
+  ASIHTTPRequest/S3: e606d2df58b0aace6c1cf1d39a08d3484f91324a
+  GoogleAnalytics-iOS-SDK: 6ab69448894a4ef324ae18db4fd0447ffddea7fd
+  JSONKit: a01a22c75f27eae76b4badd55a91c20fe6e86477
+  Nimbus: 6a35688977607cda01be9027699a9e64bd08fb99
+  Nimbus/AttributedLabel: 6a35688977607cda01be9027699a9e64bd08fb99
+  Nimbus/CSS: 6a35688977607cda01be9027699a9e64bd08fb99
+  Nimbus/Core: 6a35688977607cda01be9027699a9e64bd08fb99
+  Nimbus/Interapp: 6a35688977607cda01be9027699a9e64bd08fb99
+  Nimbus/Launcher: 6a35688977607cda01be9027699a9e64bd08fb99
+  Nimbus/Models: 6a35688977607cda01be9027699a9e64bd08fb99
+  Nimbus/NetworkControllers: 6a35688977607cda01be9027699a9e64bd08fb99
+  Nimbus/NetworkImage: 6a35688977607cda01be9027699a9e64bd08fb99
+  Nimbus/Operations: 6a35688977607cda01be9027699a9e64bd08fb99
+  Nimbus/Operations/JSON: 6a35688977607cda01be9027699a9e64bd08fb99
+  Nimbus/Overview: 6a35688977607cda01be9027699a9e64bd08fb99
+  Nimbus/PagingScrollView: 6a35688977607cda01be9027699a9e64bd08fb99
+  Nimbus/Photos: 6a35688977607cda01be9027699a9e64bd08fb99
+  Nimbus/WebController: 6a35688977607cda01be9027699a9e64bd08fb99
+  Reachability: 500bd76bf6cd8ff2c6fb715fc5f44ef6e4c024f2
+  UIDeviceAddition: aace2f602768bb2bece8b9a929b9fe5867f91c3f
+
+COCOAPODS: 0.15.1
