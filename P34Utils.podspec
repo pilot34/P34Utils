@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name         = 'P34Utils'
   s.version      = '0.0.1'
-  s.summary      = 'Some useful utils classes'
+  s.summary      = 'Some useful utils classes.'
   s.homepage     = 'https://github.com/pilot34/Utils'
   s.license      = 'MIT'
   s.author       = { 'pilot34' => 'gleb34@gmail.com' }
@@ -13,4 +13,6 @@ Pod::Spec.new do |s|
   s.library   = 'Libs/GoogleAnalytics/libGoogleAnalytics.a'
   s.dependency 'Nimbus'
   s.dependency 'UIDeviceAddition'
+  s.dependency 'Reachability'
+  s.prefix_header_contents = '#import "Utils.h"'
 end
