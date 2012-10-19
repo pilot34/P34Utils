@@ -10,7 +10,6 @@ Pod::Spec.new do |s|
   s.source_files = './**/*.{h,m}'
   s.resources = ''
   s.requires_arc = true
-  s.library   = 'Libs/GoogleAnalytics/libGoogleAnalytics.a'
   s.dependency 'Nimbus'
   s.dependency 'UIDeviceAddition'
   s.dependency 'Reachability'
