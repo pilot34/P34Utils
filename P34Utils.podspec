@@ -14,5 +14,7 @@ Pod::Spec.new do |s|
   s.dependency 'Nimbus'
   s.dependency 'UIDeviceAddition'
   s.dependency 'Reachability'
+  s.dependency 'ASIHTTPRequest'
+  s.dependency 'GoogleAnalytics-iOS-SDK'
   s.prefix_header_contents = '#import "Utils.h"'
 end

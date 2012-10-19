@@ -40,7 +40,6 @@
 		F72920D216314FAC0045EB76 /* TransparentTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = F729209316314FAC0045EB76 /* TransparentTableView.m */; };
 		F72920D316314FAC0045EB76 /* UIApplication+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = F729209516314FAC0045EB76 /* UIApplication+Utils.m */; };
 		F72920D416314FAC0045EB76 /* UIColor+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = F729209716314FAC0045EB76 /* UIColor+Utils.m */; };
-		F72920D516314FAC0045EB76 /* UIDevice+IdentifierAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = F729209916314FAC0045EB76 /* UIDevice+IdentifierAddition.m */; };
 		F72920D616314FAC0045EB76 /* UIImage+Alpha.m in Sources */ = {isa = PBXBuildFile; fileRef = F729209B16314FAC0045EB76 /* UIImage+Alpha.m */; };
 		F72920D716314FAC0045EB76 /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = F729209D16314FAC0045EB76 /* UIImage+Resize.m */; };
 		F72920D816314FAC0045EB76 /* UIImage+RoundedCorner.m in Sources */ = {isa = PBXBuildFile; fileRef = F729209F16314FAC0045EB76 /* UIImage+RoundedCorner.m */; };
@@ -136,8 +135,6 @@
 		F729209516314FAC0045EB76 /* UIApplication+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+Utils.m"; sourceTree = SOURCE_ROOT; };
 		F729209616314FAC0045EB76 /* UIColor+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Utils.h"; sourceTree = SOURCE_ROOT; };
 		F729209716314FAC0045EB76 /* UIColor+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Utils.m"; sourceTree = SOURCE_ROOT; };
-		F729209816314FAC0045EB76 /* UIDevice+IdentifierAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+IdentifierAddition.h"; sourceTree = SOURCE_ROOT; };
-		F729209916314FAC0045EB76 /* UIDevice+IdentifierAddition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+IdentifierAddition.m"; sourceTree = SOURCE_ROOT; };
 		F729209A16314FAC0045EB76 /* UIImage+Alpha.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Alpha.h"; sourceTree = SOURCE_ROOT; };
 		F729209B16314FAC0045EB76 /* UIImage+Alpha.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Alpha.m"; sourceTree = SOURCE_ROOT; };
 		F729209C16314FAC0045EB76 /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Resize.h"; sourceTree = SOURCE_ROOT; };
@@ -291,8 +288,6 @@
 				F729209516314FAC0045EB76 /* UIApplication+Utils.m */,
 				F729209616314FAC0045EB76 /* UIColor+Utils.h */,
 				F729209716314FAC0045EB76 /* UIColor+Utils.m */,
-				F729209816314FAC0045EB76 /* UIDevice+IdentifierAddition.h */,
-				F729209916314FAC0045EB76 /* UIDevice+IdentifierAddition.m */,
 				F729209A16314FAC0045EB76 /* UIImage+Alpha.h */,
 				F729209B16314FAC0045EB76 /* UIImage+Alpha.m */,
 				F729209C16314FAC0045EB76 /* UIImage+Resize.h */,
@@ -425,7 +420,6 @@
 				F72920D216314FAC0045EB76 /* TransparentTableView.m in Sources */,
 				F72920D316314FAC0045EB76 /* UIApplication+Utils.m in Sources */,
 				F72920D416314FAC0045EB76 /* UIColor+Utils.m in Sources */,
-				F72920D516314FAC0045EB76 /* UIDevice+IdentifierAddition.m in Sources */,
 				F72920D616314FAC0045EB76 /* UIImage+Alpha.m in Sources */,
 				F72920D716314FAC0045EB76 /* UIImage+Resize.m in Sources */,
 				F72920D816314FAC0045EB76 /* UIImage+RoundedCorner.m in Sources */,
