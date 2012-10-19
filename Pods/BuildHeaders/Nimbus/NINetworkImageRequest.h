@@ -1,1 +1,0 @@
-../../Nimbus/src/networkimage/src/NINetworkImageRequest.h

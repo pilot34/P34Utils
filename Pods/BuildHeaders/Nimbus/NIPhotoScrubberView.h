@@ -1,1 +1,0 @@
-../../Nimbus/src/photos/src/NIPhotoScrubberView.h

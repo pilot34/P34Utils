@@ -1,1 +1,0 @@
-../../Nimbus/src/pagingscrollview/src/NimbusPagingScrollView.h

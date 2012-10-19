@@ -1,1 +1,0 @@
-../../Nimbus/src/networkimage/src/NimbusNetworkImage+Namespace.h

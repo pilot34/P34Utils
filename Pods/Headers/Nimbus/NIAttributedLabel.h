@@ -1,1 +1,0 @@
-../../Nimbus/src/attributedlabel/src/NIAttributedLabel.h
