@@ -8,6 +8,10 @@
 
 typedef void(^BasicBlock)(void);
 typedef void(^StringBlock)(NSString *str);
+typedef void(^NumberBlock)(NSNumber *num);
+typedef void(^ArrayBlock)(NSArray *arr);
+typedef void(^DictionaryBlock)(NSDictionary *dict);
+typedef void(^SetBlock)(NSSet *set);
 typedef void(^ErrorBlock)(NSError *error);
 
 void doAfter(CGFloat delay, BasicBlock action);
