@@ -247,4 +247,11 @@
     }
 }
 
+- (void)addTapAction:(BasicBlock)action
+{
+    self.userInteractionEnabled = YES;
+    BlockTapGestureRecognizer *b = [[BlockTapGestureRecognizer alloc] initWithAction:action];
+    [self addGestureRecognizer:b];
+}
+
 @end

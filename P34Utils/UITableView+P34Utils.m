@@ -22,6 +22,17 @@
         return [class fromNib];
 }
 
+- (id)cellFromNib:(UINib *)nib class:(Class)class
+{
+    NSString *cellName = NSStringFromClass(class);
+    id result = [self dequeueReusableCellWithIdentifier:cellName];
+    
+    if (result)
+        return result;
+    else
+        return [[nib instantiateWithOwner:nil options:nil] firstObject];
+}
+
 - (void)heightToFit
 {
     self.height = self.contentSize.height;

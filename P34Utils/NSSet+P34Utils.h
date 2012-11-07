@@ -15,6 +15,7 @@
 @property(nonatomic, readonly) BOOL any;
 
 - (NSArray *)sortedArrayByKey:(NSString *)key;
+- (NSSet *)setByRemovingObject:(id)object;
 - (NSSet *)where:(PredicateBlock)predicate;
 - (NSSet *)select:(SelectBlock)transform;
 - (BOOL)any:(PredicateBlock)predicate;

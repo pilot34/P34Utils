@@ -21,6 +21,9 @@
 + (id)fromNibWithOwner:(id)owner;
 + (id)fromNib:(NSString *)nibName withOwner:(id)owner;
 
+// добавляет BlockTapGestureRecognizer
+- (void)addTapAction:(BasicBlock)action;
+
 // выстраивает view по высоте друг за другом
 - (void)lineUpSubviews:(NSArray *)subviews padding:(CGFloat)padding;
 

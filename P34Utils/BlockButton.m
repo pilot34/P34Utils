@@ -3,7 +3,7 @@
 //  SportDiary
 //
 //  Created by Gleb Tarasov on 27.08.12.
-//  Copyright (c) 2012 Gleb Taraov. All rights reserved.
+//  Copyright (c) 2012 Gleb Tarasov. All rights reserved.
 //
 
 #import "BlockButton.h"

@@ -11,6 +11,7 @@
 @interface UITableView (Utils)
 
 - (id)cellFromNib:(Class)class;
+- (id)cellFromNib:(UINib *)nib class:(Class)class;
 - (void)heightToFit;
 - (void)clearBackground;
 

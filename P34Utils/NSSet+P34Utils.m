@@ -23,6 +23,13 @@
     return [self sortedArrayUsingDescriptors:@[s]];
 }
 
+- (NSSet *)setByRemovingObject:(id)object
+{
+    NSMutableSet *copy = self.mutableCopy;
+    [copy removeObject:object];
+    return copy;
+}
+
 - (NSSet *)where:(PredicateBlock)predicate
 {
     NSMutableSet *result = [NSMutableSet set];
