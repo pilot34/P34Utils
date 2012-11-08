@@ -7,60 +7,30 @@
 //
 
 #import "Analytics.h"
-#import "GANTracker.h"
+#import "GAI.h"
+#import "GAITracker.h"
 #import "UIDevice+IdentifierAddition.h"
 
 @implementation Analytics
 
 + (void)startWithId:(NSString *)id
 {
-    [[GANTracker sharedTracker] startTrackerWithAccountID:id 
-                                           dispatchPeriod:10 
-                                                 delegate:nil];
-    
-    [[GANTracker sharedTracker] setCustomVariableAtIndex:1
-                                                    name:@"app_version"
-                                                   value:APP_VERSION
-                                                   scope:kGANVisitorScope
-                                               withError:nil];
-    
-    [[GANTracker sharedTracker] setCustomVariableAtIndex:2
-                                                    name:@"ios_version"
-                                                   value:UIDevice.currentDevice.systemVersion
-                                                   scope:kGANVisitorScope
-                                               withError:nil];
-    
-    [[GANTracker sharedTracker] setCustomVariableAtIndex:3
-                                                    name:@"identifier"
-                                                   value:UIDevice.currentDevice.uniqueDeviceIdentifier
-                                                   scope:kGANVisitorScope
-                                               withError:nil];
-}
-
-
-+ (void)setCustomVariable:(NSString *)name value:(NSString *)value
-{
-    [[GANTracker sharedTracker] setCustomVariableAtIndex:5
-                                                    name:name
-                                                   value:value
-                                                   scope:kGANVisitorScope
-                                               withError:nil];
+    [GAI sharedInstance].trackUncaughtExceptions = YES;
+    [[GAI sharedInstance] trackerWithTrackingId:id];
 }
 
 + (void)trackPageView:(NSString *)page
 {
-    [[GANTracker sharedTracker] trackPageview:page
-                                    withError:nil];
+    [[[GAI sharedInstance] defaultTracker] trackView:page];
 }
 
 + (void)trackEvent:(NSString *)event
             action:(NSString *)action
 {
-    [[GANTracker sharedTracker] trackEvent:event
-                                    action:action
-                                     label:event
-                                     value:0
-                                 withError:nil];
+    [[[GAI sharedInstance] defaultTracker] trackEventWithCategory:event
+                                                       withAction:action
+                                                        withLabel:action
+                                                        withValue:@0];
 }
 
 + (void)trackEvent:(NSString *)event

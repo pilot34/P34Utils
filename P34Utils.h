@@ -16,6 +16,13 @@ typedef void(^ErrorBlock)(NSError *error);
 
 void doAfter(CGFloat delay, BasicBlock action);
 
+#if DEBUG_LOG
+#   define log(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
+#else
+#   define log(...)
+#endif
+
+
 #define APP_VERSION (NSBundle.mainBundle.infoDictionary)[@"CFBundleVersion"]
 
 
