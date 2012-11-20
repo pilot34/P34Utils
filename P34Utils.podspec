@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = 'P34Utils'
-  s.version      = '0.0.5'
+  s.version      = '0.0.6'
   s.summary      = 'Some useful utils classes.'
   s.homepage     = 'https://github.com/pilot34/P34Utils'
   s.license      = 'MIT'
@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
   s.dependency 'Reachability'
   s.dependency 'ASIHTTPRequest'
   s.dependency 'GoogleAnalytics-iOS-SDK'
-  s.prefix_header_contents = '#import "P34Utils.h"'
+  s.prefix_header_contents = '#import <Foundation/Foundation.h>\n#import "P34Utils.h"'
   s.framework = 'CoreData'
   s.framework = 'CoreGraphics'
   s.framework = 'QuartzCore'
