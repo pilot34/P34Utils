@@ -163,7 +163,7 @@ Class to download files by portions and track remaining time for whole portion.
 
 ### VideoPlayingResolver
 
-If you have UIWebView with html, after device rotation you should reload html for correct relayouting. If you haveembedded video in HTML and layout during playing video, it will be stopped. So you shouldn't reload html during fullscreen video playing.
+If you have UIWebView with html, after device rotation you should reload html for correct relayouting. If you have embedded video in HTML and layout during playing video, it will be stopped. So you shouldn't reload html during fullscreen video playing.
 
 This class subscribing to needed notifications and you can check, reload html or not.
 
