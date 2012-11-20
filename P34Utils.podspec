@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
   s.dependency 'Reachability'
   s.dependency 'ASIHTTPRequest'
   s.dependency 'GoogleAnalytics-iOS-SDK'
-  s.prefix_header_contents = '#import <Foundation/Foundation.h>\n#import "P34Utils.h"'
+  s.prefix_header_contents = "#import <Foundation/Foundation.h>\n#import \"P34Utils.h\""
   s.framework = 'CoreData'
   s.framework = 'CoreGraphics'
   s.framework = 'QuartzCore'
