@@ -9,13 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "P34Utils.h"
 
-#define UIViewAutoresizingAll UIViewAutoresizingFlexibleLeftMargin \
-                                | UIViewAutoresizingFlexibleWidth\
-                                | UIViewAutoresizingFlexibleRightMargin\
-                                | UIViewAutoresizingFlexibleTopMargin\
-                                | UIViewAutoresizingFlexibleHeight\
-                                | UIViewAutoresizingFlexibleBottomMargin
-
 @interface UIView (Utils)
 
 + (id)fromNib;

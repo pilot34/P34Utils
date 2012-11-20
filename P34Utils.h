@@ -73,6 +73,12 @@ void doAfter(CGFloat delay, BasicBlock action);
 #import "Analytics.h"
 #import "UIDevice+IdentifierAddition.h"
 
+#define UIViewAutoresizingAll UIViewAutoresizingFlexibleLeftMargin \
+                                | UIViewAutoresizingFlexibleWidth\
+                                | UIViewAutoresizingFlexibleRightMargin\
+                                | UIViewAutoresizingFlexibleTopMargin\
+                                | UIViewAutoresizingFlexibleHeight\
+                                | UIViewAutoresizingFlexibleBottomMargin
 
 
 #define SYSTEM_VERSION_EQUAL_TO(v)                  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedSame)
