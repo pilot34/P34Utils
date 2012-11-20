@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "StringUtils.h"
+#import "P34Utils.h"
 
 static NSDictionary *__translitDictionary;
 

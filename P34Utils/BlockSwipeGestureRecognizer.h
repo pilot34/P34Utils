@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "P34Utils.h"
 
 @interface BlockSwipeGestureRecognizer : UISwipeGestureRecognizer
     <

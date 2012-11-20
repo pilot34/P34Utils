@@ -10,6 +10,7 @@
 #import "ASINetworkQueue.h"
 #import "NSArray+P34Utils.h"
 #import "NSString+NimbusCore.h"
+#import "P34Utils.h"
 
 #define CUT_DOWNLOAD_SIZE_PERIOD 3
 #define BANDWIDTH_WWAN_LIMIT 16000

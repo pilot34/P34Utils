@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "P34Utils.h"
 
 typedef void(^BlockAlertStringBlock)(NSString *textValue);
 
