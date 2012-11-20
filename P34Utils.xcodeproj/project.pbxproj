@@ -19,7 +19,6 @@
 		F7292183163168E20045EB76 /* CustomButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F7292131163168E20045EB76 /* CustomButton.m */; };
 		F7292184163168E20045EB76 /* DownloadPortion.m in Sources */ = {isa = PBXBuildFile; fileRef = F7292133163168E20045EB76 /* DownloadPortion.m */; };
 		F7292185163168E20045EB76 /* DownloadProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = F7292135163168E20045EB76 /* DownloadProgress.m */; };
-		F7292186163168E20045EB76 /* EGOCache.m in Sources */ = {isa = PBXBuildFile; fileRef = F7292137163168E20045EB76 /* EGOCache.m */; };
 		F7292187163168E20045EB76 /* FilesDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = F7292139163168E20045EB76 /* FilesDownloader.m */; };
 		F7292188163168E20045EB76 /* HiddenTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = F729213B163168E20045EB76 /* HiddenTabBarController.m */; };
 		F7292189163168E20045EB76 /* ImageViewWithPattern.m in Sources */ = {isa = PBXBuildFile; fileRef = F729213D163168E20045EB76 /* ImageViewWithPattern.m */; };
@@ -94,8 +93,6 @@
 		F7292133163168E20045EB76 /* DownloadPortion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownloadPortion.m; sourceTree = "<group>"; };
 		F7292134163168E20045EB76 /* DownloadProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloadProgress.h; sourceTree = "<group>"; };
 		F7292135163168E20045EB76 /* DownloadProgress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownloadProgress.m; sourceTree = "<group>"; };
-		F7292136163168E20045EB76 /* EGOCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGOCache.h; sourceTree = "<group>"; };
-		F7292137163168E20045EB76 /* EGOCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGOCache.m; sourceTree = "<group>"; };
 		F7292138163168E20045EB76 /* FilesDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilesDownloader.h; sourceTree = "<group>"; };
 		F7292139163168E20045EB76 /* FilesDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilesDownloader.m; sourceTree = "<group>"; };
 		F729213A163168E20045EB76 /* HiddenTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HiddenTabBarController.h; sourceTree = "<group>"; };
@@ -248,8 +245,6 @@
 				F7292133163168E20045EB76 /* DownloadPortion.m */,
 				F7292134163168E20045EB76 /* DownloadProgress.h */,
 				F7292135163168E20045EB76 /* DownloadProgress.m */,
-				F7292136163168E20045EB76 /* EGOCache.h */,
-				F7292137163168E20045EB76 /* EGOCache.m */,
 				F7292138163168E20045EB76 /* FilesDownloader.h */,
 				F7292139163168E20045EB76 /* FilesDownloader.m */,
 				F729213A163168E20045EB76 /* HiddenTabBarController.h */,
@@ -399,7 +394,6 @@
 				F7292183163168E20045EB76 /* CustomButton.m in Sources */,
 				F7292184163168E20045EB76 /* DownloadPortion.m in Sources */,
 				F7292185163168E20045EB76 /* DownloadProgress.m in Sources */,
-				F7292186163168E20045EB76 /* EGOCache.m in Sources */,
 				F7292187163168E20045EB76 /* FilesDownloader.m in Sources */,
 				F7292188163168E20045EB76 /* HiddenTabBarController.m in Sources */,
 				F7292189163168E20045EB76 /* ImageViewWithPattern.m in Sources */,

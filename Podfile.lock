@@ -11,7 +11,8 @@ PODS:
   - Reachability
 - ASIHTTPRequest/S3 (1.8.1):
   - Reachability
-- GoogleAnalytics-iOS-SDK (1.5.1)
+- EGOCache (2.0)
+- GoogleAnalytics-iOS-SDK (2.0beta3)
 - JSONKit (1.5pre)
 - Nimbus (0.9.3):
   - Nimbus/AttributedLabel (= 0.9.3)
@@ -57,11 +58,12 @@ PODS:
   - Nimbus/PagingScrollView
 - Nimbus/WebController (0.9.3):
   - Nimbus/Core
-- Reachability (3.0.0)
+- Reachability (3.1.0)
 - UIDeviceAddition (1.0)
 
 DEPENDENCIES:
 - ASIHTTPRequest
+- EGOCache
 - GoogleAnalytics-iOS-SDK
 - Nimbus
 - UIDeviceAddition
@@ -71,7 +73,8 @@ SPEC CHECKSUMS:
   ASIHTTPRequest/ASIWebPageRequest: e606d2df58b0aace6c1cf1d39a08d3484f91324a
   ASIHTTPRequest/CloudFiles: e606d2df58b0aace6c1cf1d39a08d3484f91324a
   ASIHTTPRequest/S3: e606d2df58b0aace6c1cf1d39a08d3484f91324a
-  GoogleAnalytics-iOS-SDK: 6ab69448894a4ef324ae18db4fd0447ffddea7fd
+  EGOCache: 85c30cad637c2869827067e55f1c7a0ceee9c364
+  GoogleAnalytics-iOS-SDK: dbc85b4df88cd4a7eb7fb774400e865db2fab8bb
   JSONKit: a01a22c75f27eae76b4badd55a91c20fe6e86477
   Nimbus: 6a35688977607cda01be9027699a9e64bd08fb99
   Nimbus/AttributedLabel: 6a35688977607cda01be9027699a9e64bd08fb99
@@ -88,7 +91,7 @@ SPEC CHECKSUMS:
   Nimbus/PagingScrollView: 6a35688977607cda01be9027699a9e64bd08fb99
   Nimbus/Photos: 6a35688977607cda01be9027699a9e64bd08fb99
   Nimbus/WebController: 6a35688977607cda01be9027699a9e64bd08fb99
-  Reachability: 500bd76bf6cd8ff2c6fb715fc5f44ef6e4c024f2
+  Reachability: 1c8584c5f26fa776695efef95caaa50402c94cfb
   UIDeviceAddition: aace2f602768bb2bece8b9a929b9fe5867f91c3f
 
-COCOAPODS: 0.15.1
+COCOAPODS: 0.15.2
