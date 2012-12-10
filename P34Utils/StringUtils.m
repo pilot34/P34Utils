@@ -90,28 +90,33 @@ static NSDictionary *__translitDictionary;
     CGFloat floatBytes = bytes;
     CGFloat result;
     NSString *format;
+    NSInteger roundSize = 1;
+    
     if (bytes >= (1 << 30))
     {
         result = floatBytes / (1 << 30);
-        format = @"%d Гб";
+        format = @"%@ Гб";
+        roundSize = 100;
     }
     else if (bytes >= (1 << 20))
     {
         result = floatBytes / (1 << 20);
-        format = @"%d Мб";
+        format = @"%@ Мб";
     }
     else if (bytes >= (1 << 10))
     {
         result = floatBytes / (1 << 10);
-        format = @"%d Кб";
+        format = @"%@ Кб";
     }
     else
     {
         result = bytes;
-        format = @"%d б";
+        format = @"%@ б";
     }
     
-    return [NSString stringWithFormat:format, (int)roundf(result)];
+    result = ((int)(result * roundSize)) / (float)roundSize;
+    
+    return [NSString stringWithFormat:format, [@(result) descriptionWithLocale:NSLocale.currentLocale]];
 }
 
 + (NSString *)timeIntervalToStringFull:(NSTimeInterval)time
