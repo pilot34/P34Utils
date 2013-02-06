@@ -12,6 +12,6 @@
 
 + (id)fromNib:(NSString *)nibName;
 + (id)fromNib;
-+ (id)fromStoryboard:(UIStoryBoard *)storyboard;
++ (id)fromStoryboard:(UIStoryboard *)storyboard;
 
 @end
