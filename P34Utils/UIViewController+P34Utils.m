@@ -21,4 +21,9 @@
     return [[self alloc] initWithNibName:nibName bundle:nil];
 }
 
++ (id)fromStoryboard:(UIStoryBoard *)storyboard
+{
+    return [storyboard instantiateViewControllerWithIdentifier:NSStringFromClass(self.class)];
+}
+
 @end
