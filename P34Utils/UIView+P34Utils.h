@@ -49,4 +49,6 @@
 - (void)setRightOffset:(CGFloat)offset changeWidth:(BOOL)changeWidth;
 - (void)setBottomOffset:(CGFloat)offset changeHeight:(BOOL)changeHeight;
 
+- (void)roundOrigin;
+
 @end

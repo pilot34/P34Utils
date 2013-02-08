@@ -11,5 +11,7 @@
 @interface UILabel (Utils)
 
 - (void)heightToFit;
+- (void)adjustFontSizeToFit;
+- (void)adjustFontSizeToFitWithoutWordBreaks;
 
 @end

@@ -223,6 +223,11 @@
     }
 }
 
+- (void)roundOrigin
+{
+    self.origin = CGPointMake(self.left, self.top);
+}
+
 #pragma mark - Other Helpers
 
 - (void)removeAllSubviews
