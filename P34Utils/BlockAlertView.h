@@ -47,4 +47,13 @@ typedef void(^BlockAlertStringBlock)(NSString *textValue);
            action:(BlockAlertStringBlock)action
      cancelAction:(BasicBlock)cancelAction;
 
++ (void)showTitle:(NSString *)title
+             text:(NSString *)text
+     cancelButton:(NSString *)cancelButton
+      firstButton:(NSString *)firstButton
+     secondButton:(NSString *)secondButton
+      firstAction:(BasicBlock)firstAction
+     secondAction:(BasicBlock)secondAction
+     cancelAction:(BasicBlock)cancelAction;
+
 @end

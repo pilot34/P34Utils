@@ -11,6 +11,7 @@
 @interface BlockAlertView()
 
 @property(nonatomic, copy) BasicBlock submitAction;
+@property(copy, nonatomic) BasicBlock secondAction;
 @property(nonatomic, copy) BasicBlock cancelAction;
 @property(copy, nonatomic) BlockAlertStringBlock submitStringAction;
 
@@ -23,12 +24,11 @@
   cancelButtonTitle:(NSString *)cancelButtonTitle
   submitButtonTitle:(NSString *)submitButtonTitle
 {
-    self = [super initWithTitle:title message:message delegate:nil cancelButtonTitle:cancelButtonTitle otherButtonTitles:submitButtonTitle, nil];
-    if (self)
-    {
-        self.delegate = self;
-    }
-    return self;
+    return [super initWithTitle:title
+                        message:message
+                       delegate:self
+              cancelButtonTitle:cancelButtonTitle
+              otherButtonTitles:submitButtonTitle, nil];
 }
 
 + (void)showTitle:(NSString *)title
@@ -91,16 +91,36 @@
     [b show];
 }
 
++ (void)showTitle:(NSString *)title
+             text:(NSString *)text
+     cancelButton:(NSString *)cancelButton
+      firstButton:(NSString *)firstButton
+     secondButton:(NSString *)secondButton
+      firstAction:(BasicBlock)firstAction
+     secondAction:(BasicBlock)secondAction
+     cancelAction:(BasicBlock)cancelAction
+{
+    BlockAlertView *b = [[BlockAlertView alloc] initWithTitle:title message:text delegate:nil cancelButtonTitle:cancelButton otherButtonTitles:firstButton, secondButton, nil];
+    b.delegate = b;
+    b.submitAction = firstAction;
+    b.secondAction = secondAction;
+    b.cancelAction = cancelAction;
+    [b show];
+}
+
 #pragma mark - UIAlertViewDelegate
 
 
 // Called when a button is clicked. The view will be automatically dismissed after this call returns
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    if (buttonIndex > 0 && self.submitAction)
+    if (buttonIndex == 1 && self.submitAction)
         self.submitAction();
     
-    if (buttonIndex > 0 && self.submitStringAction)
+    if (buttonIndex == 2 && self.secondAction)
+        self.secondAction();
+    
+    if (buttonIndex == 1 && self.submitStringAction)
     {
         UITextField *field = [alertView textFieldAtIndex:0];
         self.submitStringAction(field.text);
