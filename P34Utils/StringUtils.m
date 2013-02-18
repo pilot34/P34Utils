@@ -85,10 +85,10 @@ static NSDictionary *__translitDictionary;
     return pluralGenitive;
 }
 
-+ (NSString *)sizeToString:(NSInteger)bytes
++ (NSString *)sizeToString:(long long)bytes
 {
-    CGFloat floatBytes = bytes;
-    CGFloat result;
+    double floatBytes = bytes;
+    double result;
     NSString *format;
     NSInteger roundSize = 1;
     
@@ -114,7 +114,7 @@ static NSDictionary *__translitDictionary;
         format = @"%@ б";
     }
     
-    result = ((int)(result * roundSize)) / (float)roundSize;
+    result = ((long long)(result * roundSize)) / (double)roundSize;
     
     return [NSString stringWithFormat:format, [@(result) descriptionWithLocale:NSLocale.currentLocale]];
 }

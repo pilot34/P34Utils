@@ -19,7 +19,7 @@
              genitive:(NSString *)genitive 
        pluralGenitive:(NSString *)pluralGenitive;
 
-+ (NSString *)sizeToString:(NSInteger)bytes;
++ (NSString *)sizeToString:(long long)bytes;
 
 + (NSString *)removePlural:(NSString *)string;
 
