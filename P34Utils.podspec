@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
   s.dependency 'Reachability'
   s.dependency 'ASIHTTPRequest'
   s.dependency 'GoogleAnalytics-iOS-SDK'
-  s.dependency 'Flurry'
+  s.dependency 'FlurrySDK'
   s.framework = 'CoreData'
   s.framework = 'CoreGraphics'
   s.framework = 'QuartzCore'
