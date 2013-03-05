@@ -10,6 +10,7 @@
 
 @interface Analytics : NSObject
 
++ (void)startWithGoogleId:(NSString *)google flurryId:(NSString *)flurryId;
 + (void)startWithId:(NSString *)id;
 + (void)trackPageView:(NSString *)page;
 

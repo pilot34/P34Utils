@@ -1,5 +1,6 @@
 
 PODS:
+- AFNetworking (1.1.0)
 - ASIHTTPRequest (1.8.1):
   - ASIHTTPRequest/ASIWebPageRequest (= 1.8.1)
   - ASIHTTPRequest/CloudFiles (= 1.8.1)
@@ -12,51 +13,56 @@ PODS:
 - ASIHTTPRequest/S3 (1.8.1):
   - Reachability
 - EGOCache (2.0)
-- GoogleAnalytics-iOS-SDK (2.0beta3)
+- FlurrySDK (4.1.0)
+- GoogleAnalytics-iOS-SDK (2.0beta4)
 - JSONKit (1.5pre)
-- Nimbus (0.9.3):
-  - Nimbus/AttributedLabel (= 0.9.3)
-  - Nimbus/CSS (= 0.9.3)
-  - Nimbus/Core (= 0.9.3)
-  - Nimbus/Interapp (= 0.9.3)
-  - Nimbus/Launcher (= 0.9.3)
-  - Nimbus/Models (= 0.9.3)
-  - Nimbus/NetworkControllers (= 0.9.3)
-  - Nimbus/NetworkImage (= 0.9.3)
-  - Nimbus/Operations (= 0.9.3)
-  - Nimbus/Overview (= 0.9.3)
-  - Nimbus/PagingScrollView (= 0.9.3)
-  - Nimbus/Photos (= 0.9.3)
-  - Nimbus/WebController (= 0.9.3)
-- Nimbus/AttributedLabel (0.9.3):
+- Nimbus (1.0.0):
+  - Nimbus/AttributedLabel (= 1.0.0)
+  - Nimbus/Badge (= 1.0.0)
+  - Nimbus/CSS (= 1.0.0)
+  - Nimbus/Core (= 1.0.0)
+  - Nimbus/Interapp (= 1.0.0)
+  - Nimbus/Launcher (= 1.0.0)
+  - Nimbus/Models (= 1.0.0)
+  - Nimbus/NetworkControllers (= 1.0.0)
+  - Nimbus/NetworkImage (= 1.0.0)
+  - Nimbus/Operations (= 1.0.0)
+  - Nimbus/Overview (= 1.0.0)
+  - Nimbus/PagingScrollView (= 1.0.0)
+  - Nimbus/Photos (= 1.0.0)
+  - Nimbus/WebController (= 1.0.0)
+- Nimbus/AttributedLabel (1.0.0):
   - Nimbus/Core
-- Nimbus/CSS (0.9.3):
+- Nimbus/Badge (1.0.0):
   - Nimbus/Core
-- Nimbus/Core (0.9.3)
-- Nimbus/Interapp (0.9.3):
+- Nimbus/CSS (1.0.0):
+  - AFNetworking
   - Nimbus/Core
-- Nimbus/Launcher (0.9.3):
+- Nimbus/Core (1.0.0)
+- Nimbus/Interapp (1.0.0):
   - Nimbus/Core
-- Nimbus/Models (0.9.3):
+- Nimbus/Launcher (1.0.0):
   - Nimbus/Core
-- Nimbus/NetworkControllers (0.9.3):
+- Nimbus/Models (1.0.0):
   - Nimbus/Core
-- Nimbus/NetworkImage (0.9.3):
+- Nimbus/NetworkControllers (1.0.0):
   - Nimbus/Core
-- Nimbus/Operations (0.9.3):
+- Nimbus/NetworkImage (1.0.0):
   - Nimbus/Core
-  - Nimbus/Operations/JSON (= 0.9.3)
-- Nimbus/Operations/JSON (0.9.3):
+- Nimbus/Operations (1.0.0):
+  - Nimbus/Core
+  - Nimbus/Operations/JSON (= 1.0.0)
+- Nimbus/Operations/JSON (1.0.0):
   - JSONKit
   - Nimbus/Core
-- Nimbus/Overview (0.9.3):
+- Nimbus/Overview (1.0.0):
   - Nimbus/Core
-- Nimbus/PagingScrollView (0.9.3):
+- Nimbus/PagingScrollView (1.0.0):
   - Nimbus/Core
-- Nimbus/Photos (0.9.3):
+- Nimbus/Photos (1.0.0):
   - Nimbus/Core
   - Nimbus/PagingScrollView
-- Nimbus/WebController (0.9.3):
+- Nimbus/WebController (1.0.0):
   - Nimbus/Core
 - Reachability (3.1.0)
 - UIDeviceAddition (1.0)
@@ -64,34 +70,38 @@ PODS:
 DEPENDENCIES:
 - ASIHTTPRequest
 - EGOCache
+- FlurrySDK
 - GoogleAnalytics-iOS-SDK
 - Nimbus
 - UIDeviceAddition
 
 SPEC CHECKSUMS:
+  AFNetworking: 761a418233d280c1e0580bcb76ff9cb4c3073d17
   ASIHTTPRequest: e606d2df58b0aace6c1cf1d39a08d3484f91324a
   ASIHTTPRequest/ASIWebPageRequest: e606d2df58b0aace6c1cf1d39a08d3484f91324a
   ASIHTTPRequest/CloudFiles: e606d2df58b0aace6c1cf1d39a08d3484f91324a
   ASIHTTPRequest/S3: e606d2df58b0aace6c1cf1d39a08d3484f91324a
-  EGOCache: 85c30cad637c2869827067e55f1c7a0ceee9c364
-  GoogleAnalytics-iOS-SDK: dbc85b4df88cd4a7eb7fb774400e865db2fab8bb
-  JSONKit: a01a22c75f27eae76b4badd55a91c20fe6e86477
-  Nimbus: 6a35688977607cda01be9027699a9e64bd08fb99
-  Nimbus/AttributedLabel: 6a35688977607cda01be9027699a9e64bd08fb99
-  Nimbus/CSS: 6a35688977607cda01be9027699a9e64bd08fb99
-  Nimbus/Core: 6a35688977607cda01be9027699a9e64bd08fb99
-  Nimbus/Interapp: 6a35688977607cda01be9027699a9e64bd08fb99
-  Nimbus/Launcher: 6a35688977607cda01be9027699a9e64bd08fb99
-  Nimbus/Models: 6a35688977607cda01be9027699a9e64bd08fb99
-  Nimbus/NetworkControllers: 6a35688977607cda01be9027699a9e64bd08fb99
-  Nimbus/NetworkImage: 6a35688977607cda01be9027699a9e64bd08fb99
-  Nimbus/Operations: 6a35688977607cda01be9027699a9e64bd08fb99
-  Nimbus/Operations/JSON: 6a35688977607cda01be9027699a9e64bd08fb99
-  Nimbus/Overview: 6a35688977607cda01be9027699a9e64bd08fb99
-  Nimbus/PagingScrollView: 6a35688977607cda01be9027699a9e64bd08fb99
-  Nimbus/Photos: 6a35688977607cda01be9027699a9e64bd08fb99
-  Nimbus/WebController: 6a35688977607cda01be9027699a9e64bd08fb99
+  EGOCache: c7116e8a6692eecb542f001a9c71f9b71ae9644b
+  FlurrySDK: 52245ae8c6fa31825dc74a6afb94b861da2435fa
+  GoogleAnalytics-iOS-SDK: 11332eedcffb0c88b2dd9bff0ac1444e3a85e890
+  JSONKit: 3d4708953ea7ae399a49777372d8b060a43ddd27
+  Nimbus: 196175ecaddf4e88925c9e0441aa58e4e40a2b89
+  Nimbus/AttributedLabel: 196175ecaddf4e88925c9e0441aa58e4e40a2b89
+  Nimbus/Badge: 196175ecaddf4e88925c9e0441aa58e4e40a2b89
+  Nimbus/CSS: 196175ecaddf4e88925c9e0441aa58e4e40a2b89
+  Nimbus/Core: 196175ecaddf4e88925c9e0441aa58e4e40a2b89
+  Nimbus/Interapp: 196175ecaddf4e88925c9e0441aa58e4e40a2b89
+  Nimbus/Launcher: 196175ecaddf4e88925c9e0441aa58e4e40a2b89
+  Nimbus/Models: 196175ecaddf4e88925c9e0441aa58e4e40a2b89
+  Nimbus/NetworkControllers: 196175ecaddf4e88925c9e0441aa58e4e40a2b89
+  Nimbus/NetworkImage: 196175ecaddf4e88925c9e0441aa58e4e40a2b89
+  Nimbus/Operations: 196175ecaddf4e88925c9e0441aa58e4e40a2b89
+  Nimbus/Operations/JSON: 196175ecaddf4e88925c9e0441aa58e4e40a2b89
+  Nimbus/Overview: 196175ecaddf4e88925c9e0441aa58e4e40a2b89
+  Nimbus/PagingScrollView: 196175ecaddf4e88925c9e0441aa58e4e40a2b89
+  Nimbus/Photos: 196175ecaddf4e88925c9e0441aa58e4e40a2b89
+  Nimbus/WebController: 196175ecaddf4e88925c9e0441aa58e4e40a2b89
   Reachability: 1c8584c5f26fa776695efef95caaa50402c94cfb
   UIDeviceAddition: aace2f602768bb2bece8b9a929b9fe5867f91c3f
 
-COCOAPODS: 0.15.2
+COCOAPODS: 0.16.1
