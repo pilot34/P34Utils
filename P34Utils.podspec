@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '5.0'
   s.source_files = './**/*.{h,m}'
   s.requires_arc = true
-  s.dependency 'Nimbus'
+  s.dependency 'Nimbus', :git => 'https://github.com/pilot34/nimbus_fork.git'
   s.dependency 'UIDeviceAddition'
   s.dependency 'Reachability'
   s.dependency 'ASIHTTPRequest'
