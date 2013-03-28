@@ -225,7 +225,7 @@
 
 - (void)roundOrigin
 {
-    self.origin = CGPointMake(self.left, self.top);
+    self.origin = CGPointMake(roundf(self.left), roundf(self.top));
 }
 
 #pragma mark - Other Helpers
