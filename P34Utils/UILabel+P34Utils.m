@@ -44,7 +44,8 @@
     [self adjustFontSizeToFit];
     
     CGFloat fsize = self.font.pointSize;
-    for (NSString *word in [self.text componentsSeparatedByString:@" "])
+    for (NSString *word in [[self.text stringByReplacingOccurrencesOfString:@"\n"
+                                                                 withString:@" "] componentsSeparatedByString:@" "])
     {
         float width = [word sizeWithFont:[self.font fontWithSize:fsize]].width;
         while (width > self.width && fsize > 1)
