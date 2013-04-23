@@ -10,11 +10,8 @@ Pod::Spec.new do |s|
   s.source_files = './**/*.{h,m}'
   s.requires_arc = true
   s.dependency 'Nimbus', :git => 'https://github.com/pilot34/nimbus_fork.git'
-  s.dependency 'UIDeviceAddition'
   s.dependency 'Reachability'
   s.dependency 'ASIHTTPRequest'
-  s.dependency 'GoogleAnalytics-iOS-SDK'
-  s.dependency 'FlurrySDK'
   s.framework = 'CoreData'
   s.framework = 'CoreGraphics'
   s.framework = 'QuartzCore'
