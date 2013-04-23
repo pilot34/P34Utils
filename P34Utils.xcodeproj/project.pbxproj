@@ -10,7 +10,6 @@
 		85CCB3855ED7464FA01998BB /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 89DA61B2468C46538BD0BADE /* libPods.a */; };
 		F729204816314F550045EB76 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F729204716314F550045EB76 /* Foundation.framework */; };
 		F729217C163168E20045EB76 /* AlignedLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = F7292123163168E20045EB76 /* AlignedLabel.m */; };
-		F729217D163168E20045EB76 /* Analytics.m in Sources */ = {isa = PBXBuildFile; fileRef = F7292125163168E20045EB76 /* Analytics.m */; };
 		F729217E163168E20045EB76 /* BlockAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = F7292127163168E20045EB76 /* BlockAlertView.m */; };
 		F729217F163168E20045EB76 /* BlockButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F7292129163168E20045EB76 /* BlockButton.m */; };
 		F7292180163168E20045EB76 /* BlockSwipeGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = F729212B163168E20045EB76 /* BlockSwipeGestureRecognizer.m */; };
@@ -75,8 +74,6 @@
 		F72920F1163153FA0045EB76 /* P34Utils-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "P34Utils-Prefix.pch"; sourceTree = SOURCE_ROOT; };
 		F7292122163168E20045EB76 /* AlignedLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlignedLabel.h; sourceTree = "<group>"; };
 		F7292123163168E20045EB76 /* AlignedLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlignedLabel.m; sourceTree = "<group>"; };
-		F7292124163168E20045EB76 /* Analytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Analytics.h; sourceTree = "<group>"; };
-		F7292125163168E20045EB76 /* Analytics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Analytics.m; sourceTree = "<group>"; };
 		F7292126163168E20045EB76 /* BlockAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlockAlertView.h; sourceTree = "<group>"; };
 		F7292127163168E20045EB76 /* BlockAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlockAlertView.m; sourceTree = "<group>"; };
 		F7292128163168E20045EB76 /* BlockButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlockButton.h; sourceTree = "<group>"; };
@@ -227,8 +224,6 @@
 			children = (
 				F7292122163168E20045EB76 /* AlignedLabel.h */,
 				F7292123163168E20045EB76 /* AlignedLabel.m */,
-				F7292124163168E20045EB76 /* Analytics.h */,
-				F7292125163168E20045EB76 /* Analytics.m */,
 				F7292126163168E20045EB76 /* BlockAlertView.h */,
 				F7292127163168E20045EB76 /* BlockAlertView.m */,
 				F7292128163168E20045EB76 /* BlockButton.h */,
@@ -385,7 +380,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F729217C163168E20045EB76 /* AlignedLabel.m in Sources */,
-				F729217D163168E20045EB76 /* Analytics.m in Sources */,
 				F729217E163168E20045EB76 /* BlockAlertView.m in Sources */,
 				F729217F163168E20045EB76 /* BlockButton.m in Sources */,
 				F7292180163168E20045EB76 /* BlockSwipeGestureRecognizer.m in Sources */,
