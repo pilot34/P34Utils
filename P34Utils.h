@@ -71,9 +71,6 @@ BOOL isIphone5();
 #import "FilesDownloader.h"
 #import "DownloadPortion.h"
 
-#import "Analytics.h"
-#import "UIDevice+IdentifierAddition.h"
-
 #define UIViewAutoresizingAll UIViewAutoresizingFlexibleLeftMargin \
                                 | UIViewAutoresizingFlexibleWidth\
                                 | UIViewAutoresizingFlexibleRightMargin\
