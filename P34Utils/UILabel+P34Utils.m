@@ -17,6 +17,20 @@
     self.height = [self.text heightWithFont:self.font 
                          constrainedToWidth:self.width 
                               lineBreakMode:self.lineBreakMode];
+    
+    if (self.numberOfLines > 0)
+    {
+        NSMutableString *str = [@"a" mutableCopy];
+        for (int i = 1; i < self.numberOfLines; ++i)
+            [str appendString:@"\na"];
+        
+        CGFloat maxHeight = [str heightWithFont:self.font
+                             constrainedToWidth:self.width
+                                  lineBreakMode:self.lineBreakMode];
+        
+        if (self.height > maxHeight)
+            self.height = maxHeight;
+    }
 }
 
 - (void)adjustFontSizeToFit
