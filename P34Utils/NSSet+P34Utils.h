@@ -19,5 +19,6 @@
 - (NSSet *)where:(PredicateBlock)predicate;
 - (NSSet *)select:(SelectBlock)transform;
 - (BOOL)any:(PredicateBlock)predicate;
+- (void)each:(EnumerateBlock)action;
 
 @end
