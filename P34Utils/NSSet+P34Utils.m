@@ -64,4 +64,12 @@
     return NO;
 }
 
+- (void)each:(EnumerateBlock)action
+{
+    for (id obj in self)
+    {
+        action(obj);
+    }
+}
+
 @end
