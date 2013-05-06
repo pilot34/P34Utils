@@ -104,12 +104,21 @@
     return NO;
 }
 
+- (void)each:(EnumerateBlock)action
+{
+    for (id obj in self)
+    {
+        action(obj);
+    }
+}
+
 - (NSDictionary *)dictionaryWithKeyBlock:(SelectBlock)keyBlock
 {
     return [self dictionaryWithKeyBlock:keyBlock valueBlock:^id(id element) {
         return element;
     }];
 }
+
 - (NSDictionary *)dictionaryWithKeyBlock:(SelectBlock)keyBlock valueBlock:(SelectBlock)valueBlock
 {
     NSMutableDictionary *result = [NSMutableDictionary dictionary];
