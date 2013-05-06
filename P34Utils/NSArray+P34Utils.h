@@ -10,6 +10,7 @@
 
 typedef BOOL(^PredicateBlock)(id element);
 typedef id(^SelectBlock)(id element);
+typedef void(^EnumerateBlock)(id element);
 
 @interface NSArray (Utils)
 
@@ -26,6 +27,7 @@ typedef id(^SelectBlock)(id element);
 - (NSArray *)where:(PredicateBlock)predicate;
 - (NSArray *)select:(SelectBlock)transform;
 - (BOOL)any:(PredicateBlock)predicate;
+- (void)each:(EnumerateBlock)action;
 
 - (NSDictionary *)dictionaryWithKeyBlock:(SelectBlock)keyBlock;
 - (NSDictionary *)dictionaryWithKeyBlock:(SelectBlock)keyBlock valueBlock:(SelectBlock)valueBlock;
