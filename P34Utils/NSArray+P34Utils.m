@@ -106,10 +106,9 @@
 
 - (void)each:(EnumerateBlock)action
 {
-    for (id obj in self)
-    {
+    [self enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         action(obj);
-    }
+    }];
 }
 
 - (NSDictionary *)dictionaryWithKeyBlock:(SelectBlock)keyBlock
