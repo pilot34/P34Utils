@@ -66,10 +66,9 @@
 
 - (void)each:(EnumerateBlock)action
 {
-    for (id obj in self)
-    {
+    [self enumerateObjectsUsingBlock:^(id obj, BOOL *stop) {
         action(obj);
-    }
+    }];
 }
 
 @end
