@@ -23,6 +23,9 @@ typedef void(^BlockAlertStringBlock)(NSString *textValue);
              text:(NSString *)text
      cancelButton:(NSString *)cancelButton;
 
++ (void)showText:(NSString *)text
+    cancelButton:(NSString *)cancelButton;
+
 
 + (void)showTitle:(NSString *)title
              text:(NSString *)text
