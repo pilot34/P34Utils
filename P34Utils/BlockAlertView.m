@@ -41,6 +41,12 @@
     [b show];
 }
 
++ (void)showText:(NSString *)text
+    cancelButton:(NSString *)cancelButton
+{
+    [self showTitle:nil text:text cancelButton:cancelButton action:nil];
+}
+
 
 + (void)showTitle:(NSString *)title
              text:(NSString *)text
