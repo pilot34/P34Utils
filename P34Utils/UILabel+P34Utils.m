@@ -7,7 +7,6 @@
 //
 
 #import "UILabel+P34Utils.h"
-#import "NSString+NimbusCore.h"
 #import "P34Utils.h"
 
 @implementation UILabel (Utils)

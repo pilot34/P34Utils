@@ -27,8 +27,6 @@ BOOL isIphone5();
 #define APP_VERSION (NSBundle.mainBundle.infoDictionary)[@"CFBundleVersion"]
 
 
-#import "NimbusCore.h"
-#import "NimbusCore+Additions.h"
 #import "Reachability.h"
 #import "Reachability+P34Utils.h"
 #import "UILabel+P34Utils.h"

@@ -9,7 +9,6 @@
 #import <Foundation/Foundation.h>
 #import "DownloadPortion.h"
 #import "DownloadProgress.h"
-#import "ASIHTTPRequest.h"
 
 @protocol FilesDownloaderDelegate <NSObject>
 
@@ -27,10 +26,8 @@
 + (id)shared;
 
 - (void)addObserver:(id<FilesDownloaderDelegate>)observer;
-- (void)removeObserver:(__unsafe_unretained id)observer; // unsafe, чтобы не циклился dealloc в iOS4
+- (void)removeObserver:(id)observer;
 - (void)enqueuePortion:(DownloadPortion *)portion;
-
-- (void)downloadFileSynchronous:(NSString *)url;
 
 - (BOOL)isDownloadingPortion:(NSString *)portion;
 
@@ -39,12 +36,5 @@
 
 - (void)cancelAllPortions;
 - (void)cancelPortion:(NSString *)portion;
-
-// для наследников
-- (NSString *)pathForUrl:(NSString *)url inPortion:(NSString *)portionTitle;
-- (BOOL)createFolder:(NSString *)folder;
-- (NSString *)storeDataFolder;
-
-@property(nonatomic) BOOL allowCompressedResponse;
 
 @end

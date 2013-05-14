@@ -17,4 +17,13 @@
 - (NSString *)stringBySimpleStrippingTags;
 - (NSRange)fullRange;
 
+- (CGFloat)heightWithFont:(UIFont *)font
+       constrainedToWidth:(CGFloat)width
+            lineBreakMode:(UILineBreakMode)lineBreakMode;
+
+- (NSString *)stringByAddingPercentEscapesForURLParameter;
+
+- (NSString *)md5Hash;
+- (NSString *)sha1Hash;
+
 @end

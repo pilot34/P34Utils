@@ -7,15 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "ASINetworkQueue.h"
 
 @interface DownloadPortion : NSObject
 
 @property(strong, nonatomic, readonly) NSString *title;
 @property(strong, nonatomic, readonly) NSArray *files;
+@property (strong, nonatomic, readonly) NSString *destinationFolder;
 
-- (id)initWithSingleUrl:(NSString *)url;
-- (id)initWithSingleUrl:(NSString *)url title:(NSString *)title;
-- (id)initWithTitle:(NSString *)title files:(NSArray *)files;
+- (id)initWithSingleUrl:(NSString *)url destination:(NSString *)folder;
+- (id)initWithSingleUrl:(NSString *)url title:(NSString *)title destination:(NSString *)folder;
+- (id)initWithTitle:(NSString *)title files:(NSArray *)files destination:(NSString *)folder;
 
 @end

@@ -7,13 +7,12 @@
 //
 
 #import "FilesDownloader.h"
-#import "ASINetworkQueue.h"
+#import "AFNetworking.h"
 #import "NSArray+P34Utils.h"
-#import "NSString+NimbusCore.h"
 #import "P34Utils.h"
 
+#define PARTIALLY_DOWNLOAD_EXTENSION @"part"
 #define CUT_DOWNLOAD_SIZE_PERIOD 3
-#define BANDWIDTH_WWAN_LIMIT 16000
 
 static FilesDownloader *__shared;
 
@@ -21,13 +20,11 @@ static FilesDownloader *__shared;
 
 @property(strong, atomic) NSSet *observers;
 @property(strong, atomic) NSArray *portionsQueue;
-@property(strong, atomic) ASINetworkQueue *queue;
+@property (strong, nonatomic) AFHTTPClient *client;
 @property(strong, atomic) DownloadPortion *currentPortion;
 @property(strong, atomic) NSDate *startDownloadingPortionDate;
 @property(strong, atomic) NSArray *currentRequests;
 
-@property(atomic) unsigned long long downlodedSizeFromCurrentPortion;
-@property(atomic) unsigned long long cutDownloadedSize;
 @property(atomic) BOOL wasError;
 
 @end
@@ -43,11 +40,6 @@ static FilesDownloader *__shared;
             if (!__shared)
             {
                 __shared = [[self alloc] init];
-                
-                // чтобы через edge много не скачало
-                [ASIHTTPRequest throttleBandwidthForWWANUsingLimit:BANDWIDTH_WWAN_LIMIT];
-                
-                [[Nimbus networkOperationQueue] setMaxConcurrentOperationCount:NSIntegerMax];
             }
         }
     }
@@ -60,7 +52,12 @@ static FilesDownloader *__shared;
     self = [super init];
     if (self) 
     {
-        self.queue = [ASINetworkQueue queue];
+        self.client = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:@"http://google.com"]];
+        
+        [NSNotificationCenter.defaultCenter addObserver:self
+                                               selector:@selector(didStartRequest:)
+                                                   name:AFNetworkingOperationDidStartNotification
+                                                 object:nil];
     }
     return self;
 }
@@ -83,31 +80,6 @@ static FilesDownloader *__shared;
     }
     
     return YES;
-}
-
-- (NSString *)storeDataFolder
-{
-    NSString *result = nil;
-    NSString *docs = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, 
-                                                          NSUserDomainMask, 
-                                                          YES) lastObject];
-    if (docs)
-    {
-        result = [docs stringByAppendingPathComponent:@"data"];
-        if (![self createFolder:result])
-            return nil;
-    }
-    
-    return result;
-}
-
-- (NSString *)pathForUrl:(NSString *)url inPortion:(NSString *)portionTitle
-{
-    NSString *folder = [self storeDataFolder];
-    NSString *extension = [url pathExtension];
-    NSString *file = [url md5Hash];
-    NSString *result = [[folder stringByAppendingPathComponent:file] stringByAppendingPathExtension:extension];
-    return result;
 }
 
 - (void)addObserver:(id<FilesDownloaderDelegate>)observer
@@ -133,90 +105,80 @@ static FilesDownloader *__shared;
 - (NSArray *)requestsForPortion:(DownloadPortion *)portion
 {
     NSMutableArray *result = [NSMutableArray array];
-    self.downlodedSizeFromCurrentPortion = 0;
     
+    WSELF;
     for (NSString *url in portion.files) 
     {
-        NSString *path = [self pathForUrl:url inPortion:portion.title];
-        NSString *partPath = [path stringByAppendingPathExtension:@"part"];
+        NSString *path = [portion.destinationFolder stringByAppendingPathComponent:url.lastPathComponent];
+        NSURLRequest *req = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
+        AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:req];
 
-        // если уже скачали - добавлять не надо, но сохраним размер для правильного прогресса
-        if ([NSFileManager.defaultManager fileExistsAtPath:path])
-        {
-            unsigned long long fileSize = [[NSFileManager.defaultManager attributesOfItemAtPath:path
-                                                                                          error:nil] fileSize];
-            self.downlodedSizeFromCurrentPortion += fileSize;
-            continue;
-        }
+        NSString *tempPath = [path stringByAppendingPathExtension:PARTIALLY_DOWNLOAD_EXTENSION];
+        operation.outputStream = [NSOutputStream outputStreamToFileAtPath:tempPath append:NO];
         
-        ASIHTTPRequest *r = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:url]];
-        r.downloadDestinationPath = path;
-        r.temporaryFileDownloadPath = partPath;
-        r.allowResumeForFileDownloads = YES;
-        r.downloadProgressDelegate = self.queue;
-        r.showAccurateProgress = YES;
-        r.shouldContinueWhenAppEntersBackground = YES;
-        r.allowCompressedResponse = self.allowCompressedResponse;
-        [result addObject:r];
+        [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                [NSFileManager.defaultManager moveItemAtPath:tempPath
+                                                      toPath:path
+                                                       error:nil];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [wself didFinishRequest:operation];
+                });
+            });
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            [NSFileManager.defaultManager removeItemAtPath:tempPath error:nil];
+            [wself didFailRequest:operation];
+        }];
+        
+        [result addObject:operation];
     }
+    
     return result;
 }
 
+
 - (void)performEnqueue
 {
-    @autoreleasepool 
-    {
-        [self.queue reset];
-        self.queue.downloadProgressDelegate = self;
-        self.queue.queueDidFinishSelector = @selector(didDownloadPortion:);
-        self.queue.requestDidStartSelector = @selector(didStartRequest:);
-        self.queue.requestDidFailSelector = @selector(didFailRequest:);
-        self.queue.requestDidFinishSelector = @selector(didFinishRequest:);
-        self.queue.showAccurateProgress = YES;
-        self.queue.shouldCancelAllRequestsOnFailure = YES;
-        self.queue.delegate = self;
         NSArray *requests = [self requestsForPortion:self.currentPortion];
         
         if (requests.count == 0)
         {
-            [self performSelectorOnMainThread:@selector(didDownloadPortion:)
-                                   withObject:self.queue
-                                waitUntilDone:NO];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self didDownloadPortion];
+            });
             return;
         }
         
-        for (ASIHTTPRequest *r in requests)
+        for (AFHTTPRequestOperation *r in requests)
         {
-            [self.queue addOperation:r];
+            [self.client enqueueHTTPRequestOperation:r];
         }
         
         self.startDownloadingPortionDate = NSDate.date;
-        self.cutDownloadedSize = 0;
-        
-        [self.queue go];    
-    }
 }
 
 
 - (void)enqueuePortion:(DownloadPortion *)portion
 {
-    NIDINFO(@"enqueuePortion %@ to queue %@", portion.title, self.queue);
+    log(@"enqueuePortion %@ to queue %@", portion.title, self.queue);
     
     // отключаем таймер, чтобы не засыпало, пока качаем
     UIApplication.sharedApplication.idleTimerDisabled = YES;
     
-    @synchronized(self.queue)
+    @synchronized(self.class)
     {
         if (!self.currentPortion)
         {
-            NIDINFO(@"currentPortion = %@", portion.title);
+            log(@"currentPortion = %@", portion.title);
             // если ничего не скачиваем - сразу запускаем очередь
             self.currentPortion = portion;
-            [self performSelectorInBackground:@selector(performEnqueue) withObject:nil];
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                [self performEnqueue];
+            });
         }
         else 
         {
-            NIDINFO(@"added to queue %@", portion.title);
+            log(@"added to queue %@", portion.title);
             // иначе сохраняем на потом
             self.portionsQueue = self.portionsQueue ? [self.portionsQueue arrayByAddingObject:portion] : @[portion];
         }
@@ -252,39 +214,32 @@ static FilesDownloader *__shared;
             [observer filesDownloaderDidFailForPortion:self.currentPortion];
     }
 }
-
-- (void)downloadFileSynchronous:(NSString *)url
-{
-    ASIHTTPRequest *r = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:url]];
-    r.downloadDestinationPath = [self pathForUrl:url inPortion:nil];
-    [r startSynchronous];
-}
-
-- (NSInteger)bytesPerSecond
-{
-    CGFloat spentSeconds = -self.startDownloadingPortionDate.timeIntervalSinceNow;
-    
-    if (spentSeconds > CUT_DOWNLOAD_SIZE_PERIOD && self.cutDownloadedSize == 0)
-    {
-        // обрезаем то, что скачано за первую секунду, чтобы не влияло на скорость уже загруженное
-        self.cutDownloadedSize = self.queue.bytesDownloadedSoFar;
-    }
-    
-    CGFloat downloadedSize = self.queue.bytesDownloadedSoFar - self.cutDownloadedSize;
-    return roundf(downloadedSize / spentSeconds);
-}
-
-- (NSTimeInterval)remainingTimeInterval
-{
-    CGFloat bytesPerSecond = self.bytesPerSecond;
-    
-    if (bytesPerSecond == 0)
-        return 0;
-    
-    CGFloat estimateSize = self.queue.totalBytesToDownload - self.queue.bytesDownloadedSoFar;
-    CGFloat estimateSeconds = estimateSize / bytesPerSecond;
-    return roundf(estimateSeconds);
-}
+//
+//- (NSInteger)bytesPerSecond
+//{
+//    CGFloat spentSeconds = -self.startDownloadingPortionDate.timeIntervalSinceNow;
+//    
+//    if (spentSeconds > CUT_DOWNLOAD_SIZE_PERIOD && self.cutDownloadedSize == 0)
+//    {
+//        // обрезаем то, что скачано за первую секунду, чтобы не влияло на скорость уже загруженное
+//        self.cutDownloadedSize = self.queue.bytesDownloadedSoFar;
+//    }
+//    
+//    CGFloat downloadedSize = self.queue.bytesDownloadedSoFar - self.cutDownloadedSize;
+//    return roundf(downloadedSize / spentSeconds);
+//}
+//
+//- (NSTimeInterval)remainingTimeInterval
+//{
+//    CGFloat bytesPerSecond = self.bytesPerSecond;
+//    
+//    if (bytesPerSecond == 0)
+//        return 0;
+//    
+//    CGFloat estimateSize = self.queue.totalBytesToDownload - self.queue.bytesDownloadedSoFar;
+//    CGFloat estimateSeconds = estimateSize / bytesPerSecond;
+//    return roundf(estimateSeconds);
+//}
 
 - (void)resume
 {
@@ -292,11 +247,11 @@ static FilesDownloader *__shared;
     {
         DownloadPortion *c = self.currentPortion;
         self.currentPortion = nil;
-        [self.queue reset];
+        [self.client.operationQueue cancelAllOperations];
         // немного отложим, чтоб успели очиститься старые реквесты
-        [self performSelector:@selector(enqueuePortion:) 
-                   withObject:c
-                   afterDelay:2];
+        doAfter(2, ^{
+            [self enqueuePortion:c];
+        });
     }
 }
 
@@ -317,7 +272,7 @@ static FilesDownloader *__shared;
     {
         self.portionsQueue = nil;
         self.currentPortion = nil;
-        [self.queue reset];
+        [self.client.operationQueue cancelAllOperations];
     }
 }
 
@@ -329,10 +284,10 @@ static FilesDownloader *__shared;
         {
             // чтобы уведомление не отправилось - обнуляем
             self.currentPortion = nil;
-            [self.queue reset];
+            [self.client.operationQueue cancelAllOperations];
             
             // откладываем, иначе реквесты cancell-ется
-            [self performSelector:@selector(didDownloadPortion:) withObject:nil afterDelay:1];
+            [self performSelector:@selector(didDownloadPortion) withObject:nil afterDelay:1];
         }
         else
         {
@@ -344,29 +299,7 @@ static FilesDownloader *__shared;
     }
 }
 
-#pragma mark - ASIHTTPRequestDownloadProgress
-
-- (void)setProgress:(CGFloat)progress
-{
-    // если head еще не загрузились - не обновляем
-    if (self.queue.totalBytesToDownload == 0)
-        return;
-    
-    DownloadProgress *p = [[DownloadProgress alloc] init];
-    p.bytesPerSecond = self.bytesPerSecond;
-    
-    // хз, почему надо делить пополам, но так заработало корректно
-    p.totalBytes = self.queue.totalBytesToDownload / 2 + self.downlodedSizeFromCurrentPortion;
-    p.downloadedBytes = self.queue.bytesDownloadedSoFar / 2 + self.downlodedSizeFromCurrentPortion;
-    p.progress = ((CGFloat)p.downloadedBytes) / p.totalBytes;
-    p.remainingTime = self.remainingTimeInterval;
-    
-    [self performSelectorOnMainThread:@selector(notifyObserversWithProgress:) 
-                           withObject:p
-                        waitUntilDone:NO];
-}
-
-- (void)didDownloadPortion:(ASINetworkQueue *)queue
+- (void)didDownloadPortion
 {
     // возвращаем засыпание в зад
     if (self.portionsQueue.count == 0)
@@ -374,23 +307,22 @@ static FilesDownloader *__shared;
     
     if (self.wasError)
     {
-        [self performSelectorOnMainThread:@selector(notifyObserversWithError)
-                               withObject:nil 
-                            waitUntilDone:YES];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self notifyObserversWithError];
+        });
         
-        [self.queue reset];
+        [self.client.operationQueue cancelAllOperations];
         self.currentPortion = nil;
         self.wasError = NO;
         return;
     }
     
-    NIDINFO(@"didDownloadPortion %@", self.currentPortion.title);
     
-    [self performSelectorOnMainThread:@selector(notifyObserversWithFinish)
-                           withObject:nil 
-                        waitUntilDone:YES];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self notifyObserversWithFinish];
+    });
     
-    [self.queue reset];
+    [self.client.operationQueue cancelAllOperations];
     self.currentPortion = nil;
     
     @synchronized(self.class)
@@ -404,30 +336,27 @@ static FilesDownloader *__shared;
     }
 }
 
-- (void)didStartRequest:(ASIHTTPRequest *)request
+- (void)didStartRequest:(NSNotification *)notification
 {
+    id request = notification.object;
     NSArray *requests = self.currentRequests ? self.currentRequests : @[];
     self.currentRequests = [requests arrayByAddingObject:request];
 }
 
-- (void)removeRequestFromCurrent:(ASIHTTPRequest *)request
+- (void)removeRequestFromCurrent:(NSOperation *)request
 {
     NSMutableArray *requests = self.currentRequests.mutableCopy;
     [requests removeObject:request];
     self.currentRequests = requests;
 }
 
-- (void)didFinishRequest:(ASIHTTPRequest *)request
+- (void)didFinishRequest:(NSOperation *)request
 {
     [self removeRequestFromCurrent:request];
 }
 
-- (void)didFailRequest:(ASIHTTPRequest *)request
+- (void)didFailRequest:(NSOperation *)request
 {
-    // когда cancelled ничего делать не надо
-    if (request.error.code == ASIRequestCancelledErrorType)
-        return;
-    
     self.wasError = YES;
     [self removeRequestFromCurrent:request];    
 }
