@@ -136,31 +136,6 @@ There are many inheritors for classes from UIKit. Some examples.
 
 ## Other utils classes
 
-Class to download files by portions and track remaining time for whole portion.
-
-### FilesDownloader
-
-
-```objective-c
-    DownloadPortion *portion = [[DownloadPortion alloc] initWithTitle:@"portion" 
-                                                                files:@"http://test.com/file1.dat", @"http://test.com/file2.dat"];
-    [FilesDownloader.shared enqueuePortion:portion];
-    [FilesDownloader.shared addObserver:self];
-
-
-    #pragma mark - FilesDownloaderDelegate
-
-    - (void)filesDownloaderDidChangeProgress:(DownloadProgress *)progress forPortion:(DownloadPortion *)portion
-    {
-        NSLog(@"remaining time for all files %@", progress.remainingTimeString);
-    }
-
-    - (void)filesDownloaderDidDownloadPortion:(DownloadPortion *)portion
-    {
-        NSLog(@"portion downloaded");
-    }
-```
-
 ### VideoPlayingResolver
 
 If you have UIWebView with html, after device rotation you should reload html for correct relayouting. If you have embedded video in HTML and layout during playing video, it will be stopped. So you shouldn't reload html during fullscreen video playing.
