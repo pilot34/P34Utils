@@ -7,6 +7,7 @@
 //
 
 #import "UITableViewCell+P34Utils.h"
+#import "NSString+P34Utils.h"
 
 @implementation UITableViewCell (Utils)
 

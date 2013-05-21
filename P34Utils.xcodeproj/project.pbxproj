@@ -16,9 +16,6 @@
 		F7292181163168E20045EB76 /* BlockTapGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = F729212D163168E20045EB76 /* BlockTapGestureRecognizer.m */; };
 		F7292182163168E20045EB76 /* ButtonWithBackground.m in Sources */ = {isa = PBXBuildFile; fileRef = F729212F163168E20045EB76 /* ButtonWithBackground.m */; };
 		F7292183163168E20045EB76 /* CustomButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F7292131163168E20045EB76 /* CustomButton.m */; };
-		F7292184163168E20045EB76 /* DownloadPortion.m in Sources */ = {isa = PBXBuildFile; fileRef = F7292133163168E20045EB76 /* DownloadPortion.m */; };
-		F7292185163168E20045EB76 /* DownloadProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = F7292135163168E20045EB76 /* DownloadProgress.m */; };
-		F7292187163168E20045EB76 /* FilesDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = F7292139163168E20045EB76 /* FilesDownloader.m */; };
 		F7292188163168E20045EB76 /* HiddenTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = F729213B163168E20045EB76 /* HiddenTabBarController.m */; };
 		F7292189163168E20045EB76 /* ImageViewWithPattern.m in Sources */ = {isa = PBXBuildFile; fileRef = F729213D163168E20045EB76 /* ImageViewWithPattern.m */; };
 		F729218A163168E20045EB76 /* KeyboardListener.m in Sources */ = {isa = PBXBuildFile; fileRef = F729213F163168E20045EB76 /* KeyboardListener.m */; };
@@ -86,12 +83,6 @@
 		F729212F163168E20045EB76 /* ButtonWithBackground.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButtonWithBackground.m; sourceTree = "<group>"; };
 		F7292130163168E20045EB76 /* CustomButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomButton.h; sourceTree = "<group>"; };
 		F7292131163168E20045EB76 /* CustomButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomButton.m; sourceTree = "<group>"; };
-		F7292132163168E20045EB76 /* DownloadPortion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloadPortion.h; sourceTree = "<group>"; };
-		F7292133163168E20045EB76 /* DownloadPortion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownloadPortion.m; sourceTree = "<group>"; };
-		F7292134163168E20045EB76 /* DownloadProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloadProgress.h; sourceTree = "<group>"; };
-		F7292135163168E20045EB76 /* DownloadProgress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownloadProgress.m; sourceTree = "<group>"; };
-		F7292138163168E20045EB76 /* FilesDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilesDownloader.h; sourceTree = "<group>"; };
-		F7292139163168E20045EB76 /* FilesDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilesDownloader.m; sourceTree = "<group>"; };
 		F729213A163168E20045EB76 /* HiddenTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HiddenTabBarController.h; sourceTree = "<group>"; };
 		F729213B163168E20045EB76 /* HiddenTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HiddenTabBarController.m; sourceTree = "<group>"; };
 		F729213C163168E20045EB76 /* ImageViewWithPattern.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageViewWithPattern.h; sourceTree = "<group>"; };
@@ -236,12 +227,6 @@
 				F729212F163168E20045EB76 /* ButtonWithBackground.m */,
 				F7292130163168E20045EB76 /* CustomButton.h */,
 				F7292131163168E20045EB76 /* CustomButton.m */,
-				F7292132163168E20045EB76 /* DownloadPortion.h */,
-				F7292133163168E20045EB76 /* DownloadPortion.m */,
-				F7292134163168E20045EB76 /* DownloadProgress.h */,
-				F7292135163168E20045EB76 /* DownloadProgress.m */,
-				F7292138163168E20045EB76 /* FilesDownloader.h */,
-				F7292139163168E20045EB76 /* FilesDownloader.m */,
 				F729213A163168E20045EB76 /* HiddenTabBarController.h */,
 				F729213B163168E20045EB76 /* HiddenTabBarController.m */,
 				F729213C163168E20045EB76 /* ImageViewWithPattern.h */,
@@ -386,9 +371,6 @@
 				F7292181163168E20045EB76 /* BlockTapGestureRecognizer.m in Sources */,
 				F7292182163168E20045EB76 /* ButtonWithBackground.m in Sources */,
 				F7292183163168E20045EB76 /* CustomButton.m in Sources */,
-				F7292184163168E20045EB76 /* DownloadPortion.m in Sources */,
-				F7292185163168E20045EB76 /* DownloadProgress.m in Sources */,
-				F7292187163168E20045EB76 /* FilesDownloader.m in Sources */,
 				F7292188163168E20045EB76 /* HiddenTabBarController.m in Sources */,
 				F7292189163168E20045EB76 /* ImageViewWithPattern.m in Sources */,
 				F729218A163168E20045EB76 /* KeyboardListener.m in Sources */,
