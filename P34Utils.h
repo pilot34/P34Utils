@@ -65,9 +65,6 @@ BOOL isIphone5();
 #import "KeyboardListener.h"
 #import "LoadingAlertView.h"
 
-#import "DownloadProgress.h"
-#import "FilesDownloader.h"
-#import "DownloadPortion.h"
 
 #define UIViewAutoresizingAll UIViewAutoresizingFlexibleLeftMargin \
                                 | UIViewAutoresizingFlexibleWidth\
