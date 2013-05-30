@@ -7,5 +7,16 @@ void doAfter(CGFloat delay, BasicBlock action)
 
 BOOL isIphone5()
 {
-    return [[UIScreen mainScreen] bounds].size.height == 568;
+    static NSInteger isIphone5 = -1;
+    if (isIphone5 < 0)
+        isIphone5 = [[UIScreen mainScreen] bounds].size.height == 568;
+    return isIphone5 > 0;
+}
+
+BOOL isIpad()
+{
+    static NSInteger isiPad = -1;
+    if (isiPad < 0)
+        isiPad = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad);
+    return isiPad > 0;
 }
