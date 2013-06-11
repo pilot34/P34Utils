@@ -33,6 +33,9 @@
 
 - (id)popRandomObject
 {
+    if (self.count == 0)
+        return nil;
+
     NSInteger index = arc4random() % self.count;
     id element = self[index];
     [self removeObjectAtIndex:index];
