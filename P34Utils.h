@@ -17,6 +17,7 @@ typedef void(^ErrorBlock)(NSError *error);
 void doAfter(CGFloat delay, BasicBlock action);
 BOOL isIphone5();
 BOOL isIpad();
+BOOL isRetina();
 
 #if DEBUG_LOG
 #   define log(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);

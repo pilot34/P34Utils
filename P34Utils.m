@@ -20,3 +20,12 @@ BOOL isIpad()
         isiPad = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad);
     return isiPad > 0;
 }
+
+BOOL isRetina()
+{
+    static NSInteger isRetina = -1;
+    if (isRetina < 0)
+        isRetina = UIScreen.mainScreen.scale > 1;
+    
+    return isRetina > 0;
+}
