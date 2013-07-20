@@ -44,7 +44,7 @@
 
 - (NSSet *)select:(SelectBlock)transform
 {
-    NSMutableSet *result = [NSMutableArray array];
+    NSMutableSet *result = [NSMutableSet set];
     for (id obj in self) 
     {
         [result addObject:transform(obj)];
