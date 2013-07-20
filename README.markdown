@@ -16,7 +16,7 @@ All of them are loading with CocoaPods.
 ## Using with CocoaPods
 
 
-pod 'P34Utils', :git => 'https://github.com/pilot34/P34Utils.git', :branch => 'minimal'
+pod 'P34Utils', :git => 'https://github.com/pilot34/P34Utils.git'
 
 **<font color="darkred">This is not full documentation, it is only examples. All of methods you can find in header files.</font>**
 
