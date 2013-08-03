@@ -13,6 +13,12 @@
 - (void)prepareImageforState:(UIControlState)state
 {
     UIImage *i = [self backgroundImageForState:state];
+    UIImage *normal = [self backgroundImageForState:UIControlStateNormal];
+    
+    // if default value - no changes
+    if (state != UIControlStateNormal && [i isEqual:normal])
+        return;
+    
     CGFloat v = roundf(i.size.height / 2);
     CGFloat h;
     if (self.tag > 0)
@@ -36,6 +42,7 @@
     [self prepareImageforState:UIControlStateNormal];
     [self prepareImageforState:UIControlStateHighlighted];
     [self prepareImageforState:UIControlStateSelected];
+    [self prepareImageforState:UIControlStateDisabled];
 }
 
 - (void)awakeFromNib
