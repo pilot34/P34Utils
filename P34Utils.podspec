@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
   s.requires_arc = true
   
   s.dependency 'Reachability'
-  s.dependency 'AFNetworking'
+  s.dependency 'AFNetworking', :version => '1.3.1'
   s.framework = 'CoreData'
   s.framework = 'CoreGraphics'
   s.framework = 'QuartzCore'
