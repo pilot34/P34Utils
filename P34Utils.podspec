@@ -9,9 +9,10 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '5.0'
   s.source_files = '**/*.{h,m}'
   s.requires_arc = true
-  
+
+  s.dependency 'AFNetworking', '1.3.1'  
   s.dependency 'Reachability'
-  s.dependency 'AFNetworking', :version => '1.3.1'
+
   s.framework = 'CoreData'
   s.framework = 'CoreGraphics'
   s.framework = 'QuartzCore'
