@@ -31,4 +31,31 @@
     return [self resizedImage:newSize interpolationQuality:kCGInterpolationDefault];
 }
 
++ (UIImage *)onePixelImageWithColor:(UIColor *)color
+{
+    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
+    unsigned char *data = malloc(sizeof(unsigned char) * 4);
+    
+    CGFloat red, green, blue, alpha;
+    [color getRed:&red green:&green blue:&blue alpha:&alpha];
+    
+    data[0] = (unsigned char)(255 * alpha);
+    data[1] = (unsigned char)(255 * red);
+    data[2] = (unsigned char)(255 * green);
+    data[3] = (unsigned char)(255 * blue);
+    CGContextRef context = CGBitmapContextCreate(data, 1, 1, 8, 4, colorSpace,
+                                                 kCGImageAlphaPremultipliedFirst);
+    
+    free(data);
+    
+    CGColorSpaceRelease(colorSpace);
+    CGImageRef ref = CGBitmapContextCreateImage(context);
+    CGContextRelease(context);
+    
+    UIImage *image = [UIImage imageWithCGImage:ref];
+    CFRelease(ref);
+    
+    return image;
+}
+
 @end

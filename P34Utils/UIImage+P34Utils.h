@@ -10,6 +10,8 @@
 
 @interface UIImage (Utils)
 
++ (UIImage *)onePixelImageWithColor:(UIColor *)color;
+
 - (UIImage *)stretchableImageByWidth;
 - (UIImage *)stretchableImageByWidthAndHeight;
 - (UIImage *)scaleForDimension:(CGFloat)min;
