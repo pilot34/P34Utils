@@ -7,6 +7,8 @@
 //
 
 typedef void(^BasicBlock)(void);
+typedef void(^IdBlock)(id obj);
+typedef void(^ObjectBlock)(NSObject *obj);
 typedef void(^StringBlock)(NSString *str);
 typedef void(^NumberBlock)(NSNumber *num);
 typedef void(^ArrayBlock)(NSArray *arr);
