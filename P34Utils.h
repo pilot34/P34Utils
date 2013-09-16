@@ -14,6 +14,8 @@ typedef void(^NumberBlock)(NSNumber *num);
 typedef void(^ArrayBlock)(NSArray *arr);
 typedef void(^DictionaryBlock)(NSDictionary *dict);
 typedef void(^SetBlock)(NSSet *set);
+typedef void(^IntegerBlock)(NSInteger num);
+typedef void(^BoolBlock)(BOOL val);
 typedef void(^ErrorBlock)(NSError *error);
 
 void doAfter(CGFloat delay, BasicBlock action);
