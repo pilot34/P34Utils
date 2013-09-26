@@ -61,9 +61,12 @@
        constrainedToWidth:(CGFloat)width
             lineBreakMode:(UILineBreakMode)lineBreakMode
 {
-    return [self sizeWithFont:font
-            constrainedToSize:CGSizeMake(width, CGFLOAT_MAX)
-                lineBreakMode:lineBreakMode].height;
+    NSAttributedString *str = [[NSAttributedString alloc] initWithString:self
+                                                              attributes:@{ NSFontAttributeName : font }];
+    CGFloat result = [str boundingRectWithSize:CGSizeMake(width, CGFLOAT_MAX)
+                                       options:NSStringDrawingUsesLineFragmentOrigin
+                                       context:nil].size.height;
+    return ceilf(result);
 }
 
 - (NSString *)stringByAddingPercentEscapesForURLParameter
