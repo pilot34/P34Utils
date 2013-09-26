@@ -18,8 +18,7 @@
 - (NSRange)fullRange;
 
 - (CGFloat)heightWithFont:(UIFont *)font
-       constrainedToWidth:(CGFloat)width
-            lineBreakMode:(UILineBreakMode)lineBreakMode;
+       constrainedToWidth:(CGFloat)width;
 
 - (NSString *)stringByAddingPercentEscapesForURLParameter;
 

@@ -59,7 +59,6 @@
 
 - (CGFloat)heightWithFont:(UIFont *)font
        constrainedToWidth:(CGFloat)width
-            lineBreakMode:(UILineBreakMode)lineBreakMode
 {
     NSAttributedString *str = [[NSAttributedString alloc] initWithString:self
                                                               attributes:@{ NSFontAttributeName : font }];

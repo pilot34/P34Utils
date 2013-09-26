@@ -51,8 +51,7 @@
 
 	
 	return [text heightWithFont:font
-             constrainedToWidth:contentWidth 
-                  lineBreakMode:UILineBreakModeWordWrap] + 20.f;
+             constrainedToWidth:contentWidth] + 20.f;
 }
 
 - (UITableViewCell *)previousCell

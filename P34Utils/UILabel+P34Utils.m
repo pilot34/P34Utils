@@ -14,8 +14,7 @@
 - (void)heightToFit
 {
     self.height = [self.text heightWithFont:self.font 
-                         constrainedToWidth:self.width 
-                              lineBreakMode:self.lineBreakMode];
+                         constrainedToWidth:self.width];
     
     if (self.numberOfLines > 0)
     {
@@ -24,8 +23,7 @@
             [str appendString:@"\na"];
         
         CGFloat maxHeight = [str heightWithFont:self.font
-                             constrainedToWidth:self.width
-                                  lineBreakMode:self.lineBreakMode];
+                             constrainedToWidth:self.width];
         
         if (self.height > maxHeight)
             self.height = maxHeight;
