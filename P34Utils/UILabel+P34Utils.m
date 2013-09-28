@@ -13,8 +13,10 @@
 
 - (void)heightToFit
 {
-    self.height = [self.text heightWithFont:self.font 
-                         constrainedToWidth:self.width];
+    self.height = [self.attributedText boundingRectWithSize:CGSizeMake(self.width,
+                                                                       CGFLOAT_MAX)
+                                                    options:NSStringDrawingUsesFontLeading
+                                                    context:nil].size.height;
     
     if (self.numberOfLines > 0)
     {
@@ -23,7 +25,8 @@
             [str appendString:@"\na"];
         
         CGFloat maxHeight = [str heightWithFont:self.font
-                             constrainedToWidth:self.width];
+                             constrainedToWidth:self.width
+                                  lineBreakMode:self.lineBreakMode];
         
         if (self.height > maxHeight)
             self.height = maxHeight;
