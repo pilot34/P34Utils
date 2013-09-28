@@ -13,10 +13,9 @@
 
 - (void)heightToFit
 {
-    self.height = [self.attributedText boundingRectWithSize:CGSizeMake(self.width,
-                                                                       CGFLOAT_MAX)
-                                                    options:NSStringDrawingUsesFontLeading
-                                                    context:nil].size.height;
+    self.height = [self.text heightWithFont:self.font 
+                         constrainedToWidth:self.width 
+                              lineBreakMode:self.lineBreakMode];
     
     if (self.numberOfLines > 0)
     {
