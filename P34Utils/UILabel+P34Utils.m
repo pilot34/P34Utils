@@ -14,8 +14,7 @@
 - (void)heightToFit
 {
     self.height = [self.text heightWithFont:self.font 
-                         constrainedToWidth:self.width 
-                              lineBreakMode:self.lineBreakMode];
+                         constrainedToWidth:self.width];
     
     if (self.numberOfLines > 0)
     {
@@ -24,8 +23,7 @@
             [str appendString:@"\na"];
         
         CGFloat maxHeight = [str heightWithFont:self.font
-                             constrainedToWidth:self.width
-                                  lineBreakMode:self.lineBreakMode];
+                             constrainedToWidth:self.width];
         
         if (self.height > maxHeight)
             self.height = maxHeight;
@@ -37,14 +35,14 @@
     CGFloat fsize = self.font.pointSize;
     float height = [self.text sizeWithFont:[self.font fontWithSize:fsize]
                     constrainedToSize:CGSizeMake(self.width, MAXFLOAT)
-                        lineBreakMode:UILineBreakModeWordWrap].height;
+                        lineBreakMode:NSLineBreakByWordWrapping].height;
     
     while (height > self.height && fsize > 1)
     {
         fsize -= 1;
         height = [self.text sizeWithFont:[self.font fontWithSize:fsize]
                   constrainedToSize:CGSizeMake(self.width,MAXFLOAT)
-                      lineBreakMode:UILineBreakModeWordWrap].height;
+                      lineBreakMode:NSLineBreakByWordWrapping].height;
     };
     
     if (fsize < self.font.pointSize)
