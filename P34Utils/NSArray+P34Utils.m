@@ -63,6 +63,11 @@
     return [self sortedArrayUsingDescriptors:@[s]];
 }
 
+- (NSArray *)sortedArrayAlphabetically
+{
+    return [self sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
+}
+
 #pragma mark - LINQ
 
 - (BOOL)any

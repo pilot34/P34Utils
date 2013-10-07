@@ -17,6 +17,7 @@ typedef void(^EnumerateBlock)(id element);
 @property(nonatomic, readonly, unsafe_unretained) id firstObject;
 @property(nonatomic, readonly, unsafe_unretained) id randomObject;
 
+- (NSArray *)sortedArrayAlphabetically;
 - (NSArray *)sortedArrayByKey:(NSString *)key;
 - (NSArray *)arrayByRemovingObject:(id)object;
 - (NSArray *)shuffled;
