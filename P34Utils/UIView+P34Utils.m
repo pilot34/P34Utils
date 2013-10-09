@@ -259,4 +259,10 @@
     [self addGestureRecognizer:b];
 }
 
+- (void)removeAllGestureRecognizers
+{
+    for (UIGestureRecognizer *g in self.gestureRecognizers)
+        [self removeGestureRecognizer:g];
+}
+
 @end

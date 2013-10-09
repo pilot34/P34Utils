@@ -17,6 +17,7 @@
 
 // добавляет BlockTapGestureRecognizer
 - (void)addTapAction:(BasicBlock)action;
+- (void)removeAllGestureRecognizers;
 
 // выстраивает view по высоте друг за другом
 - (void)lineUpSubviews:(NSArray *)subviews padding:(CGFloat)padding;
