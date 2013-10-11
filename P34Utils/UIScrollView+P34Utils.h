@@ -13,6 +13,9 @@
 @property(nonatomic) CGFloat contentOffsetX;
 @property(nonatomic) CGFloat contentOffsetY;
 
+@property(nonatomic) CGFloat contentSizeWidth;
+@property(nonatomic) CGFloat contentSizeHeight;
+
 - (void)setContentOffsetX:(CGFloat)contentOffsetX animated:(BOOL)animated;
 - (void)setContentOffsetY:(CGFloat)contentOffsetY animated:(BOOL)animated;
 

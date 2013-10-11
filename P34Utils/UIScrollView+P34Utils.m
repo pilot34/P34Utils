@@ -44,4 +44,24 @@
     [self setContentOffsetY:contentOffsetY animated:NO];
 }
 
+- (CGFloat)contentSizeWidth
+{
+    return self.contentSize.width;
+}
+
+- (void)setContentSizeWidth:(CGFloat)contentSizeWidth
+{
+    self.contentSize = CGSizeMake(contentSizeWidth, self.contentSizeHeight);
+}
+
+- (CGFloat)contentSizeHeight
+{
+    return self.contentSize.height;
+}
+
+- (void)setContentSizeHeight:(CGFloat)contentSizeHeight
+{
+    self.contentSize = CGSizeMake(self.contentSizeWidth, contentSizeHeight);
+}
+
 @end
