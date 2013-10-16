@@ -7,6 +7,7 @@
 //
 
 #import "NSString+P34Utils.h"
+#import "P34Utils.h"
 #import <CommonCrypto/CommonDigest.h>
 
 @implementation NSString (Utils)
@@ -60,12 +61,20 @@
 - (CGFloat)heightWithFont:(UIFont *)font
        constrainedToWidth:(CGFloat)width
 {
-    NSAttributedString *str = [[NSAttributedString alloc] initWithString:self
-                                                              attributes:@{ NSFontAttributeName : font }];
-    CGFloat result = [str boundingRectWithSize:CGSizeMake(width, CGFLOAT_MAX)
-                                       options:NSStringDrawingUsesLineFragmentOrigin
-                                       context:nil].size.height;
-    return ceilf(result);
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"6.0"))
+    {
+        NSAttributedString *str = [[NSAttributedString alloc] initWithString:self
+                                                                  attributes:@{ NSFontAttributeName : font }];
+        CGFloat result = [str boundingRectWithSize:CGSizeMake(width, CGFLOAT_MAX)
+                                           options:NSStringDrawingUsesLineFragmentOrigin
+                                           context:nil].size.height;
+        return ceilf(result);
+    }
+    else
+    {
+        return ceilf([self sizeWithFont:font
+                      constrainedToSize:CGSizeMake(width, MAXFLOAT)].height);
+    }
 }
 
 - (NSString *)stringByAddingPercentEscapesForURLParameter
