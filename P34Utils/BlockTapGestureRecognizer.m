@@ -38,7 +38,7 @@
 
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch 
 {
-    return ![[touch.view class] isSubclassOfClass:[UIButton class]];
+    return ![[touch.view class] isSubclassOfClass:[UIButton class]] || ![[touch.view class] isSubclassOfClass:[UITextField class]];
 }
 
 @end
