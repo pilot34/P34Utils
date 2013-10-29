@@ -29,6 +29,8 @@ typedef void(^EnumerateBlock)(id element);
 - (NSArray *)select:(SelectBlock)transform;
 - (BOOL)any:(PredicateBlock)predicate;
 - (void)each:(EnumerateBlock)action;
+- (id)single:(PredicateBlock)predicate;
+- (id)first:(PredicateBlock)predicate;
 
 - (NSDictionary *)dictionaryWithKeyBlock:(SelectBlock)keyBlock;
 - (NSDictionary *)dictionaryWithKeyBlock:(SelectBlock)keyBlock valueBlock:(SelectBlock)valueBlock;

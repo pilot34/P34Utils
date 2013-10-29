@@ -75,6 +75,24 @@
     return self.count > 0;
 }
 
+- (id)single:(PredicateBlock)predicate
+{
+    id first = [self first:predicate];
+    assert(first != nil);
+    return first;
+}
+
+- (id)first:(PredicateBlock)predicate
+{
+    for (id obj in self)
+    {
+        if (predicate(obj))
+            return obj;
+    }
+    
+    return nil;
+}
+
 - (NSArray *)where:(PredicateBlock)predicate
 {
     NSMutableArray *result = [NSMutableArray array];
