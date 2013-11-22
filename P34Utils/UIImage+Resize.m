@@ -122,8 +122,8 @@
     
     // Build a context that's the same dimensions as the new size
     CGContextRef bitmap = CGBitmapContextCreate(NULL,
-                                                newRect.size.width,
-                                                newRect.size.height,
+                                                newRect.size.width * self.scale,
+                                                newRect.size.height * self.scale,
                                                 8,
                                                 0,
                                                 colorSpace,
@@ -136,12 +136,14 @@
     // Set the quality level to use when rescaling
     CGContextSetInterpolationQuality(bitmap, quality);
     
+    CGContextScaleCTM(bitmap, self.scale, self.scale);
+    
     // Draw into the context; this scales the image
     CGContextDrawImage(bitmap, transpose ? transposedRect : newRect, imageRef);
     
     // Get the resized image from the context and a UIImage
     CGImageRef newImageRef = CGBitmapContextCreateImage(bitmap);
-    UIImage *newImage = [UIImage imageWithCGImage:newImageRef];
+    UIImage *newImage = [UIImage imageWithCGImage:newImageRef scale:self.scale orientation:0];
     
     // Clean up
     CGContextRelease(bitmap);
