@@ -10,6 +10,7 @@
 
 @interface UITableView (Utils)
 
+- (id)cellFromStoryboard:(Class)class;
 - (id)cellFromNib:(Class)class;
 - (id)cellFromNib:(UINib *)nib class:(Class)class;
 - (void)heightToFit;

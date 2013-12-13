@@ -11,6 +11,12 @@
 
 @implementation UITableView (Utils)
 
+- (id)cellFromStoryboard:(Class)class
+{
+    NSString *cellName = NSStringFromClass(class);
+    return [self dequeueReusableCellWithIdentifier:cellName];
+}
+
 - (id)cellFromNib:(Class)class
 {
     NSString *cellName = NSStringFromClass(class);
