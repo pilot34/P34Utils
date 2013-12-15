@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 Gleb Tarasov. All rights reserved.
 //
 
-#import "NSMutableAttributedString+Utils.h"
+#import "NSMutableAttributedString+P34Utils.h"
 
 @implementation NSMutableAttributedString (Utils)
 
