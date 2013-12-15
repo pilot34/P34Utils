@@ -57,6 +57,8 @@ BOOL isRetina();
 #import "NSSet+P34Utils.h"
 #import "NSManagedObject+P34Utils.h"
 #import "NSFileManager+P34Utils.h"
+#import "NSAttributedString+P34Utils.h"
+#import "NSMutableAttributedString+Utils.h"
 #import "StringUtils.h"
 
 #import "BlockButton.h"

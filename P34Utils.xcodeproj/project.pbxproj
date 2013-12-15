@@ -49,6 +49,8 @@
 		F72921A7163168E20045EB76 /* UIWebView+P34Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = F7292179163168E20045EB76 /* UIWebView+P34Utils.m */; };
 		F72921A8163168E20045EB76 /* VideoPlayingResolver.m in Sources */ = {isa = PBXBuildFile; fileRef = F729217B163168E20045EB76 /* VideoPlayingResolver.m */; };
 		F72921AB163169000045EB76 /* P34Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = F72921AA163169000045EB76 /* P34Utils.m */; };
+		F784BBDD185E06D300428ADA /* NSAttributedString+P34Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = F784BBDC185E06D300428ADA /* NSAttributedString+P34Utils.m */; };
+		F784BBE0185E06FF00428ADA /* NSMutableAttributedString+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = F784BBDF185E06FF00428ADA /* NSMutableAttributedString+Utils.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -149,6 +151,10 @@
 		F729217B163168E20045EB76 /* VideoPlayingResolver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoPlayingResolver.m; sourceTree = "<group>"; };
 		F72921A9163169000045EB76 /* P34Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = P34Utils.h; sourceTree = SOURCE_ROOT; };
 		F72921AA163169000045EB76 /* P34Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = P34Utils.m; sourceTree = SOURCE_ROOT; };
+		F784BBDB185E06D300428ADA /* NSAttributedString+P34Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+P34Utils.h"; sourceTree = "<group>"; };
+		F784BBDC185E06D300428ADA /* NSAttributedString+P34Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+P34Utils.m"; sourceTree = "<group>"; };
+		F784BBDE185E06FF00428ADA /* NSMutableAttributedString+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableAttributedString+Utils.h"; sourceTree = "<group>"; };
+		F784BBDF185E06FF00428ADA /* NSMutableAttributedString+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableAttributedString+Utils.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -291,6 +297,10 @@
 				F7292179163168E20045EB76 /* UIWebView+P34Utils.m */,
 				F729217A163168E20045EB76 /* VideoPlayingResolver.h */,
 				F729217B163168E20045EB76 /* VideoPlayingResolver.m */,
+				F784BBDB185E06D300428ADA /* NSAttributedString+P34Utils.h */,
+				F784BBDC185E06D300428ADA /* NSAttributedString+P34Utils.m */,
+				F784BBDE185E06FF00428ADA /* NSMutableAttributedString+Utils.h */,
+				F784BBDF185E06FF00428ADA /* NSMutableAttributedString+Utils.m */,
 			);
 			name = P34Utils;
 			sourceTree = "<group>";
@@ -371,6 +381,7 @@
 				F7292181163168E20045EB76 /* BlockTapGestureRecognizer.m in Sources */,
 				F7292182163168E20045EB76 /* ButtonWithBackground.m in Sources */,
 				F7292183163168E20045EB76 /* CustomButton.m in Sources */,
+				F784BBDD185E06D300428ADA /* NSAttributedString+P34Utils.m in Sources */,
 				F7292188163168E20045EB76 /* HiddenTabBarController.m in Sources */,
 				F7292189163168E20045EB76 /* ImageViewWithPattern.m in Sources */,
 				F729218A163168E20045EB76 /* KeyboardListener.m in Sources */,
@@ -401,6 +412,7 @@
 				F72921A4163168E20045EB76 /* UIView+Fading.m in Sources */,
 				F72921A5163168E20045EB76 /* UIView+P34Utils.m in Sources */,
 				F72921A6163168E20045EB76 /* UIViewController+P34Utils.m in Sources */,
+				F784BBE0185E06FF00428ADA /* NSMutableAttributedString+Utils.m in Sources */,
 				F72921A7163168E20045EB76 /* UIWebView+P34Utils.m in Sources */,
 				F72921A8163168E20045EB76 /* VideoPlayingResolver.m in Sources */,
 				F72921AB163169000045EB76 /* P34Utils.m in Sources */,
