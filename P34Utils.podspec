@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
   s.source_files = '*.{h,m}', 'P34Utils/*.{h,m}'
   s.requires_arc = true
 
-  s.dependency 'AFNetworking', '1.3.1'  
+  s.dependency 'AFNetworking'
   s.dependency 'Reachability'
 
   s.framework = 'CoreData'
