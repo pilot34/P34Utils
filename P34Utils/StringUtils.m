@@ -77,7 +77,7 @@ static NSDictionary *__translitDictionary;
     if ((num % 10) == 1 && num != 11)
         return nominative;
     
-    if ((num % 10) >= 2 && (num % 10) <= 4 && num / 10 != 1)
+    if ((num % 10) >= 2 && (num % 10) <= 4 && (num % 100) / 10 != 1)
     {
         return genitive;
     }
