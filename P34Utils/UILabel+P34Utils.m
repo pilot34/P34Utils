@@ -70,4 +70,17 @@
         self.font = [self.font fontWithSize:fsize];
 }
 
+- (void)setTextWithHyphenation:(NSString *)text {
+    [self setText:text withHyphenationFactor:1];
+}
+
+- (void)setText:(NSString *)text withHyphenationFactor:(CGFloat)factor {
+    NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc] init];
+    style.hyphenationFactor = factor;
+    style.lineBreakMode = self.lineBreakMode;
+    NSAttributedString *str = [[NSAttributedString alloc] initWithString:text
+                                                              attributes:@{ NSParagraphStyleAttributeName : style }];
+    self.attributedText = str;
+}
+
 @end
