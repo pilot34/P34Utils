@@ -9,7 +9,7 @@ BOOL isIphone5()
 {
     static NSInteger isIphone5 = -1;
     if (isIphone5 < 0)
-        isIphone5 = [[UIScreen mainScreen] bounds].size.height == 568;
+        isIphone5 = [[UIScreen mainScreen] bounds].size.height >= 568;
     return isIphone5 > 0;
 }
 
