@@ -19,7 +19,10 @@ typedef void(^BoolBlock)(BOOL val);
 typedef void(^ErrorBlock)(NSError *error);
 
 void doAfter(CGFloat delay, BasicBlock action);
+BOOL isIphone5OrLarger();
 BOOL isIphone5();
+BOOL isIphone6();
+BOOL isIphone6Plus();
 BOOL isIpad();
 BOOL isRetina();
 
