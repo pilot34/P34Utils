@@ -98,7 +98,7 @@
 {
     NSData *data = [self dataUsingEncoding:NSUTF8StringEncoding];
     unsigned char result[CC_MD5_DIGEST_LENGTH];
-    CC_MD5(data.bytes, data.length, result);
+    CC_MD5(data.bytes, (CC_LONG)data.length, result);
     
     return [NSString stringWithFormat:
             @"%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x",
@@ -112,7 +112,7 @@
 {
     NSData *data = [self dataUsingEncoding:NSUTF8StringEncoding];
     unsigned char result[CC_SHA1_DIGEST_LENGTH];
-    CC_SHA1(data.bytes, data.length, result);
+    CC_SHA1(data.bytes, (CC_LONG)data.length, result);
     
     return [NSString stringWithFormat:
             @"%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x",

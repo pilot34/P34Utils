@@ -31,7 +31,7 @@
     igreen = roundf(green * 255);
     iblue = roundf(blue * 255);
     NSUInteger result = (ired << 16) | (igreen << 8) | iblue;
-    NSLog(@"hex %X", result);
+    NSLog(@"hex %lX", (unsigned long)result);
     return result;
 }
 

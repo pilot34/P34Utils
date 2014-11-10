@@ -10,29 +10,29 @@
 	<string>P34Utils</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>1F967F9E-FB93-4C85-9947-76848F810EAA</key>
+		<key>BDACBD50D97333139AA59A5DB9DE42A9A5F8BEB7</key>
 		<string>https://github.com/pilot34/P34Utils</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>P34Utils.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>1F967F9E-FB93-4C85-9947-76848F810EAA</key>
+		<key>BDACBD50D97333139AA59A5DB9DE42A9A5F8BEB7</key>
 		<string>..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/pilot34/P34Utils</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>1F967F9E-FB93-4C85-9947-76848F810EAA</string>
+	<string>BDACBD50D97333139AA59A5DB9DE42A9A5F8BEB7</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>1F967F9E-FB93-4C85-9947-76848F810EAA</string>
+			<string>BDACBD50D97333139AA59A5DB9DE42A9A5F8BEB7</string>
 			<key>IDESourceControlWCCName</key>
 			<string>P34Utils</string>
 		</dict>

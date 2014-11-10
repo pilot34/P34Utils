@@ -7,7 +7,7 @@ DEPENDENCIES:
   - Reachability
 
 SPEC CHECKSUMS:
-  AFNetworking: 9ec8aafb9269236a7630bd8d9838ce2ba30fa2a0
-  Reachability: ba94ecd4eaa037be3d0588b38956672588530c5b
+  AFNetworking: 5db28423ed062e2b15b97c731f06cfb6668e607a
+  Reachability: 14a77fa94dd71d434503d2d550d1881fb00a5d86
 
-COCOAPODS: 0.23.0
+COCOAPODS: 0.34.4
