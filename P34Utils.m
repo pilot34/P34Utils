@@ -19,7 +19,15 @@ BOOL isIphone5OrLarger()
     if (isIphone5 < 0)
     {
         doSyncOnMain(^{
-            isIphone5 = [[UIScreen mainScreen] bounds].size.height >= 568;
+            if (SYSTEM_VERSION_LESS_THAN_OR_EQUAL_TO(@"7.0"))
+            {
+                isIphone5 = [[UIScreen mainScreen] bounds].size.height >= 568;
+            }
+            else
+            {
+                isIphone5 = ((!UIApplication.landscape && [[UIScreen mainScreen] bounds].size.height >= 568)
+                             || (UIApplication.landscape && [[UIScreen mainScreen] bounds].size.width >= 568));
+            }
         });
     }
     
@@ -32,7 +40,15 @@ BOOL isIphone5()
     if (isIphone5 < 0)
     {
         doSyncOnMain(^{
-            isIphone5 = [[UIScreen mainScreen] bounds].size.height == 568;
+            if (SYSTEM_VERSION_LESS_THAN_OR_EQUAL_TO(@"7.0"))
+            {
+                isIphone5 = [[UIScreen mainScreen] bounds].size.height == 568;
+            }
+            else
+            {
+                isIphone5 = ((!UIApplication.landscape && [[UIScreen mainScreen] bounds].size.height == 568)
+                             || (UIApplication.landscape && [[UIScreen mainScreen] bounds].size.width == 568));
+            }
         });
     }
     
@@ -45,7 +61,8 @@ BOOL isIphone6()
     if (isIphone6 < 0)
     {
         doSyncOnMain(^{
-            isIphone6 = [[UIScreen mainScreen] bounds].size.height == 667;
+            isIphone6 = ((!UIApplication.landscape && [[UIScreen mainScreen] bounds].size.height == 667)
+                         || (UIApplication.landscape && [[UIScreen mainScreen] bounds].size.width == 667));
         });
     }
     return isIphone6 > 0;
@@ -57,7 +74,8 @@ BOOL isIphone6Plus()
     if (isIphone6Plus < 0)
     {
         doSyncOnMain(^{
-            isIphone6Plus = [[UIScreen mainScreen] bounds].size.height == 736;
+            isIphone6Plus = ((!UIApplication.landscape && [[UIScreen mainScreen] bounds].size.height == 736)
+                             || (UIApplication.landscape && [[UIScreen mainScreen] bounds].size.width == 736));
         });
     }
     
