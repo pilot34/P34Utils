@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = 'P34Utils'
-  s.version      = '0.0.8'
+  s.version      = '0.0.9'
   s.summary      = 'Some useful utils classes.'
   s.homepage     = 'https://github.com/pilot34/P34Utils'
   s.license      = 'MIT'
