@@ -16,7 +16,7 @@ static NSDictionary *__translitDictionary;
 
 + (NSString *)removePlural:(NSString *)string
 {
-    if ([string endsWith:@"s"])
+    if ([string hasSuffix:@"s"])
         string = [string substringToIndex:string.length - 1];
     
     return string;

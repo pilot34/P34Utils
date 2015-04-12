@@ -8,13 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-typedef BOOL(^PredicateBlock)(id element);
-typedef id(^SelectBlock)(id element);
-typedef void(^EnumerateBlock)(id element);
-
 @interface NSArray (Utils)
 
-@property(nonatomic, readonly, unsafe_unretained) id firstObject;
 @property(nonatomic, readonly, unsafe_unretained) id randomObject;
 
 - (NSArray *)sortedArrayAlphabetically;
@@ -25,14 +20,7 @@ typedef void(^EnumerateBlock)(id element);
 
 @property(nonatomic, readonly) BOOL any;
 
-- (NSArray *)where:(PredicateBlock)predicate;
-- (NSArray *)select:(SelectBlock)transform;
-- (BOOL)any:(PredicateBlock)predicate;
-- (void)each:(EnumerateBlock)action;
-- (id)single:(PredicateBlock)predicate;
-- (id)first:(PredicateBlock)predicate;
-
-- (NSDictionary *)dictionaryWithKeyBlock:(SelectBlock)keyBlock;
-- (NSDictionary *)dictionaryWithKeyBlock:(SelectBlock)keyBlock valueBlock:(SelectBlock)valueBlock;
+- (NSDictionary *)dictionaryWithKeyBlock:(id (^)(id obj))keyBlock;
+- (NSDictionary *)dictionaryWithKeyBlock:(id (^)(id obj))keyBlock valueBlock:(id (^)(id obj))valueBlock;
 
 @end

@@ -10,9 +10,6 @@
 
 @interface NSString (Utils)
 
-- (BOOL)containsString:(NSString *)string;
-- (BOOL)startsWith:(NSString *)string;
-- (BOOL)endsWith:(NSString *)string;
 - (NSString *)stringByTrimming;
 - (NSString *)stringBySimpleStrippingTags;
 - (NSRange)fullRange;

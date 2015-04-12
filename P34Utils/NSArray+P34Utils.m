@@ -10,13 +10,6 @@
 
 @implementation NSArray (Utils)
 
-- (id)firstObject
-{
-    if (self.count == 0)
-        return nil;
-    return self[0];
-}
-
 - (id)randomObject
 {
     if (self.count == 0)
@@ -24,6 +17,11 @@
     
     NSInteger index = arc4random() % self.count;
     return self[index];
+}
+
+- (BOOL)any
+{
+    return self.count > 0;
 }
 
 - (NSArray *)arrayByRemovingObject:(id)object
@@ -68,80 +66,14 @@
     return [self sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
 }
 
-#pragma mark - LINQ
-
-- (BOOL)any
-{
-    return self.count > 0;
-}
-
-- (id)single:(PredicateBlock)predicate
-{
-    id first = [self first:predicate];
-    assert(first != nil);
-    return first;
-}
-
-- (id)first:(PredicateBlock)predicate
-{
-    for (id obj in self)
-    {
-        if (predicate(obj))
-            return obj;
-    }
-    
-    return nil;
-}
-
-- (NSArray *)where:(PredicateBlock)predicate
-{
-    NSMutableArray *result = [NSMutableArray array];
-    for (id obj in self) 
-    {
-        if (predicate(obj))
-            [result addObject:obj];
-    }
-    
-    return result;
-}
-
-- (NSArray *)select:(SelectBlock)transform
-{
-    NSMutableArray *result = [NSMutableArray array];
-    for (id obj in self) 
-    {
-        [result addObject:transform(obj)];
-    }
-    
-    return result; 
-}
-
-- (BOOL)any:(PredicateBlock)predicate
-{
-    for (id obj in self) 
-    {
-        if (predicate(obj))
-            return YES;
-    }
-    
-    return NO;
-}
-
-- (void)each:(EnumerateBlock)action
-{
-    [self enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        action(obj);
-    }];
-}
-
-- (NSDictionary *)dictionaryWithKeyBlock:(SelectBlock)keyBlock
+- (NSDictionary *)dictionaryWithKeyBlock:(id (^)(id))keyBlock
 {
     return [self dictionaryWithKeyBlock:keyBlock valueBlock:^id(id element) {
         return element;
     }];
 }
 
-- (NSDictionary *)dictionaryWithKeyBlock:(SelectBlock)keyBlock valueBlock:(SelectBlock)valueBlock
+- (NSDictionary *)dictionaryWithKeyBlock:(id (^)(id))keyBlock valueBlock:(id (^)(id))valueBlock
 {
     NSMutableDictionary *result = [NSMutableDictionary dictionary];
     for (id obj in self)

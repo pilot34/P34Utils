@@ -16,9 +16,5 @@
 
 - (NSArray *)sortedArrayByKey:(NSString *)key;
 - (NSSet *)setByRemovingObject:(id)object;
-- (NSSet *)where:(PredicateBlock)predicate;
-- (NSSet *)select:(SelectBlock)transform;
-- (BOOL)any:(PredicateBlock)predicate;
-- (void)each:(EnumerateBlock)action;
 
 @end

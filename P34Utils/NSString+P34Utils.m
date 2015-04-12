@@ -12,21 +12,6 @@
 
 @implementation NSString (Utils)
 
-- (BOOL)containsString:(NSString *)string
-{
-    return [self rangeOfString:string].location != NSNotFound;
-}
-
-- (BOOL)startsWith:(NSString *)string
-{
-    return [self rangeOfString:string].location == 0;
-}
-
-- (BOOL)endsWith:(NSString *)string
-{
-    return [self rangeOfString:string options:NSBackwardsSearch].location + string.length == self.length;
-}
-
 - (NSString *)stringByTrimming
 {
     return [self stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
