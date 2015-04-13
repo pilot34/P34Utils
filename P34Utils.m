@@ -5,6 +5,22 @@ void doAfter(CGFloat delay, BasicBlock action)
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, delay * NSEC_PER_SEC), dispatch_get_main_queue(), action);
 }
 
+void doInBackground(BasicBlock action)
+{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), action);
+}
+
+void doOnMain(BasicBlock action)
+{
+    if ([NSThread isMainThread])
+    {
+        action();
+    }
+    else {
+        dispatch_async(dispatch_get_main_queue(), action);
+    }
+}
+
 void doSyncOnMain(BasicBlock action)
 {
     if ([NSThread isMainThread])
@@ -12,6 +28,8 @@ void doSyncOnMain(BasicBlock action)
     else
         dispatch_sync(dispatch_get_main_queue(), action);
 }
+
+#ifndef P34_APP_EXTENSIONS
 
 BOOL isIphone5OrLarger()
 {
@@ -105,3 +123,5 @@ BOOL isRetina()
     
     return isRetina > 0;
 }
+
+#endif

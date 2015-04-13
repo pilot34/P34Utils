@@ -19,12 +19,18 @@ typedef void(^BoolBlock)(BOOL val);
 typedef void(^ErrorBlock)(NSError *error);
 
 void doAfter(CGFloat delay, BasicBlock action);
+void doInBackground(BasicBlock action);
+void doOnMain(BasicBlock action);
+void doSyncOnMain(BasicBlock action);
+
+#ifndef P34_APP_EXTENSIONS
 BOOL isIphone5OrLarger();
 BOOL isIphone5();
 BOOL isIphone6();
 BOOL isIphone6Plus();
 BOOL isIpad();
 BOOL isRetina();
+#endif
 
 #if DEBUG_LOG
 #   define log(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
