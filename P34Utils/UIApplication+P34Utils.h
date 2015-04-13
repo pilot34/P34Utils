@@ -10,6 +10,8 @@
 
 @interface UIApplication (Utils)
 
+#ifndef P34_APP_EXTENSIONS
 + (BOOL)landscape;
+#endif
 
 @end

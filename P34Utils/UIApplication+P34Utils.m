@@ -10,9 +10,11 @@
 
 @implementation UIApplication (Utils)
 
+#ifndef P34_APP_EXTENSIONS
 + (BOOL)landscape
 {
     return UIInterfaceOrientationIsLandscape([[self sharedApplication] statusBarOrientation]);
 }
+#endif
 
 @end
