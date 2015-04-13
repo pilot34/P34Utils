@@ -66,7 +66,6 @@ BOOL isRetina();
 #import "HiddenTabBarController.h"
 #import "StretchableImageView.h"
 #import "KeyboardListener.h"
-#import "LoadingAlertView.h"
 
 
 #define UIViewAutoresizingAll UIViewAutoresizingFlexibleLeftMargin \

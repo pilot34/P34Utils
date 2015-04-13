@@ -14,7 +14,6 @@
 		F7292188163168E20045EB76 /* HiddenTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = F729213B163168E20045EB76 /* HiddenTabBarController.m */; };
 		F7292189163168E20045EB76 /* ImageViewWithPattern.m in Sources */ = {isa = PBXBuildFile; fileRef = F729213D163168E20045EB76 /* ImageViewWithPattern.m */; };
 		F729218A163168E20045EB76 /* KeyboardListener.m in Sources */ = {isa = PBXBuildFile; fileRef = F729213F163168E20045EB76 /* KeyboardListener.m */; };
-		F729218B163168E20045EB76 /* LoadingAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = F7292141163168E20045EB76 /* LoadingAlertView.m */; };
 		F729218C163168E20045EB76 /* NSArray+P34Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = F7292143163168E20045EB76 /* NSArray+P34Utils.m */; };
 		F729218D163168E20045EB76 /* NSDate+P34Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = F7292145163168E20045EB76 /* NSDate+P34Utils.m */; };
 		F729218E163168E20045EB76 /* NSFileManager+P34Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = F7292147163168E20045EB76 /* NSFileManager+P34Utils.m */; };
@@ -71,8 +70,6 @@
 		F729213D163168E20045EB76 /* ImageViewWithPattern.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageViewWithPattern.m; sourceTree = "<group>"; };
 		F729213E163168E20045EB76 /* KeyboardListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyboardListener.h; sourceTree = "<group>"; };
 		F729213F163168E20045EB76 /* KeyboardListener.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyboardListener.m; sourceTree = "<group>"; };
-		F7292140163168E20045EB76 /* LoadingAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingAlertView.h; sourceTree = "<group>"; };
-		F7292141163168E20045EB76 /* LoadingAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingAlertView.m; sourceTree = "<group>"; };
 		F7292142163168E20045EB76 /* NSArray+P34Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+P34Utils.h"; sourceTree = "<group>"; };
 		F7292143163168E20045EB76 /* NSArray+P34Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+P34Utils.m"; sourceTree = "<group>"; };
 		F7292144163168E20045EB76 /* NSDate+P34Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+P34Utils.h"; sourceTree = "<group>"; };
@@ -209,8 +206,6 @@
 				F729213D163168E20045EB76 /* ImageViewWithPattern.m */,
 				F729213E163168E20045EB76 /* KeyboardListener.h */,
 				F729213F163168E20045EB76 /* KeyboardListener.m */,
-				F7292140163168E20045EB76 /* LoadingAlertView.h */,
-				F7292141163168E20045EB76 /* LoadingAlertView.m */,
 				F7292142163168E20045EB76 /* NSArray+P34Utils.h */,
 				F7292143163168E20045EB76 /* NSArray+P34Utils.m */,
 				F784BBDB185E06D300428ADA /* NSAttributedString+P34Utils.h */,
@@ -341,7 +336,6 @@
 				F7292188163168E20045EB76 /* HiddenTabBarController.m in Sources */,
 				F7292189163168E20045EB76 /* ImageViewWithPattern.m in Sources */,
 				F729218A163168E20045EB76 /* KeyboardListener.m in Sources */,
-				F729218B163168E20045EB76 /* LoadingAlertView.m in Sources */,
 				F729218C163168E20045EB76 /* NSArray+P34Utils.m in Sources */,
 				F729218D163168E20045EB76 /* NSDate+P34Utils.m in Sources */,
 				F729218E163168E20045EB76 /* NSFileManager+P34Utils.m in Sources */,
