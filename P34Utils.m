@@ -37,7 +37,11 @@ BOOL isIphone5OrLarger()
     if (isIphone5 < 0)
     {
         doSyncOnMain(^{
-            if (SYSTEM_VERSION_LESS_THAN_OR_EQUAL_TO(@"7.0"))
+            if (isIpad())
+            {
+                isIphone5 = NO;
+            }
+            else if (SYSTEM_VERSION_LESS_THAN_OR_EQUAL_TO(@"7.0"))
             {
                 isIphone5 = [[UIScreen mainScreen] bounds].size.height >= 568;
             }
