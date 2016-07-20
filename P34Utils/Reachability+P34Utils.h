@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "Reachability.h"
+#import <Reachability/Reachability.h>
 
 @interface Reachability (Utils)
 
