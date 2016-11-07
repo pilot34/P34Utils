@@ -29,8 +29,6 @@ void doSyncOnMain(BasicBlock action)
         dispatch_sync(dispatch_get_main_queue(), action);
 }
 
-#ifndef P34_APP_EXTENSIONS
-
 BOOL isIphone5OrLarger()
 {
     static NSInteger isIphone5 = -1;
@@ -127,5 +125,3 @@ BOOL isRetina()
     
     return isRetina > 0;
 }
-
-#endif
