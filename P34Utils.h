@@ -23,14 +23,12 @@ void doInBackground(BasicBlock action);
 void doOnMain(BasicBlock action);
 void doSyncOnMain(BasicBlock action);
 
-#ifndef P34_APP_EXTENSIONS
-BOOL isIphone5OrLarger();
-BOOL isIphone5();
-BOOL isIphone6();
-BOOL isIphone6Plus();
-BOOL isIpad();
-BOOL isRetina();
-#endif
+BOOL isIphone5OrLarger() NS_EXTENSION_UNAVAILABLE_IOS("Disabled for app extensions.");
+BOOL isIphone5() NS_EXTENSION_UNAVAILABLE_IOS("Disabled for app extensions.");
+BOOL isIphone6() NS_EXTENSION_UNAVAILABLE_IOS("Disabled for app extensions.");
+BOOL isIphone6Plus() NS_EXTENSION_UNAVAILABLE_IOS("Disabled for app extensions.");
+BOOL isIpad() NS_EXTENSION_UNAVAILABLE_IOS("Disabled for app extensions.");
+BOOL isRetina() NS_EXTENSION_UNAVAILABLE_IOS("Disabled for app extensions.");
 
 #if DEBUG_LOG
 #   define log(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
