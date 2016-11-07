@@ -12,8 +12,4 @@ Pod::Spec.new do |s|
 
   s.dependency 'Reachability'
 
-  s.subspec 'AppExtension' do |ss|
-    ss.prefix_header_contents = '#define P34_APP_EXTENSIONS 1'
-  end
-
 end
